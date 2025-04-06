@@ -1,29 +1,89 @@
 "use client";
 
-import { useState, useEffect } from 'react';
-import Comments from './Comments';
+// import { useState, useEffect } from 'react';
 
 const Community = () => {
-  const [activeTab, setActiveTab] = useState('discussions');
-  const [stats, setStats] = useState({
-    totalComments: 0,
-    totalLikes: 0,
-    totalReplies: 0
-  });
+  // const [comments, setComments] = useState([]);
+  // const [newComment, setNewComment] = useState({ author: '', content: '' });
+  // const [newReply, setNewReply] = useState({ name: '', content: '', commentId: null });
 
-  useEffect(() => {
-    // Load comments from localStorage to calculate stats
-    const savedComments = JSON.parse(localStorage.getItem('comments') || '[]');
-    const totalComments = savedComments.length;
-    const totalLikes = savedComments.reduce((sum, comment) => sum + (comment.likes || 0), 0);
-    const totalReplies = savedComments.reduce((sum, comment) => sum + (comment.replies?.length || 0), 0);
-    
-    setStats({
-      totalComments,
-      totalLikes,
-      totalReplies
-    });
-  }, []);
+  // useEffect(() => {
+  //   const fetchComments = async () => {
+  //     try {
+  //       const response = await fetch('/data/projectComments.json');
+  //       const data = await response.json();
+  //       setComments(data.comments);
+  //     } catch (error) {
+  //       console.error('Error fetching comments:', error);
+  //     }
+  //   };
+
+  //   fetchComments();
+  // }, []);
+
+  // const handleCommentSubmit = async () => {
+  //   if (!newComment.author || !newComment.content) return;
+
+  //   const comment = {
+  //     id: Date.now(),
+  //     author: newComment.author,
+  //     content: newComment.content,
+  //     date: new Date().toISOString().split('T')[0],
+  //     replies: []
+  //   };
+
+  //   try {
+  //     const response = await fetch('/api/comments', {
+  //       method: 'POST',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+  //       body: JSON.stringify({ comment }),
+  //     });
+
+  //     if (response.ok) {
+  //       setComments(prev => [...prev, comment]);
+  //       setNewComment({ author: '', content: '' });
+  //     }
+  //   } catch (error) {
+  //     console.error('Error saving comment:', error);
+  //   }
+  // };
+
+  // const handleReplySubmit = async (commentId) => {
+  //   if (!newReply.name || !newReply.content) return;
+
+  //   const reply = {
+  //     id: Date.now(),
+  //     name: newReply.name,
+  //     content: newReply.content,
+  //     date: new Date().toISOString().split('T')[0]
+  //   };
+
+  //   try {
+  //     const response = await fetch('/api/replies', {
+  //       method: 'POST',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+  //       body: JSON.stringify({
+  //         commentId,
+  //         reply
+  //       }),
+  //     });
+
+  //     if (response.ok) {
+  //       setComments(prev => prev.map(comment => 
+  //         comment.id === commentId 
+  //           ? { ...comment, replies: [...comment.replies, reply] }
+  //           : comment
+  //       ));
+  //       setNewReply({ name: '', content: '', commentId: null });
+  //     }
+  //   } catch (error) {
+  //     console.error('Error saving reply:', error);
+  //   }
+  // };
 
   return (
     <section id="community" className="py-20 bg-gray-50 dark:bg-gray-900">
@@ -32,73 +92,96 @@ const Community = () => {
           Community
         </h2>
 
-        {/* Community Stats */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 text-center">
-            <div className="text-3xl font-bold text-primary mb-2">{stats.totalComments}</div>
-            <div className="text-gray-600 dark:text-gray-300">Total Comments</div>
-          </div>
-          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 text-center">
-            <div className="text-3xl font-bold text-primary mb-2">{stats.totalLikes}</div>
-            <div className="text-gray-600 dark:text-gray-300">Total Likes</div>
-          </div>
-          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 text-center">
-            <div className="text-3xl font-bold text-primary mb-2">{stats.totalReplies}</div>
-            <div className="text-gray-600 dark:text-gray-300">Total Replies</div>
+        <div className="max-w-2xl mx-auto text-center">
+          <div className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md">
+            <h3 className="text-2xl font-semibold mb-4 text-gray-800 dark:text-white">Coming Soon!</h3>
+            <p className="text-gray-600 dark:text-gray-300">
+              Our community features are currently under development. Stay tuned for updates!
+            </p>
           </div>
         </div>
 
-        {/* Community Tabs */}
-        <div className="max-w-4xl mx-auto">
-          <div className="flex flex-col md:flex-row mb-8 border-b border-gray-200 dark:border-gray-700">
+        {/* Commented out original code
+        <div className="max-w-2xl mx-auto mb-8 bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
+          <h3 className="text-xl font-semibold mb-4 text-gray-800 dark:text-white">Share Your Thoughts</h3>
+          <div className="space-y-4">
+            <input
+              type="text"
+              placeholder="Your name"
+              value={newComment.author}
+              onChange={(e) => setNewComment(prev => ({ ...prev, author: e.target.value }))}
+              className="w-full px-4 py-2 border rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary"
+            />
+            <textarea
+              placeholder="Write your comment..."
+              value={newComment.content}
+              onChange={(e) => setNewComment(prev => ({ ...prev, content: e.target.value }))}
+              className="w-full px-4 py-2 border rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary"
+              rows="3"
+            />
             <button
-              onClick={() => setActiveTab('discussions')}
-              className={`px-6 py-3 text-left transition-colors duration-300 ${
-                activeTab === 'discussions'
-                  ? "border-b-2 border-primary text-primary dark:text-primary"
-                  : "text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200"
-              }`}
+              onClick={handleCommentSubmit}
+              className="w-full px-6 py-2 bg-primary text-white rounded-md hover:bg-primary/90 transition-colors"
             >
-              <div className="font-medium">Discussions</div>
-              <div className="text-sm">Join the conversation</div>
-            </button>
-            <button
-              onClick={() => setActiveTab('guidelines')}
-              className={`px-6 py-3 text-left transition-colors duration-300 ${
-                activeTab === 'guidelines'
-                  ? "border-b-2 border-primary text-primary dark:text-primary"
-                  : "text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200"
-              }`}
-            >
-              <div className="font-medium">Community Guidelines</div>
-              <div className="text-sm">Learn about our rules</div>
+              Post Comment
             </button>
           </div>
+        </div>
 
-          {/* Tab Content */}
-          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 md:p-8">
-            {activeTab === 'discussions' ? (
-              <Comments />
-            ) : (
-              <div className="prose dark:prose-invert max-w-none">
-                <h3 className="text-xl font-bold mb-4">Community Guidelines</h3>
-                <p className="mb-4">
-                  Welcome to our community! To ensure a positive experience for everyone, please follow these guidelines:
-                </p>
-                <ul className="list-disc pl-6 mb-4">
-                  <li>Be respectful and kind to other members</li>
-                  <li>Keep discussions relevant and constructive</li>
-                  <li>Use appropriate language and avoid offensive content</li>
-                  <li>Share your knowledge and experiences</li>
-                  <li>Report any inappropriate behavior</li>
-                </ul>
-                <p>
-                  By participating in our community, you agree to follow these guidelines. We reserve the right to remove any content that violates these rules.
-                </p>
+        <div className="max-w-2xl mx-auto space-y-6">
+          {comments.map((comment) => (
+            <div key={comment.id} className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
+              <div className="flex justify-between items-start mb-2">
+                <span className="font-medium text-gray-800 dark:text-white">{comment.author}</span>
+                <span className="text-sm text-gray-500 dark:text-gray-400">{new Date(comment.date).toLocaleDateString()}</span>
               </div>
-            )}
-          </div>
+              <p className="text-gray-600 dark:text-gray-300 mb-4">{comment.content}</p>
+
+              {comment.replies?.map((reply) => (
+                <div key={reply.id} className="ml-8 mt-4 bg-gray-50 dark:bg-gray-700 p-4 rounded-md">
+                  <div className="flex justify-between items-start mb-2">
+                    <span className="font-medium text-gray-800 dark:text-white">{reply.name}</span>
+                    <span className="text-sm text-gray-500 dark:text-gray-400">{new Date(reply.date).toLocaleDateString()}</span>
+                  </div>
+                  <p className="text-gray-600 dark:text-gray-300">{reply.content}</p>
+                </div>
+              ))}
+
+              {newReply.commentId === comment.id ? (
+                <div className="ml-8 mt-4">
+                  <input
+                    type="text"
+                    placeholder="Your name"
+                    value={newReply.name}
+                    onChange={(e) => setNewReply(prev => ({ ...prev, name: e.target.value }))}
+                    className="w-full mb-2 px-4 py-2 border rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary"
+                  />
+                  <textarea
+                    placeholder="Write a reply..."
+                    value={newReply.content}
+                    onChange={(e) => setNewReply(prev => ({ ...prev, content: e.target.value }))}
+                    className="w-full mb-2 px-4 py-2 border rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary"
+                    rows="2"
+                  />
+                  <button
+                    onClick={() => handleReplySubmit(comment.id)}
+                    className="px-4 py-2 bg-primary text-white rounded-md hover:bg-primary/90 transition-colors"
+                  >
+                    Post Reply
+                  </button>
+                </div>
+              ) : (
+                <button
+                  onClick={() => setNewReply({ name: '', content: '', commentId: comment.id })}
+                  className="ml-8 mt-2 text-sm text-primary hover:text-primary/80"
+                >
+                  Reply
+                </button>
+              )}
+            </div>
+          ))}
         </div>
+        */}
       </div>
     </section>
   );

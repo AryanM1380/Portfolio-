@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -9,7 +9,7 @@ const Projects = () => {
     {
       id: 1,
       title: "Portfolio Website",
-      description: "A responsive personal portfolio website built with Next.js and Tailwind CSS.Features include dark mode, smooth animations, and interactive project showcases.Designed to present my work, skills, and contact info in a clean, user-friendly layout.",
+      description: "A personal portfolio website built with Next.js and Tailwind CSS. Features responsive design and dark mode support.",
       date: "April 2024 - Present",
       githubLink: "https://github.com/AryanM1380/Portfolio-",
       image: "/projects/Portfolio.png", 
@@ -63,98 +63,6 @@ const Projects = () => {
     }
   ]);
 
-  const [comments, setComments] = useState({});
-  const [newComment, setNewComment] = useState({ author: '', content: '' });
-  const [newReply, setNewReply] = useState({ name: '', content: '', projectId: null, commentId: null });
-
-  useEffect(() => {
-    const fetchComments = async () => {
-      try {
-        const response = await fetch('/data/projectComments.json');
-        const data = await response.json();
-        setComments(data.comments);
-      } catch (error) {
-        console.error('Error fetching comments:', error);
-      }
-    };
-
-    fetchComments();
-  }, []);
-
-  const handleCommentSubmit = async (projectId) => {
-    if (!newComment.author || !newComment.content) return;
-
-    const comment = {
-      id: Date.now(),
-      author: newComment.author,
-      content: newComment.content,
-      date: new Date().toISOString().split('T')[0],
-      replies: []
-    };
-
-    try {
-      const response = await fetch('/api/comments', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          projectId,
-          comment
-        }),
-      });
-
-      if (response.ok) {
-        setComments(prev => ({
-          ...prev,
-          [projectId]: [...(prev[projectId] || []), comment]
-        }));
-        setNewComment({ author: '', content: '' });
-      }
-    } catch (error) {
-      console.error('Error saving comment:', error);
-    }
-  };
-
-  const handleReplySubmit = async (projectId, commentId) => {
-    if (!newReply.name || !newReply.content) return;
-
-    const reply = {
-      id: Date.now(),
-      name: newReply.name,
-      content: newReply.content,
-      date: new Date().toISOString().split('T')[0]
-    };
-
-    try {
-      const response = await fetch('/api/replies', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          projectId,
-          commentId,
-          reply
-        }),
-      });
-
-      if (response.ok) {
-        setComments(prev => ({
-          ...prev,
-          [projectId]: prev[projectId].map(comment => 
-            comment.id === commentId 
-              ? { ...comment, replies: [...comment.replies, reply] }
-              : comment
-          )
-        }));
-        setNewReply({ name: '', content: '', projectId: null, commentId: null });
-      }
-    } catch (error) {
-      console.error('Error saving reply:', error);
-    }
-  };
-
   return (
     <section id="projects" className="py-20 bg-gray-50 dark:bg-gray-900">
       <div className="container mx-auto px-4">
@@ -165,7 +73,7 @@ const Projects = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project) => (
             <div 
-              key={project.id} 
+              key={project.id}
               className="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
             >
               <div className="relative h-48 w-full overflow-hidden">
@@ -191,8 +99,8 @@ const Projects = () => {
                 
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.technologies.map((tech, index) => (
-                    <span 
-                      key={index} 
+                    <span
+                      key={index}
                       className="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full"
                     >
                       {tech}
@@ -200,98 +108,12 @@ const Projects = () => {
                   ))}
                 </div>
                 
-                {/* Comments Section */}
-                <div className="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
-                  <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-4">Comments</h4>
-                  
-                  {/* Comment Form */}
-                  <div className="mb-4">
-                    <input
-                      type="text"
-                      placeholder="Your name"
-                      value={newComment.author}
-                      onChange={(e) => setNewComment(prev => ({ ...prev, author: e.target.value }))}
-                      className="w-full mb-2 px-3 py-2 border rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white"
-                    />
-                    <textarea
-                      placeholder="Write a comment..."
-                      value={newComment.content}
-                      onChange={(e) => setNewComment(prev => ({ ...prev, content: e.target.value }))}
-                      className="w-full mb-2 px-3 py-2 border rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white"
-                      rows="2"
-                    />
-                    <button
-                      onClick={() => handleCommentSubmit(project.id)}
-                      className="px-4 py-2 bg-primary text-white rounded-md hover:bg-primary/90 transition-colors"
-                    >
-                      Post Comment
-                    </button>
-                  </div>
-
-                  {/* Comments List */}
-                  {comments[project.id]?.map((comment) => (
-                    <div key={comment.id} className="mb-4">
-                      <div className="bg-gray-50 dark:bg-gray-700 p-3 rounded-md">
-                        <div className="flex justify-between items-start mb-2">
-                          <span className="font-medium text-gray-800 dark:text-white">{comment.author}</span>
-                          <span className="text-xs text-gray-500 dark:text-gray-400">{new Date(comment.date).toLocaleDateString()}</span>
-                        </div>
-                        <p className="text-gray-600 dark:text-gray-300">{comment.content}</p>
-                      </div>
-
-                      {/* Replies */}
-                      {comment.replies?.map((reply) => (
-                        <div key={reply.id} className="ml-8 mt-2 bg-gray-50 dark:bg-gray-700 p-3 rounded-md">
-                          <div className="flex justify-between items-start mb-2">
-                            <span className="font-medium text-gray-800 dark:text-white">{reply.name}</span>
-                            <span className="text-xs text-gray-500 dark:text-gray-400">{new Date(reply.date).toLocaleDateString()}</span>
-                          </div>
-                          <p className="text-gray-600 dark:text-gray-300">{reply.content}</p>
-                        </div>
-                      ))}
-
-                      {/* Reply Form */}
-                      {newReply.projectId === project.id && newReply.commentId === comment.id ? (
-                        <div className="ml-8 mt-2">
-                          <input
-                            type="text"
-                            placeholder="Your name"
-                            value={newReply.name}
-                            onChange={(e) => setNewReply(prev => ({ ...prev, name: e.target.value }))}
-                            className="w-full mb-2 px-3 py-2 border rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white"
-                          />
-                          <textarea
-                            placeholder="Write a reply..."
-                            value={newReply.content}
-                            onChange={(e) => setNewReply(prev => ({ ...prev, content: e.target.value }))}
-                            className="w-full mb-2 px-3 py-2 border rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white"
-                            rows="2"
-                          />
-                          <button
-                            onClick={() => handleReplySubmit(project.id, comment.id)}
-                            className="px-4 py-2 bg-primary text-white rounded-md hover:bg-primary/90 transition-colors"
-                          >
-                            Post Reply
-                          </button>
-                        </div>
-                      ) : (
-                        <button
-                          onClick={() => setNewReply({ name: '', content: '', projectId: project.id, commentId: comment.id })}
-                          className="ml-8 mt-2 text-sm text-primary hover:text-primary/80"
-                        >
-                          Reply
-                        </button>
-                      )}
-                    </div>
-                  ))}
-                </div>
-                
                 <div className="flex justify-center gap-4">
                   {project.id === 3 ? (
                     <div className="flex items-center gap-4">
-                      <a 
+                      <a
                         href={project.githubLink}
-                        target="_blank" 
+                        target="_blank"
                         rel="noopener noreferrer"
                         className="flex items-center text-primary hover:text-purple-600 transition-colors"
                       >
@@ -300,9 +122,9 @@ const Projects = () => {
                         </svg>
                         GitHub
                       </a>
-                      <a 
+                      <a
                         href={project.videoLink}
-                        target="_blank" 
+                        target="_blank"
                         rel="noopener noreferrer"
                         className="flex items-center text-primary hover:text-red-600 transition-colors"
                       >

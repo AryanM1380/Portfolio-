@@ -1,4 +1,4 @@
-(globalThis.TURBOPACK = globalThis.TURBOPACK || []).push(["static/chunks/_36335acf._.js", {
+(globalThis.TURBOPACK = globalThis.TURBOPACK || []).push(["static/chunks/_d902f706._.js", {
 
 "[project]/src/app/components/navbar.jsx [app-client] (ecmascript)": ((__turbopack_context__) => {
 "use strict";
@@ -11,11 +11,7 @@ __turbopack_context__.s({
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/client/app-dir/link.js [app-client] (ecmascript)");
-(()=>{
-    const e = new Error("Cannot find module 'next-themes'");
-    e.code = 'MODULE_NOT_FOUND';
-    throw e;
-})();
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2d$themes$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next-themes/dist/index.mjs [app-client] (ecmascript)");
 ;
 var _s = __turbopack_context__.k.signature();
 "use client";
@@ -26,9 +22,11 @@ const Navbar = ()=>{
     _s();
     const [isOpen, setIsOpen] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     const [scrolled, setScrolled] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
-    const { theme, setTheme } = useTheme();
+    const [mounted, setMounted] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
+    const { theme, setTheme } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2d$themes$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useTheme"])();
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "Navbar.useEffect": ()=>{
+            setMounted(true);
             const handleScroll = {
                 "Navbar.useEffect.handleScroll": ()=>{
                     setScrolled(window.scrollY > 20);
@@ -40,38 +38,51 @@ const Navbar = ()=>{
             })["Navbar.useEffect"];
         }
     }["Navbar.useEffect"], []);
+    const scrollToTop = ()=>{
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    };
     const navLinks = [
         {
-            href: '#about',
-            label: 'About'
+            name: 'Home',
+            href: '#home'
         },
         {
-            href: '#skills',
-            label: 'Skills'
+            name: 'About',
+            href: '#about'
         },
         {
-            href: '#education',
-            label: 'Education'
+            name: 'Skills',
+            href: '#skills'
         },
         {
-            href: '#experience',
-            label: 'Work Experience'
+            name: 'Education',
+            href: '#education'
         },
         {
-            href: '#projects',
-            label: 'Projects'
+            name: 'Work Experience',
+            href: '#work-experience'
         },
         {
-            href: '#community',
-            label: 'Community'
+            name: 'Projects',
+            href: '#projects'
         },
         {
-            href: '#contact',
-            label: 'Contact'
+            name: 'Community',
+            href: '#community'
+        },
+        {
+            name: 'Contact',
+            href: '#contact'
         }
     ];
+    if (!mounted) {
+        return null;
+    }
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("nav", {
-        className: `fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm shadow-lg' : 'bg-transparent'}`,
+        className: `fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-lg' : 'bg-transparent'}`,
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
             className: "container mx-auto px-4",
             children: [
@@ -79,39 +90,41 @@ const Navbar = ()=>{
                     className: "flex justify-between items-center h-16",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                            href: "/",
-                            className: "text-xl font-bold text-gray-800 dark:text-white",
-                            children: "Portfolio"
+                            href: "#home",
+                            className: "text-2xl font-bold text-primary hover:text-purple-600 transition-colors",
+                            onClick: scrollToTop,
+                            children: "AM"
                         }, void 0, false, {
                             fileName: "[project]/src/app/components/navbar.jsx",
-                            lineNumber: 38,
+                            lineNumber: 52,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             className: "hidden md:flex space-x-8",
                             children: navLinks.map((link)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                                     href: link.href,
-                                    className: "text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors duration-300",
-                                    children: link.label
-                                }, link.href, false, {
+                                    className: "text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-white transition-colors",
+                                    onClick: scrollToTop,
+                                    children: link.name
+                                }, link.name, false, {
                                     fileName: "[project]/src/app/components/navbar.jsx",
-                                    lineNumber: 45,
+                                    lineNumber: 63,
                                     columnNumber: 15
                                 }, this))
                         }, void 0, false, {
                             fileName: "[project]/src/app/components/navbar.jsx",
-                            lineNumber: 43,
+                            lineNumber: 61,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                             onClick: ()=>setTheme(theme === 'dark' ? 'light' : 'dark'),
-                            className: "p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-300",
+                            className: "p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors",
+                            "aria-label": "Toggle theme",
                             children: theme === 'dark' ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
-                                xmlns: "http://www.w3.org/2000/svg",
-                                className: "h-5 w-5",
+                                className: "w-5 h-5",
                                 fill: "none",
-                                viewBox: "0 0 24 24",
                                 stroke: "currentColor",
+                                viewBox: "0 0 24 24",
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
                                     strokeLinecap: "round",
                                     strokeLinejoin: "round",
@@ -119,19 +132,18 @@ const Navbar = ()=>{
                                     d: "M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/components/navbar.jsx",
-                                    lineNumber: 62,
+                                    lineNumber: 82,
                                     columnNumber: 17
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/app/components/navbar.jsx",
-                                lineNumber: 61,
+                                lineNumber: 81,
                                 columnNumber: 15
                             }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
-                                xmlns: "http://www.w3.org/2000/svg",
-                                className: "h-5 w-5",
+                                className: "w-5 h-5",
                                 fill: "none",
-                                viewBox: "0 0 24 24",
                                 stroke: "currentColor",
+                                viewBox: "0 0 24 24",
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
                                     strokeLinecap: "round",
                                     strokeLinejoin: "round",
@@ -139,28 +151,28 @@ const Navbar = ()=>{
                                     d: "M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/components/navbar.jsx",
-                                    lineNumber: 66,
+                                    lineNumber: 86,
                                     columnNumber: 17
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/app/components/navbar.jsx",
-                                lineNumber: 65,
+                                lineNumber: 85,
                                 columnNumber: 15
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/src/app/components/navbar.jsx",
-                            lineNumber: 56,
+                            lineNumber: 75,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                             onClick: ()=>setIsOpen(!isOpen),
-                            className: "md:hidden p-2 rounded-lg text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-300",
+                            className: "md:hidden p-2 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors",
+                            "aria-label": "Toggle menu",
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
-                                xmlns: "http://www.w3.org/2000/svg",
-                                className: "h-6 w-6",
+                                className: "w-6 h-6",
                                 fill: "none",
-                                viewBox: "0 0 24 24",
                                 stroke: "currentColor",
+                                viewBox: "0 0 24 24",
                                 children: isOpen ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
                                     strokeLinecap: "round",
                                     strokeLinejoin: "round",
@@ -168,7 +180,7 @@ const Navbar = ()=>{
                                     d: "M6 18L18 6M6 6l12 12"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/components/navbar.jsx",
-                                    lineNumber: 78,
+                                    lineNumber: 99,
                                     columnNumber: 17
                                 }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
                                     strokeLinecap: "round",
@@ -177,64 +189,67 @@ const Navbar = ()=>{
                                     d: "M4 6h16M4 12h16M4 18h16"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/components/navbar.jsx",
-                                    lineNumber: 80,
+                                    lineNumber: 101,
                                     columnNumber: 17
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/app/components/navbar.jsx",
-                                lineNumber: 76,
+                                lineNumber: 97,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/src/app/components/navbar.jsx",
-                            lineNumber: 72,
+                            lineNumber: 92,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/components/navbar.jsx",
-                    lineNumber: 36,
+                    lineNumber: 50,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: `md:hidden transition-all duration-300 ease-in-out ${isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`,
+                    className: `md:hidden transition-all duration-300 ease-in-out ${isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'} overflow-hidden`,
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "py-4 space-y-4",
                         children: navLinks.map((link)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                                 href: link.href,
-                                onClick: ()=>setIsOpen(false),
-                                className: "block text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors duration-300",
-                                children: link.label
-                            }, link.href, false, {
+                                className: "block text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-white transition-colors",
+                                onClick: ()=>{
+                                    scrollToTop();
+                                    setIsOpen(false);
+                                },
+                                children: link.name
+                            }, link.name, false, {
                                 fileName: "[project]/src/app/components/navbar.jsx",
-                                lineNumber: 92,
+                                lineNumber: 113,
                                 columnNumber: 15
                             }, this))
                     }, void 0, false, {
                         fileName: "[project]/src/app/components/navbar.jsx",
-                        lineNumber: 90,
+                        lineNumber: 111,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/app/components/navbar.jsx",
-                    lineNumber: 87,
+                    lineNumber: 108,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/app/components/navbar.jsx",
-            lineNumber: 35,
+            lineNumber: 49,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/app/components/navbar.jsx",
-        lineNumber: 32,
+        lineNumber: 46,
         columnNumber: 5
     }, this);
 };
-_s(Navbar, "HfFO0UPYrKJSlLSgPAtxwhIQ93A=", false, function() {
+_s(Navbar, "C1tjaLkXbXIBfM1id+xqJnk0eTE=", false, function() {
     return [
-        useTheme
+        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2d$themes$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useTheme"]
     ];
 });
 _c = Navbar;
@@ -1282,6 +1297,199 @@ if ((typeof exports.default === 'function' || typeof exports.default === 'object
     module.exports = exports.default;
 } //# sourceMappingURL=link.js.map
 }}),
+"[project]/node_modules/next-themes/dist/index.mjs [app-client] (ecmascript)": ((__turbopack_context__) => {
+"use strict";
+
+var { g: global, __dirname } = __turbopack_context__;
+{
+__turbopack_context__.s({
+    "ThemeProvider": (()=>J),
+    "useTheme": (()=>z)
+});
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
+"use client";
+;
+var M = (e, i, s, u, m, a, l, h)=>{
+    let d = document.documentElement, w = [
+        "light",
+        "dark"
+    ];
+    function p(n) {
+        (Array.isArray(e) ? e : [
+            e
+        ]).forEach((y)=>{
+            let k = y === "class", S = k && a ? m.map((f)=>a[f] || f) : m;
+            k ? (d.classList.remove(...S), d.classList.add(a && a[n] ? a[n] : n)) : d.setAttribute(y, n);
+        }), R(n);
+    }
+    function R(n) {
+        h && w.includes(n) && (d.style.colorScheme = n);
+    }
+    function c() {
+        return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+    if (u) p(u);
+    else try {
+        let n = localStorage.getItem(i) || s, y = l && n === "system" ? c() : n;
+        p(y);
+    } catch (n) {}
+};
+var b = [
+    "light",
+    "dark"
+], I = "(prefers-color-scheme: dark)", O = typeof window == "undefined", x = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["createContext"])(void 0), U = {
+    setTheme: (e)=>{},
+    themes: []
+}, z = ()=>{
+    var e;
+    return (e = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useContext"])(x)) != null ? e : U;
+}, J = (e)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useContext"])(x) ? (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["createElement"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], null, e.children) : (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["createElement"])(V, {
+        ...e
+    }), N = [
+    "light",
+    "dark"
+], V = ({ forcedTheme: e, disableTransitionOnChange: i = !1, enableSystem: s = !0, enableColorScheme: u = !0, storageKey: m = "theme", themes: a = N, defaultTheme: l = s ? "system" : "light", attribute: h = "data-theme", value: d, children: w, nonce: p, scriptProps: R })=>{
+    let [c, n] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])({
+        "V.useState": ()=>H(m, l)
+    }["V.useState"]), [T, y] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])({
+        "V.useState": ()=>c === "system" ? E() : c
+    }["V.useState"]), k = d ? Object.values(d) : a, S = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useCallback"])({
+        "V.useCallback[S]": (o)=>{
+            let r = o;
+            if (!r) return;
+            o === "system" && s && (r = E());
+            let v = d ? d[r] : r, C = i ? W(p) : null, P = document.documentElement, L = {
+                "V.useCallback[S].L": (g)=>{
+                    g === "class" ? (P.classList.remove(...k), v && P.classList.add(v)) : g.startsWith("data-") && (v ? P.setAttribute(g, v) : P.removeAttribute(g));
+                }
+            }["V.useCallback[S].L"];
+            if (Array.isArray(h) ? h.forEach(L) : L(h), u) {
+                let g = b.includes(l) ? l : null, D = b.includes(r) ? r : g;
+                P.style.colorScheme = D;
+            }
+            C == null || C();
+        }
+    }["V.useCallback[S]"], [
+        p
+    ]), f = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useCallback"])({
+        "V.useCallback[f]": (o)=>{
+            let r = typeof o == "function" ? o(c) : o;
+            n(r);
+            try {
+                localStorage.setItem(m, r);
+            } catch (v) {}
+        }
+    }["V.useCallback[f]"], [
+        c
+    ]), A = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useCallback"])({
+        "V.useCallback[A]": (o)=>{
+            let r = E(o);
+            y(r), c === "system" && s && !e && S("system");
+        }
+    }["V.useCallback[A]"], [
+        c,
+        e
+    ]);
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
+        "V.useEffect": ()=>{
+            let o = window.matchMedia(I);
+            return o.addListener(A), A(o), ({
+                "V.useEffect": ()=>o.removeListener(A)
+            })["V.useEffect"];
+        }
+    }["V.useEffect"], [
+        A
+    ]), (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
+        "V.useEffect": ()=>{
+            let o = {
+                "V.useEffect.o": (r)=>{
+                    r.key === m && (r.newValue ? n(r.newValue) : f(l));
+                }
+            }["V.useEffect.o"];
+            return window.addEventListener("storage", o), ({
+                "V.useEffect": ()=>window.removeEventListener("storage", o)
+            })["V.useEffect"];
+        }
+    }["V.useEffect"], [
+        f
+    ]), (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
+        "V.useEffect": ()=>{
+            S(e != null ? e : c);
+        }
+    }["V.useEffect"], [
+        e,
+        c
+    ]);
+    let Q = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useMemo"])({
+        "V.useMemo[Q]": ()=>({
+                theme: c,
+                setTheme: f,
+                forcedTheme: e,
+                resolvedTheme: c === "system" ? T : c,
+                themes: s ? [
+                    ...a,
+                    "system"
+                ] : a,
+                systemTheme: s ? T : void 0
+            })
+    }["V.useMemo[Q]"], [
+        c,
+        f,
+        e,
+        T,
+        s,
+        a
+    ]);
+    return (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["createElement"])(x.Provider, {
+        value: Q
+    }, (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["createElement"])(_, {
+        forcedTheme: e,
+        storageKey: m,
+        attribute: h,
+        enableSystem: s,
+        enableColorScheme: u,
+        defaultTheme: l,
+        value: d,
+        themes: a,
+        nonce: p,
+        scriptProps: R
+    }), w);
+}, _ = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["memo"])(({ forcedTheme: e, storageKey: i, attribute: s, enableSystem: u, enableColorScheme: m, defaultTheme: a, value: l, themes: h, nonce: d, scriptProps: w })=>{
+    let p = JSON.stringify([
+        s,
+        i,
+        a,
+        e,
+        h,
+        l,
+        u,
+        m
+    ]).slice(1, -1);
+    return (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["createElement"])("script", {
+        ...w,
+        suppressHydrationWarning: !0,
+        nonce: typeof window == "undefined" ? d : "",
+        dangerouslySetInnerHTML: {
+            __html: `(${M.toString()})(${p})`
+        }
+    });
+}), H = (e, i)=>{
+    if (O) return;
+    let s;
+    try {
+        s = localStorage.getItem(e) || void 0;
+    } catch (u) {}
+    return s || i;
+}, W = (e)=>{
+    let i = document.createElement("style");
+    return e && i.setAttribute("nonce", e), i.appendChild(document.createTextNode("*,*::before,*::after{-webkit-transition:none!important;-moz-transition:none!important;-o-transition:none!important;-ms-transition:none!important;transition:none!important}")), document.head.appendChild(i), ()=>{
+        window.getComputedStyle(document.body), setTimeout(()=>{
+            document.head.removeChild(i);
+        }, 1);
+    };
+}, E = (e)=>(e || (e = window.matchMedia(I)), e.matches ? "dark" : "light");
+;
+}}),
 }]);
 
-//# sourceMappingURL=_36335acf._.js.map
+//# sourceMappingURL=_d902f706._.js.map

@@ -5,7 +5,7 @@ import Education from './components/Education';
 import WorkExperience from './components/WorkExperience';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import Link from 'next/link';
+// import Link from 'next/link';
 
 export default function Home() {
   return (
@@ -14,8 +14,10 @@ export default function Home() {
       <Projects />
       <Skills />
       <Education />
+      <br></br>
       <WorkExperience />
-      <div className="py-20 bg-gray-50 dark:bg-gray-900">
+      <br></br>
+      {/* <div className="py-20 bg-gray-50 dark:bg-gray-900">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-800 dark:text-white">
             Join Our Community
@@ -30,7 +32,7 @@ export default function Home() {
             Visit Community
           </Link>
         </div>
-      </div>
+      </div> */}
       <Contact />
       <Footer />
     </main>

@@ -5,124 +5,133 @@
 import { useState } from 'react';
 
 const Education = () => {
-  const [activeTab, setActiveTab] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(0);
 
-  const educationData = [
+  const education = [
     {
-      id: 1,
-      degree: "Master of Science in Computer Science",
-      institution: "Tampere University",
-      location: "Tampere, Finland",
-      duration: "2021 - 2023",
-      description: "Specialized in Software Engineering and Web Technologies. Focused on modern web development frameworks, cloud computing, and software architecture.",
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path d="M12 14l9-5-9-5-9 5 9 5z" />
-          <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />
-        </svg>
-      )
+      school: "HAMK University of Applied Sciences",
+      degree: "Bachelor of Business Administration",
+      period: "2023 - Present",
+      location: "Hämeenlinna, Finland",
+      description: "Currently pursuing a degree in Business Administration with a focus on digital business and technology management. The program combines business fundamentals with modern digital technologies and management practices.",
+      achievements: [
+        "Focus on Mathematics and Physics",
+        "Active participation in student organizations",
+        "Regular academic excellence recognition"
+      ]
     },
     {
-      id: 2,
-      degree: "Bachelor of Science in Computer Science",
-      institution: "University of Helsinki",
-      location: "Helsinki, Finland",
-      duration: "2017 - 2021",
-      description: "Studied fundamental computer science concepts, algorithms, data structures, and programming languages. Participated in various hackathons and coding competitions.",
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path d="M12 14l9-5-9-5-9 5 9 5z" />
-          <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />
-        </svg>
-      )
+      school: "Language Studies in Austria",
+      degree: "Language Certification",
+      period: "2022 - 2023",
+      location: "Austria",
+      description: "Intensive language study program focusing on German language proficiency. Developed strong communication skills and cultural understanding through immersive learning experiences.",
+      achievements: [
+        "Achieved B2 level proficiency",
+        "Participated in cultural exchange programs",
+        "Developed cross-cultural communication skills"
+      ]
     },
     {
-      id: 3,
-      degree: "High School Diploma",
-      institution: "Helsinki High School",
-      location: "Helsinki, Finland",
-      duration: "2014 - 2017",
-      description: "Focused on mathematics, physics, and computer science. Participated in robotics club and programming competitions.",
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path d="M12 14l9-5-9-5-9 5 9 5z" />
-          <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />
-        </svg>
-      )
+      school: "High School",
+      degree: "General Education",
+      period: "2019 - 2022",
+      location: "Finland",
+      description: "Completed high school education with a strong focus on Mathematics and Physics. Developed analytical and problem-solving skills through rigorous coursework and practical applications.",
+      achievements: [
+        "High academic performance in STEM subjects",
+        "Active participation in science competitions",
+        "Developed strong analytical skills"
+      ]
     }
   ];
 
   return (
-    <section id="education" className="py-20 bg-white dark:bg-gray-800">
+    <section id="education" className="py-20 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800 dark:text-white">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-800 dark:text-white">
           Education
         </h2>
+        <p className="text-center text-gray-600 dark:text-gray-400 mb-12">
+          My academic journey and achievements
+        </p>
         
-        <div className="max-w-4xl mx-auto">
-          {/* Timeline tabs */}
-          <div className="flex flex-col md:flex-row mb-8 border-b border-gray-200 dark:border-gray-700">
-            {educationData.map((edu, index) => (
-              <button
-                key={edu.id}
-                onClick={() => setActiveTab(index)}
-                className={`px-6 py-3 text-left transition-colors duration-300 ${
-                  activeTab === index
-                    ? "border-b-2 border-primary text-primary dark:text-primary"
-                    : "text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200"
+        <div className="max-w-5xl mx-auto">
+          {/* Education Timeline Navigation */}
+          <div className="flex justify-center mb-8 overflow-x-auto">
+            <div className="flex space-x-4 min-w-max">
+              {education.map((edu, index) => (
+                <button
+                  key={index}
+                  onClick={() => setActiveIndex(index)}
+                  className={`px-6 py-2 rounded-full transition-all duration-300 whitespace-nowrap ${
+                    activeIndex === index
+                      ? 'bg-primary text-white shadow-lg scale-105'
+                      : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
+                  }`}
+                >
+                  {edu.school}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Education Cards */}
+          <div className="relative">
+            {education.map((edu, index) => (
+              <div
+                key={index}
+                className={`absolute w-full transition-all duration-500 transform ${
+                  activeIndex === index
+                    ? 'opacity-100 translate-x-0'
+                    : 'opacity-0 translate-x-full'
                 }`}
               >
-                <div className="font-medium">{edu.institution}</div>
-                <div className="text-sm">{edu.duration}</div>
-              </button>
+                <div className="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-8 hover:shadow-2xl transition-shadow duration-300">
+                  <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-6">
+                    <div>
+                      <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-2">
+                        {edu.degree}
+                      </h3>
+                      <p className="text-primary text-lg font-medium">{edu.school}</p>
+                    </div>
+                    <div className="flex flex-col items-end mt-4 md:mt-0">
+                      <span className="text-gray-500 dark:text-gray-400 font-medium">
+                        {edu.period}
+                      </span>
+                      <span className="text-sm text-gray-500 dark:text-gray-400">
+                        {edu.location}
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="mb-6">
+                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                      {edu.description}
+                    </p>
+                  </div>
+
+                  <div>
+                    <h4 className="text-lg font-semibold text-gray-800 dark:text-white mb-3">
+                      Key Achievements
+                    </h4>
+                    <ul className="space-y-2">
+                      {edu.achievements.map((achievement, achievementIndex) => (
+                        <li
+                          key={achievementIndex}
+                          className="flex items-start"
+                        >
+                          <span className="text-primary mr-2">•</span>
+                          <span className="text-gray-600 dark:text-gray-300">
+                            {achievement}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
             ))}
-          </div>
-          
-          {/* Education details */}
-          <div className="bg-gray-50 dark:bg-gray-900 rounded-xl shadow-lg p-6 md:p-8 transition-all duration-300 hover:shadow-xl">
-            <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
-              <div className="flex items-center mb-4 md:mb-0">
-                <div className="text-primary mr-4">
-                  {educationData[activeTab].icon}
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-gray-800 dark:text-white">
-                    {educationData[activeTab].degree}
-                  </h3>
-                  <p className="text-lg text-gray-600 dark:text-gray-300">
-                    {educationData[activeTab].institution}
-                  </p>
-                </div>
-              </div>
-              <div className="flex items-center text-gray-600 dark:text-gray-400">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                </svg>
-                {educationData[activeTab].location}
-              </div>
-            </div>
-            
-            <div className="mb-6">
-              <h4 className="text-lg font-semibold text-gray-800 dark:text-white mb-3">
-                Duration
-              </h4>
-              <p className="text-gray-700 dark:text-gray-300">
-                {educationData[activeTab].duration}
-              </p>
-            </div>
-            
-            <div>
-              <h4 className="text-lg font-semibold text-gray-800 dark:text-white mb-3">
-                Description
-              </h4>
-              <p className="text-gray-700 dark:text-gray-300">
-                {educationData[activeTab].description}
-              </p>
-            </div>
           </div>
         </div>
       </div>
