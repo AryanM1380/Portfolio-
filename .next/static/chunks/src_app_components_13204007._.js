@@ -327,6 +327,112 @@ const Projects = ()=>{
             ]
         }
     ]);
+    const [comments, setComments] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])({});
+    const [newComment, setNewComment] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])({
+        author: '',
+        content: ''
+    });
+    const [newReply, setNewReply] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])({
+        name: '',
+        content: '',
+        projectId: null,
+        commentId: null
+    });
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
+        "Projects.useEffect": ()=>{
+            const fetchComments = {
+                "Projects.useEffect.fetchComments": async ()=>{
+                    try {
+                        const response = await fetch('/data/projectComments.json');
+                        const data = await response.json();
+                        setComments(data.comments);
+                    } catch (error) {
+                        console.error('Error fetching comments:', error);
+                    }
+                }
+            }["Projects.useEffect.fetchComments"];
+            fetchComments();
+        }
+    }["Projects.useEffect"], []);
+    const handleCommentSubmit = async (projectId)=>{
+        if (!newComment.author || !newComment.content) return;
+        const comment = {
+            id: Date.now(),
+            author: newComment.author,
+            content: newComment.content,
+            date: new Date().toISOString().split('T')[0],
+            replies: []
+        };
+        try {
+            const response = await fetch('/api/comments', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    projectId,
+                    comment
+                })
+            });
+            if (response.ok) {
+                setComments((prev)=>({
+                        ...prev,
+                        [projectId]: [
+                            ...prev[projectId] || [],
+                            comment
+                        ]
+                    }));
+                setNewComment({
+                    author: '',
+                    content: ''
+                });
+            }
+        } catch (error) {
+            console.error('Error saving comment:', error);
+        }
+    };
+    const handleReplySubmit = async (projectId, commentId)=>{
+        if (!newReply.name || !newReply.content) return;
+        const reply = {
+            id: Date.now(),
+            name: newReply.name,
+            content: newReply.content,
+            date: new Date().toISOString().split('T')[0]
+        };
+        try {
+            const response = await fetch('/api/replies', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    projectId,
+                    commentId,
+                    reply
+                })
+            });
+            if (response.ok) {
+                setComments((prev)=>({
+                        ...prev,
+                        [projectId]: prev[projectId].map((comment)=>comment.id === commentId ? {
+                                ...comment,
+                                replies: [
+                                    ...comment.replies,
+                                    reply
+                                ]
+                            } : comment)
+                    }));
+                setNewReply({
+                    name: '',
+                    content: '',
+                    projectId: null,
+                    commentId: null
+                });
+            }
+        } catch (error) {
+            console.error('Error saving reply:', error);
+        }
+    };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
         id: "projects",
         className: "py-20 bg-gray-50 dark:bg-gray-900",
@@ -338,7 +444,7 @@ const Projects = ()=>{
                     children: "My Projects"
                 }, void 0, false, {
                     fileName: "[project]/src/app/components/Projects.jsx",
-                    lineNumber: 69,
+                    lineNumber: 161,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -357,12 +463,12 @@ const Projects = ()=>{
                                         priority: project.id <= 3
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/components/Projects.jsx",
-                                        lineNumber: 80,
+                                        lineNumber: 172,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/components/Projects.jsx",
-                                    lineNumber: 79,
+                                    lineNumber: 171,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -376,7 +482,7 @@ const Projects = ()=>{
                                                     children: project.title
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/components/Projects.jsx",
-                                                    lineNumber: 92,
+                                                    lineNumber: 184,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -384,13 +490,13 @@ const Projects = ()=>{
                                                     children: project.date
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/components/Projects.jsx",
-                                                    lineNumber: 93,
+                                                    lineNumber: 185,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/components/Projects.jsx",
-                                            lineNumber: 91,
+                                            lineNumber: 183,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -398,7 +504,7 @@ const Projects = ()=>{
                                             children: project.description
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/components/Projects.jsx",
-                                            lineNumber: 96,
+                                            lineNumber: 188,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -408,12 +514,227 @@ const Projects = ()=>{
                                                     children: tech
                                                 }, index, false, {
                                                     fileName: "[project]/src/app/components/Projects.jsx",
-                                                    lineNumber: 102,
+                                                    lineNumber: 194,
                                                     columnNumber: 21
                                                 }, this))
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/components/Projects.jsx",
-                                            lineNumber: 100,
+                                            lineNumber: 192,
+                                            columnNumber: 17
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "mt-4 pt-4 border-t border-gray-200 dark:border-gray-700",
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
+                                                    className: "text-sm font-semibold text-gray-700 dark:text-gray-300 mb-4",
+                                                    children: "Comments"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/app/components/Projects.jsx",
+                                                    lineNumber: 205,
+                                                    columnNumber: 19
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "mb-4",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                            type: "text",
+                                                            placeholder: "Your name",
+                                                            value: newComment.author,
+                                                            onChange: (e)=>setNewComment((prev)=>({
+                                                                        ...prev,
+                                                                        author: e.target.value
+                                                                    })),
+                                                            className: "w-full mb-2 px-3 py-2 border rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/src/app/components/Projects.jsx",
+                                                            lineNumber: 209,
+                                                            columnNumber: 21
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("textarea", {
+                                                            placeholder: "Write a comment...",
+                                                            value: newComment.content,
+                                                            onChange: (e)=>setNewComment((prev)=>({
+                                                                        ...prev,
+                                                                        content: e.target.value
+                                                                    })),
+                                                            className: "w-full mb-2 px-3 py-2 border rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white",
+                                                            rows: "2"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/src/app/components/Projects.jsx",
+                                                            lineNumber: 216,
+                                                            columnNumber: 21
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                                            onClick: ()=>handleCommentSubmit(project.id),
+                                                            className: "px-4 py-2 bg-primary text-white rounded-md hover:bg-primary/90 transition-colors",
+                                                            children: "Post Comment"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/src/app/components/Projects.jsx",
+                                                            lineNumber: 223,
+                                                            columnNumber: 21
+                                                        }, this)
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/src/app/components/Projects.jsx",
+                                                    lineNumber: 208,
+                                                    columnNumber: 19
+                                                }, this),
+                                                comments[project.id]?.map((comment)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        className: "mb-4",
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                className: "bg-gray-50 dark:bg-gray-700 p-3 rounded-md",
+                                                                children: [
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                        className: "flex justify-between items-start mb-2",
+                                                                        children: [
+                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                                className: "font-medium text-gray-800 dark:text-white",
+                                                                                children: comment.author
+                                                                            }, void 0, false, {
+                                                                                fileName: "[project]/src/app/components/Projects.jsx",
+                                                                                lineNumber: 236,
+                                                                                columnNumber: 27
+                                                                            }, this),
+                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                                className: "text-xs text-gray-500 dark:text-gray-400",
+                                                                                children: new Date(comment.date).toLocaleDateString()
+                                                                            }, void 0, false, {
+                                                                                fileName: "[project]/src/app/components/Projects.jsx",
+                                                                                lineNumber: 237,
+                                                                                columnNumber: 27
+                                                                            }, this)
+                                                                        ]
+                                                                    }, void 0, true, {
+                                                                        fileName: "[project]/src/app/components/Projects.jsx",
+                                                                        lineNumber: 235,
+                                                                        columnNumber: 25
+                                                                    }, this),
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                        className: "text-gray-600 dark:text-gray-300",
+                                                                        children: comment.content
+                                                                    }, void 0, false, {
+                                                                        fileName: "[project]/src/app/components/Projects.jsx",
+                                                                        lineNumber: 239,
+                                                                        columnNumber: 25
+                                                                    }, this)
+                                                                ]
+                                                            }, void 0, true, {
+                                                                fileName: "[project]/src/app/components/Projects.jsx",
+                                                                lineNumber: 234,
+                                                                columnNumber: 23
+                                                            }, this),
+                                                            comment.replies?.map((reply)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                    className: "ml-8 mt-2 bg-gray-50 dark:bg-gray-700 p-3 rounded-md",
+                                                                    children: [
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                            className: "flex justify-between items-start mb-2",
+                                                                            children: [
+                                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                                    className: "font-medium text-gray-800 dark:text-white",
+                                                                                    children: reply.name
+                                                                                }, void 0, false, {
+                                                                                    fileName: "[project]/src/app/components/Projects.jsx",
+                                                                                    lineNumber: 246,
+                                                                                    columnNumber: 29
+                                                                                }, this),
+                                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                                    className: "text-xs text-gray-500 dark:text-gray-400",
+                                                                                    children: new Date(reply.date).toLocaleDateString()
+                                                                                }, void 0, false, {
+                                                                                    fileName: "[project]/src/app/components/Projects.jsx",
+                                                                                    lineNumber: 247,
+                                                                                    columnNumber: 29
+                                                                                }, this)
+                                                                            ]
+                                                                        }, void 0, true, {
+                                                                            fileName: "[project]/src/app/components/Projects.jsx",
+                                                                            lineNumber: 245,
+                                                                            columnNumber: 27
+                                                                        }, this),
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                            className: "text-gray-600 dark:text-gray-300",
+                                                                            children: reply.content
+                                                                        }, void 0, false, {
+                                                                            fileName: "[project]/src/app/components/Projects.jsx",
+                                                                            lineNumber: 249,
+                                                                            columnNumber: 27
+                                                                        }, this)
+                                                                    ]
+                                                                }, reply.id, true, {
+                                                                    fileName: "[project]/src/app/components/Projects.jsx",
+                                                                    lineNumber: 244,
+                                                                    columnNumber: 25
+                                                                }, this)),
+                                                            newReply.projectId === project.id && newReply.commentId === comment.id ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                className: "ml-8 mt-2",
+                                                                children: [
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                                        type: "text",
+                                                                        placeholder: "Your name",
+                                                                        value: newReply.name,
+                                                                        onChange: (e)=>setNewReply((prev)=>({
+                                                                                    ...prev,
+                                                                                    name: e.target.value
+                                                                                })),
+                                                                        className: "w-full mb-2 px-3 py-2 border rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                                                                    }, void 0, false, {
+                                                                        fileName: "[project]/src/app/components/Projects.jsx",
+                                                                        lineNumber: 256,
+                                                                        columnNumber: 27
+                                                                    }, this),
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("textarea", {
+                                                                        placeholder: "Write a reply...",
+                                                                        value: newReply.content,
+                                                                        onChange: (e)=>setNewReply((prev)=>({
+                                                                                    ...prev,
+                                                                                    content: e.target.value
+                                                                                })),
+                                                                        className: "w-full mb-2 px-3 py-2 border rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white",
+                                                                        rows: "2"
+                                                                    }, void 0, false, {
+                                                                        fileName: "[project]/src/app/components/Projects.jsx",
+                                                                        lineNumber: 263,
+                                                                        columnNumber: 27
+                                                                    }, this),
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                                                        onClick: ()=>handleReplySubmit(project.id, comment.id),
+                                                                        className: "px-4 py-2 bg-primary text-white rounded-md hover:bg-primary/90 transition-colors",
+                                                                        children: "Post Reply"
+                                                                    }, void 0, false, {
+                                                                        fileName: "[project]/src/app/components/Projects.jsx",
+                                                                        lineNumber: 270,
+                                                                        columnNumber: 27
+                                                                    }, this)
+                                                                ]
+                                                            }, void 0, true, {
+                                                                fileName: "[project]/src/app/components/Projects.jsx",
+                                                                lineNumber: 255,
+                                                                columnNumber: 25
+                                                            }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                                                onClick: ()=>setNewReply({
+                                                                        name: '',
+                                                                        content: '',
+                                                                        projectId: project.id,
+                                                                        commentId: comment.id
+                                                                    }),
+                                                                className: "ml-8 mt-2 text-sm text-primary hover:text-primary/80",
+                                                                children: "Reply"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/app/components/Projects.jsx",
+                                                                lineNumber: 278,
+                                                                columnNumber: 25
+                                                            }, this)
+                                                        ]
+                                                    }, comment.id, true, {
+                                                        fileName: "[project]/src/app/components/Projects.jsx",
+                                                        lineNumber: 233,
+                                                        columnNumber: 21
+                                                    }, this))
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/src/app/components/Projects.jsx",
+                                            lineNumber: 204,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -438,19 +759,19 @@ const Projects = ()=>{
                                                                     clipRule: "evenodd"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/components/Projects.jsx",
-                                                                    lineNumber: 121,
+                                                                    lineNumber: 299,
                                                                     columnNumber: 27
                                                                 }, this)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/components/Projects.jsx",
-                                                                lineNumber: 120,
+                                                                lineNumber: 298,
                                                                 columnNumber: 25
                                                             }, this),
                                                             "GitHub"
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/app/components/Projects.jsx",
-                                                        lineNumber: 114,
+                                                        lineNumber: 292,
                                                         columnNumber: 23
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
@@ -468,25 +789,25 @@ const Projects = ()=>{
                                                                     d: "M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/components/Projects.jsx",
-                                                                    lineNumber: 132,
+                                                                    lineNumber: 310,
                                                                     columnNumber: 27
                                                                 }, this)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/components/Projects.jsx",
-                                                                lineNumber: 131,
+                                                                lineNumber: 309,
                                                                 columnNumber: 25
                                                             }, this),
                                                             "Watch Video"
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/app/components/Projects.jsx",
-                                                        lineNumber: 125,
+                                                        lineNumber: 303,
                                                         columnNumber: 23
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/components/Projects.jsx",
-                                                lineNumber: 113,
+                                                lineNumber: 291,
                                                 columnNumber: 21
                                             }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
                                                 href: project.id === 2 ? project.videoLink : project.githubLink,
@@ -503,7 +824,7 @@ const Projects = ()=>{
                                                             d: "M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/components/Projects.jsx",
-                                                            lineNumber: 148,
+                                                            lineNumber: 326,
                                                             columnNumber: 27
                                                         }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
                                                             fillRule: "evenodd",
@@ -511,56 +832,56 @@ const Projects = ()=>{
                                                             clipRule: "evenodd"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/components/Projects.jsx",
-                                                            lineNumber: 150,
+                                                            lineNumber: 328,
                                                             columnNumber: 27
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/components/Projects.jsx",
-                                                        lineNumber: 146,
+                                                        lineNumber: 324,
                                                         columnNumber: 23
                                                     }, this),
                                                     project.id === 2 ? 'Watch Video' : 'GitHub'
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/components/Projects.jsx",
-                                                lineNumber: 138,
+                                                lineNumber: 316,
                                                 columnNumber: 21
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/components/Projects.jsx",
-                                            lineNumber: 111,
+                                            lineNumber: 289,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/components/Projects.jsx",
-                                    lineNumber: 90,
+                                    lineNumber: 182,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, project.id, true, {
                             fileName: "[project]/src/app/components/Projects.jsx",
-                            lineNumber: 75,
+                            lineNumber: 167,
                             columnNumber: 13
                         }, this))
                 }, void 0, false, {
                     fileName: "[project]/src/app/components/Projects.jsx",
-                    lineNumber: 73,
+                    lineNumber: 165,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/app/components/Projects.jsx",
-            lineNumber: 68,
+            lineNumber: 160,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/app/components/Projects.jsx",
-        lineNumber: 67,
+        lineNumber: 159,
         columnNumber: 5
     }, this);
 };
-_s(Projects, "hnPg2RPch9BSVM/2AaYqJePsoHk=");
+_s(Projects, "loiCwbsCuYDXHn/cvqMpXFFblSc=");
 _c = Projects;
 const __TURBOPACK__default__export__ = Projects;
 var _c;

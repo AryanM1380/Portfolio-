@@ -1,0 +1,100 @@
+{
+  "comments": {
+    "1": [
+      {
+        "id": 1,
+        "author": "John Doe",
+        "content": "Great portfolio design!",
+        "date": "2024-04-10",
+        "replies": [
+          {
+            "id": 1,
+            "name": "Jane Smith",
+            "content": "I agree, the dark mode is especially nice!",
+            "date": "2024-04-11"
+          }
+        ]
+      }
+    ],
+    "2": [
+      {
+        "id": 1,
+        "author": "Jane Smith",
+        "content": "Amazing game effects!",
+        "date": "2024-04-11",
+        "replies": [
+          {
+            "id": 1,
+            "name": "Mike Johnson",
+            "content": "The rain effects are so immersive!",
+            "date": "2024-04-12"
+          }
+        ]
+      }
+    ],
+    "3": [
+      {
+        "id": 1,
+        "author": "Mike Johnson",
+        "content": "Very user-friendly interface",
+        "date": "2024-04-12",
+        "replies": [
+          {
+            "id": 1,
+            "name": "Sarah Wilson",
+            "content": "The booking process is so smooth!",
+            "date": "2024-04-13"
+          }
+        ]
+      }
+    ],
+    "4": [
+      {
+        "id": 1,
+        "author": "Sarah Wilson",
+        "content": "Clean and professional design",
+        "date": "2024-04-13",
+        "replies": [
+          {
+            "id": 1,
+            "name": "David Brown",
+            "content": "The car showcase is impressive!",
+            "date": "2024-04-14"
+          }
+        ]
+      }
+    ],
+    "5": [
+      {
+        "id": 1,
+        "author": "David Brown",
+        "content": "Great data visualization",
+        "date": "2024-04-14",
+        "replies": [
+          {
+            "id": 1,
+            "name": "Emily Davis",
+            "content": "The charts are very informative!",
+            "date": "2024-04-15"
+          }
+        ]
+      }
+    ],
+    "6": [
+      {
+        "id": 1,
+        "author": "Emily Davis",
+        "content": "Excellent restaurant management system",
+        "date": "2024-04-15",
+        "replies": [
+          {
+            "id": 1,
+            "name": "John Doe",
+            "content": "The order management is very efficient!",
+            "date": "2024-04-16"
+          }
+        ]
+      }
+    ]
+  }
+} 
