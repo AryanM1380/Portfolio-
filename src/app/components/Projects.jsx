@@ -74,7 +74,7 @@ const Projects = () => {
           {projects.map((project) => (
             <div 
               key={project.id}
-              className="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
+              className="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-200 dark:border-gray-700"
             >
               <div className="relative h-48 w-full overflow-hidden">
                 <Image

@@ -344,7 +344,7 @@ const Projects = ()=>{
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8",
                     children: projects.map((project)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300",
+                            className: "bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-200 dark:border-gray-700",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                     className: "relative h-48 w-full overflow-hidden",
@@ -805,12 +805,13 @@ var _s = __turbopack_context__.k.signature();
 ;
 const Education = ()=>{
     _s();
-    const [activeIndex, setActiveIndex] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(0);
-    const education = [
+    const [activeTab, setActiveTab] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(0);
+    const educationData = [
         {
+            id: 1,
             school: "HAMK University of Applied Sciences",
             degree: "Bachelor of Business Administration",
-            period: "2023 - Present",
+            period: "2022 - 2025",
             location: "Hämeenlinna, Finland",
             description: "Currently pursuing a degree in Business Administration with a focus on digital business and technology management. The program combines business fundamentals with modern digital technologies and management practices.",
             achievements: [
@@ -820,33 +821,35 @@ const Education = ()=>{
             ]
         },
         {
+            id: 2,
             school: "Language Studies in Austria",
-            degree: "Language Certification",
-            period: "2022 - 2023",
+            degree: "Language Studies",
+            period: "2020 - 2021",
             location: "Austria",
-            description: "Intensive language study program focusing on German language proficiency. Developed strong communication skills and cultural understanding through immersive learning experiences.",
+            description: "Intensive language studies focusing on German and cultural immersion.",
             achievements: [
-                "Achieved B2 level proficiency",
-                "Participated in cultural exchange programs",
-                "Developed cross-cultural communication skills"
+                "Advanced German language proficiency",
+                "Cultural exchange participation",
+                "International student collaboration"
             ]
         },
         {
+            id: 3,
             school: "High School",
-            degree: "General Education",
-            period: "2019 - 2022",
-            location: "Finland",
-            description: "Completed high school education with a strong focus on Mathematics and Physics. Developed analytical and problem-solving skills through rigorous coursework and practical applications.",
+            degree: "High School Diploma",
+            period: "2017 - 2020",
+            location: "Iran",
+            description: "Completed high school education with a focus on Mathematics and Physics.",
             achievements: [
-                "High academic performance in STEM subjects",
-                "Active participation in science competitions",
-                "Developed strong analytical skills"
+                "Top performer in Mathematics",
+                "Physics competition participant",
+                "Student council member"
             ]
         }
     ];
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
         id: "education",
-        className: "py-20 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800",
+        className: "py-20 bg-gray-50 dark:bg-gray-900 min-h-screen",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
             className: "container mx-auto px-4",
             children: [
@@ -855,7 +858,7 @@ const Education = ()=>{
                     children: "Education"
                 }, void 0, false, {
                     fileName: "[project]/src/app/components/Education.jsx",
-                    lineNumber: 52,
+                    lineNumber: 55,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -863,198 +866,161 @@ const Education = ()=>{
                     children: "My academic journey and achievements"
                 }, void 0, false, {
                     fileName: "[project]/src/app/components/Education.jsx",
-                    lineNumber: 55,
+                    lineNumber: 58,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "max-w-5xl mx-auto",
-                    children: [
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "flex justify-center mb-8 overflow-x-auto",
-                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "flex space-x-4 min-w-max",
-                                children: education.map((edu, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                        onClick: ()=>setActiveIndex(index),
-                                        className: `px-6 py-2 rounded-full transition-all duration-300 whitespace-nowrap ${activeIndex === index ? 'bg-primary text-white shadow-lg scale-105' : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'}`,
-                                        children: edu.school
-                                    }, index, false, {
-                                        fileName: "[project]/src/app/components/Education.jsx",
-                                        lineNumber: 64,
-                                        columnNumber: 17
-                                    }, this))
-                            }, void 0, false, {
-                                fileName: "[project]/src/app/components/Education.jsx",
-                                lineNumber: 62,
-                                columnNumber: 13
-                            }, this)
-                        }, void 0, false, {
+                    className: "flex flex-wrap justify-center gap-4 mb-12",
+                    children: educationData.map((edu, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                            onClick: ()=>setActiveTab(index),
+                            className: `px-6 py-2 rounded-full transition-all duration-300 ${activeTab === index ? 'bg-primary text-white shadow-lg scale-105' : 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'}`,
+                            children: edu.school
+                        }, edu.id, false, {
                             fileName: "[project]/src/app/components/Education.jsx",
-                            lineNumber: 61,
-                            columnNumber: 11
-                        }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "relative",
-                            children: education.map((edu, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: `absolute w-full transition-all duration-500 transform ${activeIndex === index ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full'}`,
-                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "bg-white dark:bg-gray-800 rounded-xl shadow-xl p-8 hover:shadow-2xl transition-shadow duration-300",
+                            lineNumber: 65,
+                            columnNumber: 13
+                        }, this))
+                }, void 0, false, {
+                    fileName: "[project]/src/app/components/Education.jsx",
+                    lineNumber: 63,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "max-w-4xl mx-auto",
+                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 transition-all duration-300",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "flex flex-col md:flex-row justify-between items-start md:items-center mb-6",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         children: [
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "flex flex-col md:flex-row md:justify-between md:items-start mb-6",
-                                                children: [
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                        children: [
-                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                                                                className: "text-2xl font-bold text-gray-800 dark:text-white mb-2",
-                                                                children: edu.degree
-                                                            }, void 0, false, {
-                                                                fileName: "[project]/src/app/components/Education.jsx",
-                                                                lineNumber: 93,
-                                                                columnNumber: 23
-                                                            }, this),
-                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                                className: "text-primary text-lg font-medium",
-                                                                children: edu.school
-                                                            }, void 0, false, {
-                                                                fileName: "[project]/src/app/components/Education.jsx",
-                                                                lineNumber: 96,
-                                                                columnNumber: 23
-                                                            }, this)
-                                                        ]
-                                                    }, void 0, true, {
-                                                        fileName: "[project]/src/app/components/Education.jsx",
-                                                        lineNumber: 92,
-                                                        columnNumber: 21
-                                                    }, this),
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                        className: "flex flex-col items-end mt-4 md:mt-0",
-                                                        children: [
-                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                className: "text-gray-500 dark:text-gray-400 font-medium",
-                                                                children: edu.period
-                                                            }, void 0, false, {
-                                                                fileName: "[project]/src/app/components/Education.jsx",
-                                                                lineNumber: 99,
-                                                                columnNumber: 23
-                                                            }, this),
-                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                className: "text-sm text-gray-500 dark:text-gray-400",
-                                                                children: edu.location
-                                                            }, void 0, false, {
-                                                                fileName: "[project]/src/app/components/Education.jsx",
-                                                                lineNumber: 102,
-                                                                columnNumber: 23
-                                                            }, this)
-                                                        ]
-                                                    }, void 0, true, {
-                                                        fileName: "[project]/src/app/components/Education.jsx",
-                                                        lineNumber: 98,
-                                                        columnNumber: 21
-                                                    }, this)
-                                                ]
-                                            }, void 0, true, {
-                                                fileName: "[project]/src/app/components/Education.jsx",
-                                                lineNumber: 91,
-                                                columnNumber: 19
-                                            }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "mb-6",
-                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                    className: "text-gray-600 dark:text-gray-300 leading-relaxed",
-                                                    children: edu.description
-                                                }, void 0, false, {
-                                                    fileName: "[project]/src/app/components/Education.jsx",
-                                                    lineNumber: 109,
-                                                    columnNumber: 21
-                                                }, this)
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                                className: "text-2xl font-bold text-gray-800 dark:text-white mb-2",
+                                                children: educationData[activeTab].degree
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/components/Education.jsx",
-                                                lineNumber: 108,
-                                                columnNumber: 19
+                                                lineNumber: 84,
+                                                columnNumber: 17
                                             }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                className: "text-primary font-medium mb-1",
+                                                children: educationData[activeTab].school
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/components/Education.jsx",
+                                                lineNumber: 87,
+                                                columnNumber: 17
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/app/components/Education.jsx",
+                                        lineNumber: 83,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "text-right mt-2 md:mt-0",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                className: "text-gray-600 dark:text-gray-400",
+                                                children: educationData[activeTab].period
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/components/Education.jsx",
+                                                lineNumber: 92,
+                                                columnNumber: 17
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                className: "text-gray-500 dark:text-gray-500",
+                                                children: educationData[activeTab].location
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/components/Education.jsx",
+                                                lineNumber: 95,
+                                                columnNumber: 17
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/app/components/Education.jsx",
+                                        lineNumber: 91,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/app/components/Education.jsx",
+                                lineNumber: 82,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                className: "text-gray-600 dark:text-gray-300 mb-6",
+                                children: educationData[activeTab].description
+                            }, void 0, false, {
+                                fileName: "[project]/src/app/components/Education.jsx",
+                                lineNumber: 101,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
+                                        className: "text-lg font-semibold text-gray-800 dark:text-white mb-3",
+                                        children: "Key Achievements"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/components/Education.jsx",
+                                        lineNumber: 106,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
+                                        className: "space-y-2",
+                                        children: educationData[activeTab].achievements.map((achievement, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
+                                                className: "flex items-center text-gray-600 dark:text-gray-300",
                                                 children: [
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
-                                                        className: "text-lg font-semibold text-gray-800 dark:text-white mb-3",
-                                                        children: "Key Achievements"
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                        className: "mr-2 text-primary",
+                                                        children: "•"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/components/Education.jsx",
                                                         lineNumber: 115,
                                                         columnNumber: 21
                                                     }, this),
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
-                                                        className: "space-y-2",
-                                                        children: edu.achievements.map((achievement, achievementIndex)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
-                                                                className: "flex items-start",
-                                                                children: [
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                        className: "text-primary mr-2",
-                                                                        children: "•"
-                                                                    }, void 0, false, {
-                                                                        fileName: "[project]/src/app/components/Education.jsx",
-                                                                        lineNumber: 124,
-                                                                        columnNumber: 27
-                                                                    }, this),
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                        className: "text-gray-600 dark:text-gray-300",
-                                                                        children: achievement
-                                                                    }, void 0, false, {
-                                                                        fileName: "[project]/src/app/components/Education.jsx",
-                                                                        lineNumber: 125,
-                                                                        columnNumber: 27
-                                                                    }, this)
-                                                                ]
-                                                            }, achievementIndex, true, {
-                                                                fileName: "[project]/src/app/components/Education.jsx",
-                                                                lineNumber: 120,
-                                                                columnNumber: 25
-                                                            }, this))
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/src/app/components/Education.jsx",
-                                                        lineNumber: 118,
-                                                        columnNumber: 21
-                                                    }, this)
+                                                    achievement
                                                 ]
-                                            }, void 0, true, {
+                                            }, index, true, {
                                                 fileName: "[project]/src/app/components/Education.jsx",
-                                                lineNumber: 114,
+                                                lineNumber: 111,
                                                 columnNumber: 19
-                                            }, this)
-                                        ]
-                                    }, void 0, true, {
+                                            }, this))
+                                    }, void 0, false, {
                                         fileName: "[project]/src/app/components/Education.jsx",
-                                        lineNumber: 90,
-                                        columnNumber: 17
+                                        lineNumber: 109,
+                                        columnNumber: 15
                                     }, this)
-                                }, index, false, {
-                                    fileName: "[project]/src/app/components/Education.jsx",
-                                    lineNumber: 82,
-                                    columnNumber: 15
-                                }, this))
-                        }, void 0, false, {
-                            fileName: "[project]/src/app/components/Education.jsx",
-                            lineNumber: 80,
-                            columnNumber: 11
-                        }, this)
-                    ]
-                }, void 0, true, {
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/app/components/Education.jsx",
+                                lineNumber: 105,
+                                columnNumber: 13
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/app/components/Education.jsx",
+                        lineNumber: 81,
+                        columnNumber: 11
+                    }, this)
+                }, void 0, false, {
                     fileName: "[project]/src/app/components/Education.jsx",
-                    lineNumber: 59,
+                    lineNumber: 80,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/app/components/Education.jsx",
-            lineNumber: 51,
+            lineNumber: 54,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/app/components/Education.jsx",
-        lineNumber: 50,
+        lineNumber: 53,
         columnNumber: 5
     }, this);
 };
-_s(Education, "rd+5N/MkYjuYD0I+B+MlySxQysU=");
+_s(Education, "9RTnV4k8xQ8Z7mmUeyiKoXdA+A8=");
 _c = Education;
 const __TURBOPACK__default__export__ = Education;
 var _c;
@@ -1082,11 +1048,12 @@ const WorkExperience = ()=>{
     const [activeIndex, setActiveIndex] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(0);
     const experiences = [
         {
-            company: "LightningChart® oy, Finland",
-            position: "Data Analyst Intern",
+            id: 1,
+            title: "Data Analyst Intern",
+            company: "LightningChart® oy",
             period: "May 2024 - August 2024",
-            location: "Remote",
-            description: "During my experience with lighting chart projects, I excelled in conducting DVP testing, creating demo dashboards, and performing data analytics. I played a crucial role in ensuring the reliability and functionality of lighting charts through meticulous DVP testing procedures. Additionally, I leveraged my expertise to design and develop demo dashboards that effectively showcased the capabilities of our lighting solutions to potential clients. Through extensive data analytics, I provided valuable insights and recommendations to optimize performance and enhance user experience. My proficiency in these areas significantly contributed to the success and innovation of lighting chart projects, showcasing my ability to drive results through rigorous testing, compelling demonstrations, and insightful data analysis.",
+            location: "Remote, Finland",
+            description: "During my experience with lighting chart projects, I excelled in conducting DVP testing, creating demo dashboards, and performing data analytics. I played a crucial role in ensuring the reliability and functionality of lighting charts through meticulous DVP testing procedures. Additionally, I leveraged my expertise to design and develop demo dashboards that effectively showcased the capabilities of our lighting solutions to potential clients. Through extensive data analytics, I provided valuable insights and recommendations to optimize performance and enhance user experience.",
             skills: [
                 "Data Analysis",
                 "DVP Testing",
@@ -1096,23 +1063,24 @@ const WorkExperience = ()=>{
             ]
         },
         {
-            company: "BOVI Oy, Finland",
-            position: "Web Developer Intern",
+            id: 2,
+            title: "Web Developer Intern",
+            company: "BOVI Oy",
             period: "February 2024 - April 2024",
-            location: "Remote",
-            description: "During my time at Bovi oy , I specialized in crafting advertisements for restaurants, cafes, and bars. My role involved designing and developing engaging websites using WordPress, collaborating closely with clients to understand their brand identity and marketing objectives. I leveraged innovative strategies to create compelling digital campaigns that exceeded expectations and helped clients attract new patrons in the competitive hospitality industry.",
+            location: "Remote, Finland",
+            description: "As a Web Developer Intern at BOVI Oy, I focused on developing and maintaining web applications using modern technologies. I collaborated with the development team to implement new features, fix bugs, and improve application performance. My role involved working with both frontend and backend technologies, ensuring high-quality code delivery and optimal user experience.",
             skills: [
-                "WordPress",
-                "Web Design",
-                "Digital Marketing",
-                "Client Communication",
-                "UI/UX Design"
+                "React",
+                "Node.js",
+                "MongoDB",
+                "Full-Stack Development",
+                "API Integration"
             ]
         }
     ];
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
-        id: "experience",
-        className: "py-20 bg-gradient-to-b from-white to-gray-50 dark:from-gray-800 dark:to-gray-900",
+        id: "work-experience",
+        className: "py-16 bg-white dark:bg-gray-800",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
             className: "container mx-auto px-4",
             children: [
@@ -1121,185 +1089,155 @@ const WorkExperience = ()=>{
                     children: "Work Experience"
                 }, void 0, false, {
                     fileName: "[project]/src/app/components/WorkExperience.jsx",
-                    lineNumber: 30,
+                    lineNumber: 32,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                     className: "text-center text-gray-600 dark:text-gray-400 mb-12",
-                    children: "My professional journey and contributions"
+                    children: "My professional journey and achievements"
                 }, void 0, false, {
                     fileName: "[project]/src/app/components/WorkExperience.jsx",
-                    lineNumber: 33,
+                    lineNumber: 35,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "max-w-5xl mx-auto",
-                    children: [
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "flex justify-center mb-8",
-                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "flex space-x-4",
-                                children: experiences.map((exp, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                        onClick: ()=>setActiveIndex(index),
-                                        className: `px-6 py-2 rounded-full transition-all duration-300 ${activeIndex === index ? 'bg-primary text-white shadow-lg scale-105' : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'}`,
-                                        children: exp.company.split(',')[0]
-                                    }, index, false, {
-                                        fileName: "[project]/src/app/components/WorkExperience.jsx",
-                                        lineNumber: 42,
-                                        columnNumber: 17
-                                    }, this))
-                            }, void 0, false, {
-                                fileName: "[project]/src/app/components/WorkExperience.jsx",
-                                lineNumber: 40,
-                                columnNumber: 13
-                            }, this)
-                        }, void 0, false, {
+                    className: "flex justify-center gap-4 mb-12",
+                    children: experiences.map((exp, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                            onClick: ()=>setActiveIndex(index),
+                            className: `px-6 py-2 rounded-full transition-all duration-300 ${activeIndex === index ? 'bg-primary text-white shadow-lg scale-105' : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'}`,
+                            children: exp.company
+                        }, exp.id, false, {
                             fileName: "[project]/src/app/components/WorkExperience.jsx",
-                            lineNumber: 39,
-                            columnNumber: 11
-                        }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "relative",
-                            children: experiences.map((exp, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: `absolute w-full transition-all duration-500 transform ${activeIndex === index ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full'}`,
-                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "bg-white dark:bg-gray-800 rounded-xl shadow-xl p-8 hover:shadow-2xl transition-shadow duration-300",
+                            lineNumber: 42,
+                            columnNumber: 13
+                        }, this))
+                }, void 0, false, {
+                    fileName: "[project]/src/app/components/WorkExperience.jsx",
+                    lineNumber: 40,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "max-w-4xl mx-auto",
+                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "bg-gray-50 dark:bg-gray-900 rounded-2xl shadow-xl p-8",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "flex flex-col md:flex-row justify-between items-start md:items-center mb-6",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         children: [
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "flex flex-col md:flex-row md:justify-between md:items-start mb-6",
-                                                children: [
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                        children: [
-                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                                                                className: "text-2xl font-bold text-gray-800 dark:text-white mb-2",
-                                                                children: exp.position
-                                                            }, void 0, false, {
-                                                                fileName: "[project]/src/app/components/WorkExperience.jsx",
-                                                                lineNumber: 71,
-                                                                columnNumber: 23
-                                                            }, this),
-                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                                className: "text-primary text-lg font-medium",
-                                                                children: exp.company
-                                                            }, void 0, false, {
-                                                                fileName: "[project]/src/app/components/WorkExperience.jsx",
-                                                                lineNumber: 74,
-                                                                columnNumber: 23
-                                                            }, this)
-                                                        ]
-                                                    }, void 0, true, {
-                                                        fileName: "[project]/src/app/components/WorkExperience.jsx",
-                                                        lineNumber: 70,
-                                                        columnNumber: 21
-                                                    }, this),
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                        className: "flex flex-col items-end mt-4 md:mt-0",
-                                                        children: [
-                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                className: "text-gray-500 dark:text-gray-400 font-medium",
-                                                                children: exp.period
-                                                            }, void 0, false, {
-                                                                fileName: "[project]/src/app/components/WorkExperience.jsx",
-                                                                lineNumber: 77,
-                                                                columnNumber: 23
-                                                            }, this),
-                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                className: "text-sm text-gray-500 dark:text-gray-400",
-                                                                children: exp.location
-                                                            }, void 0, false, {
-                                                                fileName: "[project]/src/app/components/WorkExperience.jsx",
-                                                                lineNumber: 80,
-                                                                columnNumber: 23
-                                                            }, this)
-                                                        ]
-                                                    }, void 0, true, {
-                                                        fileName: "[project]/src/app/components/WorkExperience.jsx",
-                                                        lineNumber: 76,
-                                                        columnNumber: 21
-                                                    }, this)
-                                                ]
-                                            }, void 0, true, {
-                                                fileName: "[project]/src/app/components/WorkExperience.jsx",
-                                                lineNumber: 69,
-                                                columnNumber: 19
-                                            }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "mb-6",
-                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                    className: "text-gray-600 dark:text-gray-300 leading-relaxed",
-                                                    children: exp.description
-                                                }, void 0, false, {
-                                                    fileName: "[project]/src/app/components/WorkExperience.jsx",
-                                                    lineNumber: 87,
-                                                    columnNumber: 21
-                                                }, this)
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                                className: "text-2xl font-bold text-gray-800 dark:text-white mb-2",
+                                                children: experiences[activeIndex].title
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/components/WorkExperience.jsx",
-                                                lineNumber: 86,
-                                                columnNumber: 19
+                                                lineNumber: 61,
+                                                columnNumber: 17
                                             }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                children: [
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
-                                                        className: "text-lg font-semibold text-gray-800 dark:text-white mb-3",
-                                                        children: "Key Skills"
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/src/app/components/WorkExperience.jsx",
-                                                        lineNumber: 93,
-                                                        columnNumber: 21
-                                                    }, this),
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                        className: "flex flex-wrap gap-2",
-                                                        children: exp.skills.map((skill, skillIndex)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                className: "px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-full text-sm font-medium",
-                                                                children: skill
-                                                            }, skillIndex, false, {
-                                                                fileName: "[project]/src/app/components/WorkExperience.jsx",
-                                                                lineNumber: 98,
-                                                                columnNumber: 25
-                                                            }, this))
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/src/app/components/WorkExperience.jsx",
-                                                        lineNumber: 96,
-                                                        columnNumber: 21
-                                                    }, this)
-                                                ]
-                                            }, void 0, true, {
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                className: "text-primary font-medium",
+                                                children: experiences[activeIndex].company
+                                            }, void 0, false, {
                                                 fileName: "[project]/src/app/components/WorkExperience.jsx",
-                                                lineNumber: 92,
-                                                columnNumber: 19
+                                                lineNumber: 64,
+                                                columnNumber: 17
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/app/components/WorkExperience.jsx",
+                                        lineNumber: 60,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "text-right mt-2 md:mt-0",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                className: "text-gray-600 dark:text-gray-400",
+                                                children: experiences[activeIndex].period
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/components/WorkExperience.jsx",
+                                                lineNumber: 69,
+                                                columnNumber: 17
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                className: "text-gray-500 dark:text-gray-500",
+                                                children: experiences[activeIndex].location
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/components/WorkExperience.jsx",
+                                                lineNumber: 72,
+                                                columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/components/WorkExperience.jsx",
                                         lineNumber: 68,
-                                        columnNumber: 17
+                                        columnNumber: 15
                                     }, this)
-                                }, index, false, {
-                                    fileName: "[project]/src/app/components/WorkExperience.jsx",
-                                    lineNumber: 60,
-                                    columnNumber: 15
-                                }, this))
-                        }, void 0, false, {
-                            fileName: "[project]/src/app/components/WorkExperience.jsx",
-                            lineNumber: 58,
-                            columnNumber: 11
-                        }, this)
-                    ]
-                }, void 0, true, {
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/app/components/WorkExperience.jsx",
+                                lineNumber: 59,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                className: "text-gray-600 dark:text-gray-300 mb-6",
+                                children: experiences[activeIndex].description
+                            }, void 0, false, {
+                                fileName: "[project]/src/app/components/WorkExperience.jsx",
+                                lineNumber: 78,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
+                                        className: "text-lg font-semibold text-gray-800 dark:text-white mb-3",
+                                        children: "Key Skills"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/components/WorkExperience.jsx",
+                                        lineNumber: 83,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "flex flex-wrap gap-2",
+                                        children: experiences[activeIndex].skills.map((skill, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                className: "px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full text-sm",
+                                                children: skill
+                                            }, index, false, {
+                                                fileName: "[project]/src/app/components/WorkExperience.jsx",
+                                                lineNumber: 88,
+                                                columnNumber: 19
+                                            }, this))
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/components/WorkExperience.jsx",
+                                        lineNumber: 86,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/app/components/WorkExperience.jsx",
+                                lineNumber: 82,
+                                columnNumber: 13
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/app/components/WorkExperience.jsx",
+                        lineNumber: 58,
+                        columnNumber: 11
+                    }, this)
+                }, void 0, false, {
                     fileName: "[project]/src/app/components/WorkExperience.jsx",
-                    lineNumber: 37,
+                    lineNumber: 57,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/app/components/WorkExperience.jsx",
-            lineNumber: 29,
+            lineNumber: 31,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/app/components/WorkExperience.jsx",
-        lineNumber: 28,
+        lineNumber: 30,
         columnNumber: 5
     }, this);
 };

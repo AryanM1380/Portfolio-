@@ -20,21 +20,32 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
+  const handleScroll = (e, href) => {
+    e.preventDefault();
+    
+    // Only handle anchor links
+    if (href.startsWith('#')) {
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+        });
+      }
+    }
+    setIsOpen(false);
+  };
+
+  const toggleTheme = () => {
+    setTheme(theme === 'light' ? 'dark' : 'light');
   };
 
   const navLinks = [
-    { name: 'Home', href: '#home' },
     { name: 'About', href: '#about' },
+    { name: 'Projects', href: '#projects' },
     { name: 'Skills', href: '#skills' },
     { name: 'Education', href: '#education' },
     { name: 'Work Experience', href: '#work-experience' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Community', href: '#community' },
     { name: 'Contact', href: '#contact' }
   ];
 
@@ -50,11 +61,10 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link 
-            href="#home" 
+            href="/" 
             className="text-2xl font-bold text-primary hover:text-purple-600 transition-colors"
-            onClick={scrollToTop}
           >
-            AM
+            Lego
           </Link>
 
           {/* Desktop Navigation */}
@@ -64,7 +74,7 @@ const Navbar = () => {
                 key={link.name}
                 href={link.href}
                 className="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-white transition-colors"
-                onClick={scrollToTop}
+                onClick={(e) => link.href.startsWith('#') && handleScroll(e, link.href)}
               >
                 {link.name}
               </Link>
@@ -73,7 +83,7 @@ const Navbar = () => {
 
           {/* Theme Toggle */}
           <button
-            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+            onClick={toggleTheme}
             className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
             aria-label="Toggle theme"
           >
@@ -114,10 +124,7 @@ const Navbar = () => {
                 key={link.name}
                 href={link.href}
                 className="block text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-white transition-colors"
-                onClick={() => {
-                  scrollToTop();
-                  setIsOpen(false);
-                }}
+                onClick={(e) => link.href.startsWith('#') && handleScroll(e, link.href)}
               >
                 {link.name}
               </Link>
