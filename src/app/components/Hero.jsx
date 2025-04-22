@@ -8,22 +8,21 @@ const Hero = () => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <section className="min-h-screen flex items-center justify-center bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 py-20">
+    <section id="about" className="min-h-screen flex items-center justify-center bg-gradient-to-b from-gray-100 to-gray-50 dark:from-gray-900 dark:to-gray-800 py-20">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center justify-between gap-12">
           <div className="md:w-1/2 text-center md:text-left">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 dark:text-white mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-700 dark:text-white mb-6">
               Hi, I'm <span className="text-primary">Aryan Mohammadi</span>
             </h1>
-            <h2 className="text-xl md:text-2xl text-gray-50 dark:text-gray-300 mb-6">
+            <h2 className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-6">
             Full Stack Developer | Data Analyst | Machine Learning Developer
             </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl">
+            <p className="text-lg text-gray-500 dark:text-gray-400 mb-8 max-w-2xl">
             Full Stack Developer with a strong background in data analysis and machine learning. 
             Experienced in building modern web applications and data-driven solutions using tools like React, Node.js, Python, and ML libraries. 
             Graduated in Computer Applications from HAMK University, Finland. 
             Passionate about creating efficient, user-friendly, and intelligent digital experiences.
-
 
             </p>
             <div className="flex flex-wrap gap-4 justify-center md:justify-start">
@@ -33,15 +32,9 @@ const Hero = () => {
               >
                 Contact Me
               </a>
-              <a 
-                href="/resume.pdf" 
-                className="px-6 py-3 bg-gray-800 text-white rounded-lg hover:bg-gray-700 transition-colors duration-300"
-              >
-                Download Resume
-              </a>
               <Link 
                 href="/community" 
-                className="px-6 py-3 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors duration-300"
+                className="px-6 py-3 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-white rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors duration-300"
               >
                 Join Community
               </Link>
