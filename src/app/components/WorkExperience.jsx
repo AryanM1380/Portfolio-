@@ -1,9 +1,10 @@
 "use client";
 
 import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const WorkExperience = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [expandedId, setExpandedId] = useState(null);
 
   const experiences = [
     {
@@ -36,64 +37,86 @@ const WorkExperience = () => {
           My professional journey and achievements
         </p>
 
-        {/* Company Navigation */}
-        <div className="flex justify-center gap-4 mb-12">
-          {experiences.map((exp, index) => (
-            <button
-              key={exp.id}
-              onClick={() => setActiveIndex(index)}
-              className={`px-6 py-2 rounded-full transition-all duration-300 ${
-                activeIndex === index
-                  ? 'bg-primary text-white shadow-lg scale-105'
-                  : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
-              }`}
-            >
-              {exp.company}
-            </button>
-          ))}
-        </div>
-
-        {/* Experience Details */}
         <div className="max-w-4xl mx-auto">
-          <div className="bg-gray-50 dark:bg-gray-900 rounded-2xl shadow-xl p-8">
-            <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
-              <div>
-                <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-2">
-                  {experiences[activeIndex].title}
-                </h3>
-                <p className="text-primary font-medium">
-                  {experiences[activeIndex].company}
-                </p>
-              </div>
-              <div className="text-right mt-2 md:mt-0">
-                <p className="text-gray-600 dark:text-gray-400">
-                  {experiences[activeIndex].period}
-                </p>
-                <p className="text-gray-500 dark:text-gray-500">
-                  {experiences[activeIndex].location}
-                </p>
-              </div>
-            </div>
+          <div className="relative">
+            {/* Timeline line */}
+            <div className="absolute left-4 top-0 bottom-0 w-1 bg-gray-200 dark:bg-gray-700 rounded-full"></div>
+            
+            {experiences.map((exp, index) => (
+              <motion.div
+                key={exp.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.2 }}
+                className="relative mb-8"
+              >
+                {/* Timeline dot */}
+                <div className="absolute left-4 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-primary rounded-full"></div>
+                
+                <motion.div
+                  className={`ml-12 p-6 rounded-xl shadow-lg cursor-pointer transition-all duration-300 ${
+                    expandedId === exp.id
+                      ? 'bg-primary/10 dark:bg-primary/20'
+                      : 'bg-white dark:bg-gray-900 hover:bg-gray-50 dark:hover:bg-gray-800'
+                  }`}
+                  onClick={() => setExpandedId(expandedId === exp.id ? null : exp.id)}
+                >
+                  <div className="flex flex-col md:flex-row justify-between items-start md:items-center">
+                    <div>
+                      <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-1">
+                        {exp.title}
+                      </h3>
+                      <p className="text-primary font-medium">
+                        {exp.company}
+                      </p>
+                    </div>
+                    <div className="text-right mt-2 md:mt-0">
+                      <p className="text-gray-600 dark:text-gray-400">
+                        {exp.period}
+                      </p>
+                      <p className="text-gray-500 dark:text-gray-500">
+                        {exp.location}
+                      </p>
+                    </div>
+                  </div>
 
-            <p className="text-gray-600 dark:text-gray-300 mb-6">
-              {experiences[activeIndex].description}
-            </p>
+                  <AnimatePresence>
+                    {expandedId === exp.id && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="mt-4"
+                      >
+                        <p className="text-gray-600 dark:text-gray-300 mb-6">
+                          {exp.description}
+                        </p>
 
-            <div>
-              <h4 className="text-lg font-semibold text-gray-800 dark:text-white mb-3">
-                Key Skills
-              </h4>
-              <div className="flex flex-wrap gap-2">
-                {experiences[activeIndex].skills.map((skill, index) => (
-                  <span
-                    key={index}
-                    className="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full text-sm"
-                  >
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </div>
+                        <div>
+                          <h4 className="text-lg font-semibold text-gray-800 dark:text-white mb-3">
+                            Key Skills
+                          </h4>
+                          <div className="flex flex-wrap gap-2">
+                            {exp.skills.map((skill, skillIndex) => (
+                              <motion.span
+                                key={skillIndex}
+                                initial={{ scale: 0.8, opacity: 0 }}
+                                animate={{ scale: 1, opacity: 1 }}
+                                transition={{ delay: skillIndex * 0.1 }}
+                                className="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full text-sm hover:bg-primary hover:text-white dark:hover:bg-primary dark:hover:text-white transition-colors duration-300"
+                              >
+                                {skill}
+                              </motion.span>
+                            ))}
+                          </div>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </div>

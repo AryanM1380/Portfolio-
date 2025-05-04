@@ -1,6 +1,7 @@
 import Hero from './components/Hero';
 import Projects from './components/Projects';
 import Skills from './components/Skills';
+import Languages from './components/Languages';
 import Education from './components/Education';
 import WorkExperience from './components/WorkExperience';
 import Contact from './components/Contact';
@@ -13,6 +14,7 @@ export default function Home() {
       <Hero />
       <Projects />
       <Skills />
+      <Languages />
       <Education />
       <WorkExperience />
       {/* <div className="py-20 bg-gray-50 dark:bg-gray-900">

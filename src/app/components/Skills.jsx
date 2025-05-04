@@ -1,220 +1,325 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
+import { 
+  FaCode, 
+  FaServer, 
+  FaChartLine, 
+  FaRobot, 
+  FaLaptopCode, 
+  FaGlobe, 
+  FaGamepad, 
+  FaUsers,
+  FaChevronLeft,
+  FaChevronRight
+} from 'react-icons/fa';
 
 const Skills = () => {
   const [activeCategory, setActiveCategory] = useState('programming');
+  const [hoveredSkill, setHoveredSkill] = useState(null);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(false);
+  const { scrollY } = useScroll();
+  const y = useTransform(scrollY, [0, 500], [0, 100]);
+
+  useEffect(() => {
+    // Check system preference for dark mode
+    const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    setIsDarkMode(darkModeMediaQuery.matches);
+    
+    const handleChange = (e) => setIsDarkMode(e.matches);
+    darkModeMediaQuery.addEventListener('change', handleChange);
+    return () => darkModeMediaQuery.removeEventListener('change', handleChange);
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const glassEffect = {
+    background: isDarkMode 
+      ? 'rgba(17, 25, 40, 0.75)'
+      : 'rgba(255, 255, 255, 0.75)',
+    backdropFilter: 'blur(16px) saturate(180%)',
+    border: isDarkMode
+      ? '1px solid rgba(255, 255, 255, 0.125)'
+      : '1px solid rgba(0, 0, 0, 0.125)',
+    boxShadow: isDarkMode
+      ? '0 8px 32px 0 rgba(0, 0, 0, 0.37)'
+      : '0 8px 32px 0 rgba(31, 38, 135, 0.37)'
+  };
 
   const skillCategories = [
     {
       id: 'programming',
-      name: 'Programming & Software Development',
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-        </svg>
-      ),
+      title: 'Programming & Software Development',
+      icon: <FaCode className="text-xl" />,
+      color: 'from-blue-500 to-blue-600',
       skills: [
-        { name: 'Python', icon: '🐍' },
-        { name: 'Java', icon: '☕' },
-        { name: 'Object-Oriented Programming', icon: '🔄' },
-        { name: 'Software Development Tools', icon: '🛠️' },
-        { name: 'HTML', icon: '📄' },
-        { name: 'CSS', icon: '🎨' },
-        { name: 'JavaScript (Advanced)', icon: '⚡' },
-        { name: 'Web Frameworks', icon: '🌐' },
-        { name: 'React Native', icon: '📱' },
-        { name: 'Cross-platform Development', icon: '🔄' },
-        { name: 'Game Programming', icon: '🎮' },
-        { name: 'Game Development', icon: '🎮' }
+        { name: 'Python', icon: '🐍', level: 90 },
+        { name: 'Java', icon: '☕', level: 85 },
+        { name: 'Object-Oriented Programming', icon: '🔄', level: 95 },
+        { name: 'Software Development Tools', icon: '🛠️', level: 90 },
+        { name: 'HTML', icon: '📄', level: 95 },
+        { name: 'CSS', icon: '🎨', level: 90 },
+        { name: 'JavaScript (Advanced)', icon: '⚡', level: 95 },
+        { name: 'Web Frameworks', icon: '🌐', level: 90 },
+        { name: 'React Native', icon: '📱', level: 85 },
+        { name: 'Cross-platform Development', icon: '🔄', level: 80 },
+        { name: 'Game Programming', icon: '🎮', level: 75 },
+        { name: 'Game Development', icon: '🎮', level: 75 }
       ]
     },
     {
       id: 'backend',
-      name: 'Backend Development & Databases',
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4" />
-        </svg>
-      ),
+      title: 'Backend Development & Databases',
+      icon: <FaServer className="text-xl" />,
+      color: 'from-purple-500 to-purple-600',
       skills: [
-        { name: 'SQL', icon: '🗄️' },
-        { name: 'NoSQL', icon: '📊' },
-        { name: 'Node JS', icon: '🟢' },
-        { name: 'Next JS', icon: '▶️' },
-        { name: 'PHP', icon: '🐘' },
-        { name: 'REST APIs', icon: '🔌' },
-        { name: 'GraphQL', icon: '📈' },
-        { name: 'Web Services', icon: '🌐' },
-        { name: 'Web Accessibility', icon: '♿' }
+        { name: 'SQL', icon: '🗄️', level: 90 },
+        { name: 'NoSQL', icon: '📊', level: 85 },
+        { name: 'Node JS', icon: '🟢', level: 90 },
+        { name: 'Next JS', icon: '▶️', level: 85 },
+        { name: 'PHP', icon: '🐘', level: 80 },
+        { name: 'REST APIs', icon: '🔌', level: 95 },
+        { name: 'GraphQL', icon: '📈', level: 85 },
+        { name: 'Web Services', icon: '🌐', level: 90 },
+        { name: 'Web Accessibility', icon: '♿', level: 85 }
       ]
     },
     {
       id: 'data',
-      name: 'Data Analysis & AI',
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-        </svg>
-      ),
+      title: 'Data Analysis & AI',
+      icon: <FaChartLine className="text-xl" />,
+      color: 'from-green-500 to-green-600',
       skills: [
-        { name: 'Data Analysis', icon: '📊' },
-        { name: 'NumPy', icon: '🔢' },
-        { name: 'Pandas', icon: '🐼' },
-        { name: 'Machine Learning', icon: '🤖' },
-        { name: 'Predictive Analytics', icon: '🔮' },
-        { name: 'Digital Analytics', icon: '📱' },
-        { name: 'Social Media Analytics', icon: '📱' },
-        { name: 'Business Analytics', icon: '📈' },
-        { name: 'Data Engineering', icon: '⚙️' }
+        { name: 'Data Analysis', icon: '📊', level: 90 },
+        { name: 'NumPy', icon: '🔢', level: 85 },
+        { name: 'Pandas', icon: '🐼', level: 90 },
+        { name: 'Machine Learning', icon: '🤖', level: 80 },
+        { name: 'Predictive Analytics', icon: '🔮', level: 75 },
+        { name: 'Digital Analytics', icon: '📱', level: 85 },
+        { name: 'Social Media Analytics', icon: '📱', level: 80 },
+        { name: 'Business Analytics', icon: '📈', level: 85 },
+        { name: 'Data Engineering', icon: '⚙️', level: 80 }
       ]
     },
     {
       id: 'automation',
-      name: 'Automation & Software Testing',
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-        </svg>
-      ),
+      title: 'Automation & Software Testing',
+      icon: <FaRobot className="text-xl" />,
+      color: 'from-red-500 to-red-600',
       skills: [
-        { name: 'Software Robotics (RPA)', icon: '🤖' },
-        { name: 'Software Testing', icon: '🧪' },
-        { name: 'Business Process Automation', icon: '⚙️' },
-        { name: 'Test Automation', icon: '🔁' }
+        { name: 'Software Robotics (RPA)', icon: '🤖', level: 85 },
+        { name: 'Software Testing', icon: '🧪', level: 90 },
+        { name: 'Business Process Automation', icon: '⚙️', level: 85 },
+        { name: 'Test Automation', icon: '🔁', level: 90 }
       ]
     },
     {
       id: 'fundamentals',
-      name: 'Computer Science Fundamentals',
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-        </svg>
-      ),
+      title: 'Computer Science Fundamentals',
+      icon: <FaLaptopCode className="text-xl" />,
+      color: 'from-yellow-500 to-yellow-600',
       skills: [
-        { name: 'Operating Systems', icon: '💻' },
-        { name: 'Computer Networks', icon: '🌐' },
-        { name: 'Network Security', icon: '🔒' },
-        { name: 'Virtualization Techniques', icon: '🖥️' }
+        { name: 'Operating Systems', icon: '💻', level: 90 },
+        { name: 'Computer Networks', icon: '🌐', level: 85 },
+        { name: 'Network Security', icon: '🔒', level: 80 },
+        { name: 'Virtualization Techniques', icon: '🖥️', level: 75 }
       ]
     },
     {
       id: 'web',
-      name: 'Web & UI/UX Development',
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
-        </svg>
-      ),
+      title: 'Web & UI/UX Development',
+      icon: <FaGlobe className="text-xl" />,
+      color: 'from-indigo-500 to-indigo-600',
       skills: [
-        { name: 'Static Website Development', icon: '🌐' },
-        { name: 'WordPress', icon: '📝' },
-        { name: 'Drupal', icon: '🌐' },
-        { name: 'Web Accessibility', icon: '♿' },
-        { name: 'WCAG Compliance', icon: '♿' },
-        { name: 'UI/UX Design', icon: '🎨' }
+        { name: 'Static Website Development', icon: '🌐', level: 95 },
+        { name: 'WordPress', icon: '📝', level: 90 },
+        { name: 'Drupal', icon: '🌐', level: 80 },
+        { name: 'Web Accessibility', icon: '♿', level: 85 },
+        { name: 'WCAG Compliance', icon: '♿', level: 85 },
+        { name: 'UI/UX Design', icon: '🎨', level: 90 }
       ]
     },
     {
       id: 'game',
-      name: 'Game Development & 3D Modelling',
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
-        </svg>
-      ),
+      title: 'Game Development & 3D Modelling',
+      icon: <FaGamepad className="text-xl" />,
+      color: 'from-pink-500 to-pink-600',
       skills: [
-        { name: '3D Modelling (Blender)', icon: '🎨' },
-        { name: 'Unity', icon: '🎮' },
-        { name: 'Game Engine Development', icon: '⚙️' },
-        { name: 'Game Development', icon: '🎮' }
+        { name: '3D Modelling (Blender)', icon: '🎨', level: 75 },
+        { name: 'Unity', icon: '🎮', level: 80 },
+        { name: 'Game Engine Development', icon: '⚙️', level: 75 },
+        { name: 'Game Development', icon: '🎮', level: 80 }
       ]
     },
     {
       id: 'management',
-      name: 'Communication & Project Management',
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-        </svg>
-      ),
+      title: 'Communication & Project Management',
+      icon: <FaUsers className="text-xl" />,
+      color: 'from-teal-500 to-teal-600',
       skills: [
-        { name: 'Customer Communication', icon: '💬' },
-        { name: 'Agile', icon: '🔄' },
-        { name: 'Scrum', icon: '📋' },
-        { name: 'Project Management', icon: '📊' },
-        { name: 'Research', icon: '🔍' }
-      ]
-    },
-    {
-      id: 'languages',
-      name: 'Languages',
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
-        </svg>
-      ),
-      skills: [
-        { name: 'Finnish', level: 'Basic' },
-        { name: 'English', level: 'Fluently' },
-        { name: 'German', level: 'Intermediate' },
-        { name: 'Farsi', level: 'Native' }
+        { name: 'Customer Communication', icon: '💬', level: 95 },
+        { name: 'Agile', icon: '🔄', level: 90 },
+        { name: 'Scrum', icon: '📋', level: 85 },
+        { name: 'Project Management', icon: '📊', level: 90 },
+        { name: 'Research', icon: '🔍', level: 95 }
       ]
     }
   ];
 
+  const currentCategory = skillCategories.find(cat => cat.id === activeCategory);
+
   return (
-    <section id="skills" className="py-20 bg-white dark:bg-gray-800">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800 dark:text-white">
-          Skills & Expertise
-        </h2>
-        
-        {/* Category Tabs */}
-        <div className="flex flex-wrap justify-center mb-8">
-          {skillCategories.map((category) => (
-            <button
-              key={category.id}
-              onClick={() => setActiveCategory(category.id)}
-              className={`px-4 py-2 m-1 rounded-full text-sm font-medium transition-colors flex items-center ${
-                activeCategory === category.id
-                  ? 'bg-primary text-white'
-                  : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
+    <section 
+      id="skills" 
+      className="py-20 relative overflow-hidden min-h-screen"
+      style={{
+        background: isDarkMode
+          ? 'linear-gradient(to bottom, #111827, #1f2937)'
+          : 'linear-gradient(to bottom, #f3f4f6, #ffffff)'
+      }}
+      role="region"
+      aria-label="Skills section"
+    >
+      {/* Enhanced Animated Background */}
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-500/10 via-transparent to-purple-500/10"></div>
+        <div className="absolute inset-0 bg-[url('/pattern.svg')] bg-repeat opacity-5"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-transparent via-gray-900/50 to-transparent"></div>
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500">
+            Skills & Expertise
+          </h2>
+          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+            My technical capabilities and professional competencies
+          </p>
+        </motion.div>
+
+        {/* Enhanced Category Navigation */}
+        <motion.div
+          initial={{ y: -100 }}
+          animate={{ y: 0 }}
+          className={`sticky top-0 z-50 mb-12 transition-all duration-300 ${
+            isScrolled ? 'bg-white/80 dark:bg-gray-800/80 backdrop-blur-md' : ''
+          }`}
+          style={glassEffect}
+        >
+          <div className="container mx-auto px-4">
+            <div className="flex flex-wrap justify-center items-center gap-4 py-4">
+              {skillCategories.map((category) => (
+                <motion.button
+                  key={category.id}
+                  onClick={() => setActiveCategory(category.id)}
+                  whileHover={{ 
+                    scale: 1.05,
+                    rotateY: 5,
+                    rotateX: 5,
+                    transition: { duration: 0.3 }
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                  className={`flex items-center gap-2 px-4 py-2 rounded-full transition-all duration-300 ${
+                    activeCategory === category.id
+                      ? `bg-gradient-to-r ${category.color} text-white shadow-lg`
+                      : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
+                  }`}
+                  style={{
+                    transformStyle: 'preserve-3d',
+                    transform: 'perspective(1000px) rotateY(0deg) rotateX(0deg)'
+                  }}
+                  aria-label={`View ${category.title} skills`}
+                >
+                  {category.icon}
+                  <span className="hidden md:inline">{category.title}</span>
+                </motion.button>
+              ))}
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Enhanced Skills Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          {currentCategory?.skills.map((skill, index) => (
+            <motion.div
+              key={skill.name}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3, delay: index * 0.1 }}
+              onHoverStart={() => setHoveredSkill(skill.name)}
+              onHoverEnd={() => setHoveredSkill(null)}
+              className={`group relative overflow-hidden rounded-2xl p-6 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-xl ${
+                hoveredSkill === skill.name ? 'ring-2 ring-primary' : ''
               }`}
+              style={{
+                ...glassEffect,
+                transformStyle: 'preserve-3d',
+                transform: 'perspective(1000px) rotateY(0deg) rotateX(0deg)'
+              }}
+              role="article"
+              aria-label={`${skill.name} skill card`}
             >
-              {category.icon}
-              {category.name}
-            </button>
-          ))}
-        </div>
-        
-        {/* Skills Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {skillCategories
-            .find(category => category.id === activeCategory)
-            ?.skills.map((skill, index) => (
-              <div 
-                key={index}
-                className="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow"
-              >
-                <div className="flex items-center">
-                  {activeCategory === 'languages' ? (
-                    <div className="flex items-center w-full">
-                      <div className="flex-1">
-                        <span className="text-gray-800 dark:text-gray-200">{skill.name}</span>
-                        <span className="text-sm text-gray-500 dark:text-gray-400 ml-2">({skill.level})</span>
-                      </div>
-                    </div>
-                  ) : (
-                    <>
-                      <span className="text-2xl mr-3">{skill.icon}</span>
-                      <span className="text-gray-800 dark:text-gray-200">{skill.name}</span>
-                    </>
-                  )}
+              <div className="absolute inset-0 bg-gradient-to-r opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
+              
+              <div className="relative z-10">
+                <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center gap-3">
+                    <span className="text-2xl">{skill.icon}</span>
+                    <h3 className="text-xl font-bold text-gray-800 dark:text-white">
+                      {skill.name}
+                    </h3>
+                  </div>
                 </div>
+
+                <div className="relative h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                  <motion.div
+                    initial={{ width: 0 }}
+                    animate={{ width: `${skill.level}%` }}
+                    transition={{ duration: 1, delay: index * 0.1 }}
+                    className={`absolute h-full rounded-full bg-gradient-to-r ${currentCategory.color}`}
+                  />
+                </div>
+
+                <div className="mt-2 flex justify-between text-sm text-gray-600 dark:text-gray-400">
+                  <span>Beginner</span>
+                  <span>Expert</span>
+                </div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: hoveredSkill === skill.name ? 1 : 0, y: hoveredSkill === skill.name ? 0 : 10 }}
+                  className="absolute inset-0 p-6 flex items-center justify-center"
+                  style={{
+                    ...glassEffect,
+                    transformStyle: 'preserve-3d',
+                    transform: 'perspective(1000px) rotateY(0deg) rotateX(0deg)'
+                  }}
+                >
+                  <div className="text-center">
+                    <span className="text-4xl mb-2">{skill.icon}</span>
+                    <h3 className="text-xl font-bold mb-2">{skill.name}</h3>
+                    <div className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500">
+                      {skill.level}%
+                    </div>
+                  </div>
+                </motion.div>
               </div>
-            ))}
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
