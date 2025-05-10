@@ -56,7 +56,7 @@ const Education = () => {
   ];
 
   return (
-    <section id="education" className="py-20 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
+    <section id="education" className="py-20 bg-gradient-to-b from-[#181c2a] to-[#232946]">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -65,10 +65,10 @@ const Education = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-800 dark:text-white">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
             Education
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-400">
+          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
             My academic journey and achievements
           </p>
         </motion.div>

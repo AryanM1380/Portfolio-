@@ -28,12 +28,12 @@ const WorkExperience = () => {
   ];
 
   return (
-    <section id="work-experience" className="py-16 bg-white dark:bg-gray-800">
+    <section id="work-experience" className="py-16 bg-gradient-to-b from-[#181c2a] to-[#232946]">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-800 dark:text-white">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-white">
           Work Experience
         </h2>
-        <p className="text-center text-gray-600 dark:text-gray-400 mb-12">
+        <p className="text-center text-gray-300 mb-12">
           My professional journey and achievements
         </p>
 

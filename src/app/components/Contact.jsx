@@ -59,7 +59,7 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
+    <section id="contact" className="py-20 bg-gradient-to-b from-[#181c2a] to-[#232946]">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -67,10 +67,10 @@ const Contact = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-800 dark:text-white mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
             Let's Connect
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
             I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
           </p>
         </motion.div>
@@ -110,7 +110,7 @@ const Contact = () => {
           transition={{ delay: 0.5, duration: 0.5 }}
           className="mt-16 text-center"
         >
-          <p className="text-gray-600 dark:text-gray-400 text-lg">
+          <p className="text-gray-300 text-lg">
             Feel free to reach out through any of these channels. I typically respond within 24 hours.
           </p>
         </motion.div>
