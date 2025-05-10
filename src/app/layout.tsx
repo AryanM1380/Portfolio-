@@ -4,6 +4,7 @@ import "./globals.css";
 import React from 'react';
 import NavbarComponent from "./components/navbar";
 import ScrollToTop from "./components/ScrollToTop";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const playfair = Playfair_Display({ 
   subsets: ["latin"],
@@ -51,6 +52,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <NavbarComponent />
         <main>{children}</main>
         <ScrollToTop />
+        <SpeedInsights />
       </body>
     </html>   
   );
