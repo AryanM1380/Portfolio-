@@ -6,8 +6,8 @@
   "path": "static/chunks/src_app_layout_tsx_f0e4c1a2._.js",
   "chunks": [
     "static/chunks/[root of the server]__96acebd6._.css",
-    "static/chunks/[turbopack]_browser_dev_hmr-client_hmr-client_ts_c8928fcc._.js",
-    "static/chunks/_d94d9b96._.js"
+    "static/chunks/[turbopack]_browser_dev_hmr-client_hmr-client_ts_b253e370._.js",
+    "static/chunks/_aec7e208._.js"
   ],
   "source": "dynamic"
 });
