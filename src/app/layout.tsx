@@ -27,6 +27,9 @@ export const metadata: Metadata = {
     shortcut: '/favicon.svg',
     apple: '/favicon.svg',
   },
+  other: {
+    'msvalidate.01': '6E1770B1687178860721FE9D412194ED'
+  }
 };
 
 // export default function RootLayout({
