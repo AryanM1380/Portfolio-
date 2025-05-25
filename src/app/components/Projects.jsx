@@ -30,9 +30,6 @@ const Projects = () => {
       ? 'rgba(17, 25, 40, 0.75)'
       : 'rgba(255, 255, 255, 0.75)',
     backdropFilter: 'blur(16px) saturate(180%)',
-    border: isDarkMode
-      ? '1px solid rgba(255, 255, 255, 0.125)'
-      : '1px solid rgba(0, 0, 0, 0.125)',
     boxShadow: isDarkMode
       ? '0 8px 32px 0 rgba(0, 0, 0, 0.37)'
       : '0 8px 32px 0 rgba(31, 38, 135, 0.37)'
@@ -288,7 +285,12 @@ const Projects = () => {
   return (
     <section 
       id="projects" 
-      className="py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 relative overflow-hidden"
+      className="py-20 relative overflow-hidden min-h-screen"
+      style={{
+        background: isDarkMode
+          ? 'linear-gradient(to bottom, #111827, #1f2937)'
+          : 'linear-gradient(to bottom, #f3f4f6, #ffffff)'
+      }}
       role="region"
       aria-label="Projects section"
     >
@@ -307,11 +309,11 @@ const Projects = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            My <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Projects</span>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500">
+            My Projects
           </h2>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-            A collection of my recent work and contributions to various projects
+          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+            A showcase of my recent work and contributions
           </p>
         </motion.div>
 
@@ -332,7 +334,7 @@ const Projects = () => {
               placeholder="Search projects..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 rounded-xl bg-gray-800/50 text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full pl-10 pr-4 py-2 rounded-xl bg-gray-800/50 text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
               aria-label="Search projects"
             />
           </div>
@@ -375,7 +377,7 @@ const Projects = () => {
                 onMouseLeave={() => setHoveredProject(null)}
               >
                 <motion.div
-                  className="rounded-2xl overflow-hidden cursor-pointer"
+                  className="rounded-2xl overflow-hidden cursor-pointer h-full"
                   whileHover={{ 
                     scale: 1.02,
                     rotateY: 5,
@@ -400,10 +402,38 @@ const Projects = () => {
                       className="object-cover transition-transform duration-300 group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute bottom-0 left-0 right-0 p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                      <div className="flex gap-2">
+                        {project.githubLink && (
+                          <motion.a
+                            href={project.githubLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            whileHover={{ scale: 1.1 }}
+                            className="p-2 rounded-full bg-gray-800/50 text-white hover:bg-gray-700/50"
+                            aria-label="View on GitHub"
+                          >
+                            <FaGithub className="h-5 w-5" />
+                          </motion.a>
+                        )}
+                        {project.videoLink && (
+                          <motion.a
+                            href={project.videoLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            whileHover={{ scale: 1.1 }}
+                            className="p-2 rounded-full bg-gray-800/50 text-white hover:bg-gray-700/50"
+                            aria-label="Watch video"
+                          >
+                            <FaExternalLinkAlt className="h-5 w-5" />
+                          </motion.a>
+                        )}
+                      </div>
+                    </div>
                   </div>
                   <div className="p-6">
                     <h3 className="text-xl font-bold text-white mb-2">{project.title}</h3>
-                    <p className="text-gray-300 mb-4">{project.description}</p>
+                    <p className="text-gray-300 mb-4 line-clamp-2">{project.description}</p>
                     <div className="flex flex-wrap gap-2">
                       {project.technologies.slice(0, 3).map((tech) => (
                         <span
@@ -433,7 +463,7 @@ const Projects = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 z-50 flex items-center justify-center p-4"
+              className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm"
               onClick={closeDetails}
             >
               <motion.div
@@ -456,16 +486,19 @@ const Projects = () => {
                   <FaTimes className="h-5 w-5" />
                 </button>
                 <div className="p-8">
-                  <h2 className="text-3xl font-bold text-white mb-4">{selectedProject.title}</h2>
+                  <h2 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500 mb-4">
+                    {selectedProject.title}
+                  </h2>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div>
-                      <Image
-                        src={selectedProject.image}
-                        alt={selectedProject.title}
-                        width={500}
-                        height={300}
-                        className="rounded-xl mb-4"
-                      />
+                      <div className="relative h-64 rounded-xl overflow-hidden mb-4">
+                        <Image
+                          src={selectedProject.image}
+                          alt={selectedProject.title}
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
                       <p className="text-gray-300 mb-6">{selectedProject.description}</p>
                       <div className="flex flex-wrap gap-4">
                         {selectedProject.githubLink && (
@@ -475,7 +508,7 @@ const Projects = () => {
                             rel="noopener noreferrer"
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            className="px-4 py-2 bg-gray-800/50 text-white rounded-xl flex items-center gap-2"
+                            className="px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-xl flex items-center gap-2"
                             style={{
                               transformStyle: 'preserve-3d',
                               transform: 'perspective(1000px) rotateY(0deg) rotateX(0deg)'
@@ -493,7 +526,7 @@ const Projects = () => {
                             rel="noopener noreferrer"
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            className="px-4 py-2 bg-gray-800/50 text-white rounded-xl flex items-center gap-2"
+                            className="px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-xl flex items-center gap-2"
                             style={{
                               transformStyle: 'preserve-3d',
                               transform: 'perspective(1000px) rotateY(0deg) rotateX(0deg)'
@@ -508,7 +541,7 @@ const Projects = () => {
                     </div>
                     <div>
                       <h3 className="text-xl font-bold text-white mb-4">Project Details</h3>
-                      <div className="space-y-4">
+                      <div className="space-y-6">
                         <div>
                           <h4 className="text-lg font-medium text-gray-300 mb-2">Technologies</h4>
                           <div className="flex flex-wrap gap-2">
@@ -524,7 +557,7 @@ const Projects = () => {
                         </div>
                         <div>
                           <h4 className="text-lg font-medium text-gray-300 mb-2">Features</h4>
-                          <ul className="list-disc list-inside text-gray-300">
+                          <ul className="list-disc list-inside text-gray-300 space-y-1">
                             {selectedProject.features.map((feature) => (
                               <li key={feature}>{feature}</li>
                             ))}
@@ -532,7 +565,7 @@ const Projects = () => {
                         </div>
                         <div>
                           <h4 className="text-lg font-medium text-gray-300 mb-2">Results</h4>
-                          <ul className="list-disc list-inside text-gray-300">
+                          <ul className="list-disc list-inside text-gray-300 space-y-1">
                             {selectedProject.results.map((result) => (
                               <li key={result}>{result}</li>
                             ))}

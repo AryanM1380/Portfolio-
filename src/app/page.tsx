@@ -11,30 +11,65 @@ import Footer from './components/Footer';
 export default function Home() {
   return (
     <main className="min-h-screen">
-      <Hero />
-      <Projects />
-      <Skills />
-      <Languages />
-      <Education />
-      <WorkExperience />
-      {/* <div className="py-20 bg-gray-50 dark:bg-gray-900">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-800 dark:text-white">
-            Join Our Community
-          </h2>
-          <p className="text-xl mb-8 text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            Connect with other developers, share your thoughts, and engage in meaningful discussions.
-          </p>
-          <Link 
-            href="/community" 
-            className="inline-block px-8 py-4 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors duration-300 text-lg font-medium"
-          >
-            Visit Community
-          </Link>
-        </div>
-      </div> */}
-      <Contact />
-      <Footer />
+      <div className="relative">
+        {/* Background gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-gray-50/50 dark:to-gray-900/50 pointer-events-none" />
+        
+        {/* Main content sections with glass effect and animations */}
+        <section className="relative z-10">
+          <Hero />
+        </section>
+
+        <section>
+          <div className="container mx-auto px-4">
+            <div>
+              <Projects />
+            </div>
+          </div>
+        </section>
+
+        <section className="relative z-10 py-16">
+          <div className="container mx-auto px-4">
+            <div className="glass rounded-2xl p-8 animate-fadeIn">
+              <Skills />
+            </div>
+          </div>
+        </section>
+
+        <section className="relative z-10 py-16">
+          <div className="container mx-auto px-4">
+            <div className="glass rounded-2xl p-8 animate-fadeIn">
+              <Languages />
+            </div>
+          </div>
+        </section>
+
+        <section className="relative z-10 py-16">
+          <div className="container mx-auto px-4">
+            <div className="glass rounded-2xl p-8 animate-fadeIn">
+              <Education />
+            </div>
+          </div>
+        </section>
+
+        <section className="relative z-10 py-16">
+          <div className="container mx-auto px-4">
+            <div className="glass rounded-2xl p-8 animate-fadeIn">
+              <WorkExperience />
+            </div>
+          </div>
+        </section>
+
+        <section className="relative z-10 py-16">
+          <div className="container mx-auto px-4">
+            <div className="glass rounded-2xl p-8 animate-fadeIn">
+              <Contact />
+            </div>
+          </div>
+        </section>
+
+        <Footer />
+      </div>
     </main>
   );
 }
