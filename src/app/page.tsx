@@ -10,59 +10,59 @@ import Footer from './components/Footer';
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
-      <div className="relative">
-        {/* Background gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-gray-50/50 dark:to-gray-900/50 pointer-events-none" />
-        
-        {/* Main content sections with glass effect and animations */}
-        <section className="relative z-10">
+    <main className="min-h-screen relative overflow-hidden">
+      {/* Clean full-screen background gradient */}
+      <div className="fixed inset-0 bg-gradient-to-br from-gray-900 via-slate-900 to-gray-800 animate-gradient" />
+      
+      {/* Main content sections - now full width */}
+      <div className="relative z-10 w-full">
+        <section className="w-full h-screen ">
           <Hero />
         </section>
 
-        <section>
-          <div className="container mx-auto px-4">
-            <div>
+        <section className="py-20">
+          <div className="px-4">
+            <div className="glass rounded-3xl p-8 animate-scaleIn">
               <Projects />
             </div>
           </div>
         </section>
 
-        <section className="relative z-10 py-16">
-          <div className="container mx-auto px-4">
-            <div className="glass rounded-2xl p-8 animate-fadeIn">
+        <section className="py-20">
+          <div className="px-4">
+            <div className="glass rounded-3xl p-8 animate-fadeIn max-h-[80vh] overflow-y-auto hide-scrollbar">
               <Skills />
             </div>
           </div>
         </section>
 
-        <section className="relative z-10 py-16">
-          <div className="container mx-auto px-4">
-            <div className="glass rounded-2xl p-8 animate-fadeIn">
+        <section className="py-20">
+          <div className="px-4">
+            <div className="glass rounded-3xl p-8 animate-fadeIn max-h-[80vh] overflow-y-auto hide-scrollbar">
               <Languages />
             </div>
           </div>
         </section>
 
-        <section className="relative z-10 py-16">
-          <div className="container mx-auto px-4">
-            <div className="glass rounded-2xl p-8 animate-fadeIn">
+        <section className="py-20">
+          <div className="px-4">
+            <div className="glass rounded-3xl p-8 animate-fadeIn max-h-[80vh] overflow-y-auto hide-scrollbar">
               <Education />
             </div>
           </div>
         </section>
 
-        <section className="relative z-10 py-16">
-          <div className="container mx-auto px-4">
-            <div className="glass rounded-2xl p-8 animate-fadeIn">
+        <section className="py-20">
+          <div className="px-4">
+            <div className="glass rounded-3xl p-8 animate-fadeIn max-h-[80vh] overflow-y-auto hide-scrollbar">
               <WorkExperience />
             </div>
           </div>
         </section>
 
-        <section className="relative z-10 py-16">
-          <div className="container mx-auto px-4">
-            <div className="glass rounded-2xl p-8 animate-fadeIn">
+        <section className="py-20">
+          <div className="px-4">
+            <div className="glass rounded-3xl p-8 animate-fadeIn max-h-[80vh] overflow-y-auto hide-scrollbar">
               <Contact />
             </div>
           </div>

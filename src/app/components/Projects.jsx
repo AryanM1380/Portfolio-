@@ -12,6 +12,7 @@ const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null);
   const [hoveredProject, setHoveredProject] = useState(null);
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 500], [0, 100]);
 
@@ -22,7 +23,18 @@ const Projects = () => {
     
     const handleChange = (e) => setIsDarkMode(e.matches);
     darkModeMediaQuery.addEventListener('change', handleChange);
-    return () => darkModeMediaQuery.removeEventListener('change', handleChange);
+
+    // Check if mobile
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
+    return () => {
+      darkModeMediaQuery.removeEventListener('change', handleChange);
+      window.removeEventListener('resize', checkMobile);
+    };
   }, []);
 
   const glassEffect = {
@@ -254,7 +266,43 @@ const Projects = () => {
         "Implemented MYSQL for data storage",
         "Ensured robust data privacy through access controls"
       ]
+    },
+    {
+      id: 7,
+      title: "Taylor Series Visualizer",
+      description: "This project combines mathematical intuition with programming to demonstrate how Taylor series approximate functions like e^x, sin(x), and cos(x). Developed using Python and Jupyter Notebook, it includes animated visualizations that dynamically show how adding more terms improves the approximation. It's designed as a learning aid for both students and educators.",
+      date: "May 2025 - May 2025",
+      githubLink: "https://github.com/AryanM1380/Visualizing-Taylor-Series-Approximations-with-Python",
+      image: "/projects/test.jpg",
+      technologies: ["Python", "Jupyter", "Matplotlib", "NumPy", "Data Visualization"],
+      category: "education",
+      status: "in-progress",
+      complexity: "medium",
+      screenshots: [],
+      role: "Developer & Designer",
+      features: [
+        "Dynamic visualization of Taylor series approximations",
+        "Supports functions like e^x, sin(x), and cos(x)",
+        "Animations to show increasing term accuracy",
+        "Clear, educational plots using Matplotlib"
+      ],
+      results: [
+        "Improved conceptual understanding of Taylor series",
+        "Useful for self-study or classroom use",
+        "Demonstrated ability to integrate math and code"
+      ],
+      challenges: [
+        "Creating accurate yet readable visualizations",
+        "Animating mathematical changes in real-time",
+        "Balancing educational clarity with technical depth"
+      ],
+      solutions: [
+        "Used Python and Matplotlib to plot dynamic graphs",
+        "Leveraged Jupyter Notebook for step-by-step animations",
+        "Focused on clarity and simplicity in code structure"
+      ]
     }
+    
   ]);
 
   const categories = [
@@ -262,7 +310,8 @@ const Projects = () => {
     { id: 'web', name: 'Web Development' },
     { id: 'game', name: 'Game Development' },
     { id: 'data', name: 'Data Analysis' },
-    { id: 'mobile', name: 'Mobile Apps' }
+    { id: 'mobile', name: 'Mobile Apps' },
+    { id: 'education', name: 'Education'}
   ];
 
   const filteredProjects = projects.filter(project => {
@@ -317,7 +366,7 @@ const Projects = () => {
           </p>
         </motion.div>
 
-        {/* Enhanced Filter and Search */}
+        {/* Enhanced Filter and Search with Mobile Optimization */}
         <motion.div 
           className="flex flex-col md:flex-row gap-4 mb-12 items-center justify-center"
           initial={{ opacity: 0, y: 20 }}
@@ -325,7 +374,7 @@ const Projects = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <div className="relative flex-1 max-w-md">
+          <div className="relative flex-1 max-w-md w-full">
             <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
               <FaSearch className="h-5 w-5 text-gray-400" />
             </div>
@@ -338,7 +387,7 @@ const Projects = () => {
               aria-label="Search projects"
             />
           </div>
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-2 justify-center">
             {categories.map((category) => (
               <motion.button
                 key={category.id}
@@ -362,7 +411,7 @@ const Projects = () => {
           </div>
         </motion.div>
 
-        {/* Enhanced Project Grid */}
+        {/* Enhanced Project Grid with Mobile Optimization */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <AnimatePresence>
             {filteredProjects.map((project) => (
@@ -377,7 +426,7 @@ const Projects = () => {
                 onMouseLeave={() => setHoveredProject(null)}
               >
                 <motion.div
-                  className="rounded-2xl overflow-hidden cursor-pointer h-full"
+                  className="rounded-2xl overflow-hidden cursor-pointer"
                   whileHover={{ 
                     scale: 1.02,
                     rotateY: 5,
@@ -402,39 +451,11 @@ const Projects = () => {
                       className="object-cover transition-transform duration-300 group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    <div className="absolute bottom-0 left-0 right-0 p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                      <div className="flex gap-2">
-                        {project.githubLink && (
-                          <motion.a
-                            href={project.githubLink}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            whileHover={{ scale: 1.1 }}
-                            className="p-2 rounded-full bg-gray-800/50 text-white hover:bg-gray-700/50"
-                            aria-label="View on GitHub"
-                          >
-                            <FaGithub className="h-5 w-5" />
-                          </motion.a>
-                        )}
-                        {project.videoLink && (
-                          <motion.a
-                            href={project.videoLink}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            whileHover={{ scale: 1.1 }}
-                            className="p-2 rounded-full bg-gray-800/50 text-white hover:bg-gray-700/50"
-                            aria-label="Watch video"
-                          >
-                            <FaExternalLinkAlt className="h-5 w-5" />
-                          </motion.a>
-                        )}
-                      </div>
-                    </div>
                   </div>
-                  <div className="p-6">
+                  <div className="p-6 max-h-[400px] overflow-y-auto">
                     <h3 className="text-xl font-bold text-white mb-2">{project.title}</h3>
                     <p className="text-gray-300 mb-4 line-clamp-2">{project.description}</p>
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-2 mb-4">
                       {project.technologies.slice(0, 3).map((tech) => (
                         <span
                           key={tech}
@@ -449,6 +470,36 @@ const Projects = () => {
                         </span>
                       )}
                     </div>
+                    <div className="flex flex-wrap gap-3 mt-4">
+                      {project.githubLink && (
+                        <motion.a
+                          href={project.githubLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                          className="px-4 py-2 rounded-lg bg-gradient-to-r from-blue-500 to-purple-500 text-white hover:from-blue-600 hover:to-purple-600 transition-all duration-300 flex items-center gap-2 text-sm"
+                          aria-label="View on GitHub"
+                        >
+                          <FaGithub className="h-4 w-4" />
+                          <span>GitHub</span>
+                        </motion.a>
+                      )}
+                      {project.videoLink && (
+                        <motion.a
+                          href={project.videoLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                          className="px-4 py-2 rounded-lg bg-gradient-to-r from-blue-500 to-purple-500 text-white hover:from-blue-600 hover:to-purple-600 transition-all duration-300 flex items-center gap-2 text-sm"
+                          aria-label="Watch video"
+                        >
+                          <FaExternalLinkAlt className="h-4 w-4" />
+                          <span>Demo</span>
+                        </motion.a>
+                      )}
+                    </div>
                   </div>
                 </motion.div>
               </motion.div>
@@ -456,21 +507,21 @@ const Projects = () => {
           </AnimatePresence>
         </div>
 
-        {/* Enhanced Project Details Modal */}
+        {/* Enhanced Project Details Modal with Mobile Exit Button */}
         <AnimatePresence>
           {selectedProject && (
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm"
+              className="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-black/90 backdrop-blur-md"
               onClick={closeDetails}
             >
               <motion.div
                 initial={{ scale: 0.9, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: 0.9, opacity: 0 }}
-                className="relative max-w-4xl w-full rounded-2xl overflow-hidden"
+                className="relative max-w-4xl w-full max-h-[90vh] overflow-y-auto rounded-2xl bg-gray-900/95"
                 style={{
                   ...glassEffect,
                   transformStyle: 'preserve-3d',
@@ -478,13 +529,30 @@ const Projects = () => {
                 }}
                 onClick={(e) => e.stopPropagation()}
               >
-                <button
-                  onClick={closeDetails}
-                  className="absolute top-4 right-4 p-2 rounded-full bg-gray-800/50 text-white hover:bg-gray-700/50 transition-colors duration-300"
-                  aria-label="Close project details"
-                >
-                  <FaTimes className="h-5 w-5" />
-                </button>
+                {/* Mobile Exit Button */}
+                {isMobile && (
+                  <motion.button
+                    onClick={closeDetails}
+                    className="fixed top-4 right-4 p-3 rounded-full bg-red-500 text-white hover:bg-red-600 transition-colors duration-300 z-[10000] shadow-lg"
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                    aria-label="Close project details"
+                  >
+                    <FaTimes className="h-6 w-6" />
+                  </motion.button>
+                )}
+                
+                {/* Desktop Exit Button */}
+                {!isMobile && (
+                  <button
+                    onClick={closeDetails}
+                    className="fixed top-4 right-4 p-2 rounded-full bg-red-500 text-white hover:bg-red-600 transition-colors duration-300 z-[10000] shadow-lg"
+                    aria-label="Close project details"
+                  >
+                    <FaTimes className="h-5 w-5" />
+                  </button>
+                )}
+
                 <div className="p-8">
                   <h2 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500 mb-4">
                     {selectedProject.title}
@@ -508,7 +576,7 @@ const Projects = () => {
                             rel="noopener noreferrer"
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            className="px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-xl flex items-center gap-2"
+                            className="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-xl flex items-center gap-2 hover:from-blue-600 hover:to-purple-600 transition-all duration-300 shadow-lg"
                             style={{
                               transformStyle: 'preserve-3d',
                               transform: 'perspective(1000px) rotateY(0deg) rotateX(0deg)'
@@ -516,7 +584,7 @@ const Projects = () => {
                             aria-label="View on GitHub"
                           >
                             <FaGithub className="h-5 w-5" />
-                            <span>GitHub</span>
+                            <span>View on GitHub</span>
                           </motion.a>
                         )}
                         {selectedProject.videoLink && (
@@ -526,7 +594,7 @@ const Projects = () => {
                             rel="noopener noreferrer"
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            className="px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-xl flex items-center gap-2"
+                            className="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-xl flex items-center gap-2 hover:from-blue-600 hover:to-purple-600 transition-all duration-300 shadow-lg"
                             style={{
                               transformStyle: 'preserve-3d',
                               transform: 'perspective(1000px) rotateY(0deg) rotateX(0deg)'
@@ -534,7 +602,7 @@ const Projects = () => {
                             aria-label="Watch video"
                           >
                             <FaExternalLinkAlt className="h-5 w-5" />
-                            <span>Watch Video</span>
+                            <span>Watch Demo</span>
                           </motion.a>
                         )}
                       </div>

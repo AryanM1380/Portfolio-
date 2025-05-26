@@ -163,9 +163,8 @@ const Hero = () => {
                     rotateX: 5,
                     transition: { duration: 0.3 }
                   }}
-                  className="p-4 rounded-2xl cursor-pointer"
+                  className="p-4 rounded-2xl cursor-pointer bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg"
                   style={{
-                    ...glassEffect,
                     transformStyle: 'preserve-3d',
                     transform: 'perspective(1000px) rotateY(0deg) rotateX(0deg)'
                   }}
@@ -173,8 +172,8 @@ const Hero = () => {
                   role="button"
                   aria-label="Projects completed"
                 >
-                  <span className="text-blue-400 mr-2">🏆</span>
-                  <span className="text-gray-300">5+ Projects Completed</span>
+                  <span className="text-yellow-300 mr-2">🏆</span>
+                  <span className="font-semibold">5+ Projects Completed</span>
                 </motion.div>
                 <motion.div 
                   whileHover={{ 
@@ -183,9 +182,8 @@ const Hero = () => {
                     rotateX: 5,
                     transition: { duration: 0.3 }
                   }}
-                  className="p-4 rounded-2xl cursor-pointer"
+                  className="p-4 rounded-2xl cursor-pointer bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg"
                   style={{
-                    ...glassEffect,
                     transformStyle: 'preserve-3d',
                     transform: 'perspective(1000px) rotateY(0deg) rotateX(0deg)'
                   }}
@@ -193,8 +191,8 @@ const Hero = () => {
                   role="button"
                   aria-label="Years of experience"
                 >
-                  <span className="text-blue-400 mr-2">💼</span>
-                  <span className="text-gray-300">2+ Years Experience</span>
+                  <span className="text-yellow-300 mr-2">💼</span>
+                  <span className="font-semibold">2+ Years Experience</span>
                 </motion.div>
                 <motion.div 
                   whileHover={{ 
@@ -203,9 +201,8 @@ const Hero = () => {
                     rotateX: 5,
                     transition: { duration: 0.3 }
                   }}
-                  className="p-4 rounded-2xl cursor-pointer"
+                  className="p-4 rounded-2xl cursor-pointer bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg"
                   style={{
-                    ...glassEffect,
                     transformStyle: 'preserve-3d',
                     transform: 'perspective(1000px) rotateY(0deg) rotateX(0deg)'
                   }}
@@ -213,8 +210,8 @@ const Hero = () => {
                   role="button"
                   aria-label="International experience"
                 >
-                  <span className="text-blue-400 mr-2">🌍</span>
-                  <span className="text-gray-300">International Experience</span>
+                  <span className="text-yellow-300 mr-2">🌍</span>
+                  <span className="font-semibold">International Experience</span>
                 </motion.div>
               </div>
             </motion.div>
