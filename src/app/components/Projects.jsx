@@ -4,47 +4,28 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
-import { FaGithub, FaExternalLinkAlt, FaTimes, FaFilter, FaSearch, FaRocket } from 'react-icons/fa';
+import { FaGithub, FaExternalLinkAlt, FaChevronDown, FaSearch } from 'react-icons/fa';
 
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
-  const [selectedProject, setSelectedProject] = useState(null);
-  const [hoveredProject, setHoveredProject] = useState(null);
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [expandedProject, setExpandedProject] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 500], [0, 100]);
 
   useEffect(() => {
-    // Check system preference for dark mode
-    const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-    setIsDarkMode(darkModeMediaQuery.matches);
-    
-    const handleChange = (e) => setIsDarkMode(e.matches);
-    darkModeMediaQuery.addEventListener('change', handleChange);
-
-    // Check if mobile
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
+    const checkMobile = () => setIsMobile(window.innerWidth <= 768);
     checkMobile();
     window.addEventListener('resize', checkMobile);
 
-    return () => {
-      darkModeMediaQuery.removeEventListener('change', handleChange);
-      window.removeEventListener('resize', checkMobile);
-    };
+    return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
   const glassEffect = {
-    background: isDarkMode 
-      ? 'rgba(17, 25, 40, 0.75)'
-      : 'rgba(255, 255, 255, 0.75)',
-    backdropFilter: 'blur(16px) saturate(180%)',
-    boxShadow: isDarkMode
-      ? '0 8px 32px 0 rgba(0, 0, 0, 0.37)'
-      : '0 8px 32px 0 rgba(31, 38, 135, 0.37)'
+    background: 'rgba(10, 20, 30, 0.85)',
+    backdropFilter: 'blur(12px) saturate(200%)',
+    boxShadow: '0 6px 24px 0 rgba(0, 0, 0, 0.3)'
   };
 
   const [projects] = useState([
@@ -62,28 +43,10 @@ const Projects = () => {
       complexity: "medium",
       screenshots: ["/projects/Portfolio.png"],
       role: "Full Stack Developer",
-      features: [
-        "Responsive Design",
-        "Dark Mode Support",
-        "Dynamic Content",
-        "SEO Optimized"
-      ],
-      results: [
-        "Improved portfolio visibility",
-        "Enhanced user experience",
-        "Optimized performance metrics",
-        "Modern tech stack implementation"
-      ],
-      challenges: [
-        "Implementing responsive design for all devices",
-        "Creating smooth animations and transitions",
-        "Optimizing performance and SEO"
-      ],
-      solutions: [
-        "Used Tailwind CSS for responsive design",
-        "Implemented Framer Motion for animations",
-        "Optimized images and implemented lazy loading"
-      ]
+      features: ["Responsive Design", "Dark Mode Support", "Dynamic Content", "SEO Optimized"],
+      results: ["Improved portfolio visibility", "Enhanced user experience", "Optimized performance metrics", "Modern tech stack implementation"],
+      challenges: ["Implementing responsive design for all devices", "Creating smooth animations and transitions", "Optimizing performance and SEO"],
+      solutions: ["Used Tailwind CSS for responsive design", "Implemented Framer Motion for animations", "Optimized images and implemented lazy loading"]
     },
     {
       id: 2,
@@ -99,28 +62,10 @@ const Projects = () => {
       complexity: "high",
       screenshots: ["/projects/echoes the steps.png"],
       role: "Game Developer & Sound Designer",
-      features: [
-        "Immersive Gameplay",
-        "Dynamic Audio System",
-        "Atmospheric Effects",
-        "Interactive Narrative"
-      ],
-      results: [
-        "Successfully implemented audio system",
-        "Created engaging atmospheric effects",
-        "Enhanced player experience",
-        "Positive user feedback"
-      ],
-      challenges: [
-        "Creating immersive audio and atmospheric effects",
-        "Balancing narrative and gameplay",
-        "Ensuring cross-platform compatibility"
-      ],
-      solutions: [
-        "Used Unreal Engine 5 for game development",
-        "Implemented audio scripting in Unreal Engine",
-        "Optimized game performance on various platforms"
-      ]
+      features: ["Immersive Gameplay", "Dynamic Audio System", "Atmospheric Effects", "Interactive Narrative"],
+      results: ["Successfully implemented audio system", "Created engaging atmospheric effects", "Enhanced player experience", "Positive user feedback"],
+      challenges: ["Creating immersive audio and atmospheric effects", "Balancing narrative and gameplay", "Ensuring cross-platform compatibility"],
+      solutions: ["Used Unreal Engine 5 for game development", "Implemented audio scripting in Unreal Engine", "Optimized game performance on various platforms"]
     },
     {
       id: 3,
@@ -130,34 +75,16 @@ const Projects = () => {
       githubLink: "https://github.com/AryanM1380/CinemaGo",
       videoLink: "https://www.youtube.com/watch?v=UXwMLRI6GZU",
       image: "/projects/CinemaGo.png",
-      technologies: ["Full-Stack Development", "Google Cloud Platform (GCP)", "Mobile Applications", "MongoDB","Node.js","Expo","React Native"],
+      technologies: ["Full-Stack Development", "Google Cloud Platform (GCP)", "Mobile Applications", "MongoDB", "Node.js", "Expo", "React Native", "Compute Engine"],
       category: "mobile",
       status: "completed",
       complexity: "high",
       screenshots: [],
       role: "Full Stack Mobile Developer",
-      features: [
-        "Mobile Ticket Booking",
-        "User Profile Management",
-        "Real-time Seat Availability",
-        "Payment Integration"
-      ],
-      results: [
-        "Successfully launched mobile application",
-        "Improved cinema booking experience",
-        "Enhanced user engagement",
-        "Positive user feedback"
-      ],
-      challenges: [
-        "Integrating multiple backend services",
-        "Ensuring data privacy and security",
-        "Creating a seamless user experience"
-      ],
-      solutions: [
-        "Used MongoDB for data storage and management",
-        "Implemented Google Cloud Platform for backend services",
-        "Ensured data privacy and security through encryption and access controls"
-      ]
+      features: ["Mobile Ticket Booking", "User Profile Management", "Real-time Seat Availability", "Payment Integration"],
+      results: ["Successfully launched mobile application", "Improved cinema booking experience", "Enhanced user engagement", "Positive user feedback"],
+      challenges: ["Integrating multiple backend services", "Ensuring data privacy and security", "Creating a seamless user experience"],
+      solutions: ["Used MongoDB for data storage and management", "Implemented Google Cloud Platform for backend services", "Ensured data privacy and security through encryption and access controls"]
     },
     {
       id: 4,
@@ -166,70 +93,34 @@ const Projects = () => {
       date: "February 2024 - March 2024",
       githubLink: "https://github.com/AryanM1380/Node.JS-Project-G5",
       image: "/projects/Car.jpeg",
-      technologies: ["React", "Full-Stack Development", "Node.jsI", "MongoDB"],
+      technologies: ["React", "Full-Stack Development", "Node.js", "MongoDB"],
       category: "web",
       status: "completed",
       complexity: "high",
       screenshots: [],
       role: "Full Stack Developer",
-      features: [
-        "Car Inventory Management",
-        "Test Drive Booking System",
-        "Admin Dashboard",
-        "Secure Payment Processing"
-      ],
-      results: [
-        "Improved car dealership operations",
-        "Enhanced customer experience",
-        "Streamlined inventory management",
-        "Increased online bookings"
-      ],
-      challenges: [
-        "Ensuring robust data privacy",
-        "Creating a user-friendly interface",
-        "Integrating multiple backend services"
-      ],
-      solutions: [
-        "Used Node.js for backend development",
-        "Implemented MongoDB for data storage",
-        "Ensured robust data privacy through access controls"
-      ]
+      features: ["Car Inventory Management", "Test Drive Booking System", "Admin Dashboard", "Secure Payment Processing"],
+      results: ["Improved car dealership operations", "Enhanced customer experience", "Streamlined inventory management", "Increased online bookings"],
+      challenges: ["Ensuring robust data privacy", "Creating a user-friendly interface", "Integrating multiple backend services"],
+      solutions: ["Used Node.js for backend development", "Implemented MongoDB for data storage", "Ensured robust data privacy through access controls"]
     },
     {
       id: 5,
-      title: "Hamk DesignFactory project",
+      title: "Hamk Design Factory project",
       description: "This project focuses on providing constructive feedback to students based on their responses to questions. The aim is to improve overall learning outcomes by analyzing data and creating insightful charts that highlight trends and areas for improvement.",
       date: "June 2023 - August 2023",
       githubLink: "https://github.com/Aryan22000/group7_main2",
       image: "/projects/Hamk.jpg",
-      technologies: ["google chart", "Microsoft Excel", "PHP", "Cascading Style Sheets (CSS)", "SQL", "HTML", "Power BI"],
+      technologies: ["Google Chart", "Microsoft Excel", "PHP", "CSS", "SQL", "HTML", "Power BI"],
       category: "data",
       status: "completed",
       complexity: "medium",
       screenshots: [],
       role: "Analysis, Developer & Project Manager",
-      features: [
-        "Data Analysis Dashboard",
-        "Student Performance Tracking",
-        "Automated Feedback Generation",
-        "Trend Analysis Reports"
-      ],
-      results: [
-        "Improved student learning outcomes",
-        "Enhanced feedback quality",
-        "Streamlined analysis process",
-        "Better trend identification"
-      ],
-      challenges: [
-        "Analyzing large datasets",
-        "Creating insightful charts",
-        "Ensuring data privacy"
-      ],
-      solutions: [
-        "Used Google Charts for data visualization",
-        "Implemented Microsoft Excel for data analysis",
-        "Ensured data privacy through access controls"
-      ]
+      features: ["Data Analysis Dashboard", "Student Performance Tracking", "Automated Feedback Generation", "Trend Analysis Reports"],
+      results: ["Improved student learning outcomes", "Enhanced feedback quality", "Streamlined analysis process", "Better trend identification"],
+      challenges: ["Analyzing large datasets", "Creating insightful charts", "Ensuring data privacy"],
+      solutions: ["Used Google Charts for data visualization", "Implemented Microsoft Excel for data analysis", "Ensured data privacy through access controls"]
     },
     {
       id: 6,
@@ -238,34 +129,16 @@ const Projects = () => {
       date: "November 2022 - January 2023",
       githubLink: "https://github.com/AryanM1380/Team4_WEBPROG",
       image: "/projects/Restaurant .png",
-      technologies: ["PHP", "Full-Stack Development", "CSS", "HTML", "MYSQL","Docker"],
+      technologies: ["PHP", "Full-Stack Development", "CSS", "HTML", "MySQL", "Docker"],
       category: "web",
       status: "completed",
       complexity: "low",
       screenshots: [],
       role: "Web Developer",
-      features: [
-        "Order Management System",
-        "Menu Management",
-        "Staff Dashboard",
-        "Customer Feedback System"
-      ],
-      results: [
-        "Improved restaurant operations",
-        "Enhanced customer experience",
-        "Streamlined order management",
-        "Better staff coordination"
-      ],
-      challenges: [
-        "Ensuring robust data privacy",
-        "Creating a seamless user experience",
-        "Integrating multiple backend services"
-      ],
-      solutions: [
-        "Used PHP for backend development",
-        "Implemented MYSQL for data storage",
-        "Ensured robust data privacy through access controls"
-      ]
+      features: ["Order Management System", "Menu Management", "Staff Dashboard", "Customer Feedback System"],
+      results: ["Improved restaurant operations", "Enhanced customer experience", "Streamlined order management", "Better staff coordination"],
+      challenges: ["Ensuring robust data privacy", "Creating a seamless user experience", "Integrating multiple backend services"],
+      solutions: ["Used PHP for backend development", "Implemented MySQL for data storage", "Ensured robust data privacy through access controls"]
     },
     {
       id: 7,
@@ -280,29 +153,11 @@ const Projects = () => {
       complexity: "medium",
       screenshots: [],
       role: "Developer & Designer",
-      features: [
-        "Dynamic visualization of Taylor series approximations",
-        "Supports functions like e^x, sin(x), and cos(x)",
-        "Animations to show increasing term accuracy",
-        "Clear, educational plots using Matplotlib"
-      ],
-      results: [
-        "Improved conceptual understanding of Taylor series",
-        "Useful for self-study or classroom use",
-        "Demonstrated ability to integrate math and code"
-      ],
-      challenges: [
-        "Creating accurate yet readable visualizations",
-        "Animating mathematical changes in real-time",
-        "Balancing educational clarity with technical depth"
-      ],
-      solutions: [
-        "Used Python and Matplotlib to plot dynamic graphs",
-        "Leveraged Jupyter Notebook for step-by-step animations",
-        "Focused on clarity and simplicity in code structure"
-      ]
+      features: ["Dynamic visualization of Taylor series approximations", "Supports functions like e^x, sin(x), and cos(x)", "Animations to show increasing term accuracy", "Clear, educational plots using Matplotlib"],
+      results: ["Improved conceptual understanding of Taylor series", "Useful for self-study or classroom use", "Demonstrated ability to integrate math and code"],
+      challenges: ["Creating accurate yet readable visualizations", "Animating mathematical changes in real-time", "Balancing educational clarity with technical depth"],
+      solutions: ["Used Python and Matplotlib to plot dynamic graphs", "Leveraged Jupyter Notebook for step-by-step animations", "Focused on clarity and simplicity in code structure"]
     }
-    
   ]);
 
   const categories = [
@@ -311,7 +166,7 @@ const Projects = () => {
     { id: 'game', name: 'Game Development' },
     { id: 'data', name: 'Data Analysis' },
     { id: 'mobile', name: 'Mobile Apps' },
-    { id: 'education', name: 'Education'}
+    { id: 'education', name: 'Education' }
   ];
 
   const filteredProjects = projects.filter(project => {
@@ -321,85 +176,115 @@ const Projects = () => {
     return matchesCategory && matchesSearch;
   });
 
-  const handleViewDetails = (project) => {
-    setSelectedProject(project);
-    document.body.style.overflow = 'hidden';
+  const toggleExpand = (id) => {
+    setExpandedProject(expandedProject === id ? null : id);
   };
-
-  const closeDetails = () => {
-    setSelectedProject(null);
-    document.body.style.overflow = 'auto';
-  };
-
   return (
-    <section 
-      id="projects" 
-      className="py-20 relative overflow-hidden min-h-screen"
+    <section
+      id="projects"
+      className="py-20 relative overflow-hidden min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-violet-900"
       style={{
-        background: isDarkMode ? '#1f2937' : '#f3f4f6'
+        position: 'relative',
+        zIndex: 0
       }}
-      role="region"
-      aria-label="Projects section"
     >
-      {/* Enhanced Animated Background */}
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-500/10 via-transparent to-purple-500/10"></div>
-        <div className="absolute inset-0 bg-[url('/pattern.svg')] bg-repeat opacity-5"></div>
+      <style>
+        {`
+          @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0); }
+          }
+          .masonry-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            align-items: stretch;
+            max-width: 1400px;
+            margin: 0 auto;
+          }
+          .masonry-item {
+            margin-bottom: 2rem;
+          }
+        `}
+      </style>
+          {/* Background elements */}
+          <div className="absolute inset-0" style={{ zIndex: -1 }}>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(125,125,255,0.1),transparent_70%)]"></div>
+      <div className="absolute inset-0 opacity-10">
+        {[...Array(20)].map((_, i) => {
+          const width = 10 + (i * 1.2);
+          const height = 10 + (i * 1.1);
+          const left = (i * 5) % 100;
+          const top = (i * 7) % 100;
+          const duration = 5 + (i * 0.5);
+          
+          return (
+            <motion.div
+              key={i}
+              className="absolute bg-white/20 rounded-full"
+              style={{
+                width: `${width}px`,
+                height: `${height}px`,
+                left: `${left}vw`,
+                top: `${top}vh`,
+                animation: `float ${duration}s infinite linear`
+              }}
+            />
+          );
+        })}
       </div>
+    </div>
+
+    {/* Rest of your existing content */}
 
       <div className="container mx-auto px-4 relative z-10">
-        <motion.div 
+        <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500">
+          <h2 className="text-5xl md:text-6xl font-variable font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-purple-600">
             My Projects
           </h2>
-          <p className="text-xl text-white max-w-2xl mx-auto">
-            A showcase of my recent work and contributions
+          <p className="text-lg md:text-xl text-white/80 max-w-3xl mx-auto">
+            A curated showcase of my latest work and contributions
           </p>
         </motion.div>
 
-        {/* Enhanced Filter and Search with Mobile Optimization */}
-        <motion.div 
-          className="flex flex-col md:flex-row gap-4 mb-12 items-center justify-center"
+        <motion.div
+          className="flex flex-col md:flex-row gap-6 mb-12 items-center justify-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <div className="relative flex-1 max-w-md w-full">
+          <div className="relative w-full max-w-md">
             <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-              <FaSearch className="h-5 w-5 text-white" />
+              <FaSearch className="h-5 w-5 text-gray-400" />
             </div>
             <input
               type="text"
               placeholder="Search projects..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 rounded-xl bg-gray-800/50 text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
-              aria-label="Search projects"
+              className="w-full pl-10 pr-4 py-3 rounded-xl bg-gray-900/50 text-white border-none focus:ring-2 focus:ring-teal-400 transition-all duration-300 placeholder-gray-500"
             />
           </div>
-          <div className="flex flex-wrap gap-2 justify-center">
+          <div className="flex flex-wrap gap-3 justify-center">
             {categories.map((category) => (
               <motion.button
                 key={category.id}
                 onClick={() => setActiveFilter(category.id)}
-                className={`px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 ${
+                className={`px-5 py-2.5 rounded-xl text-sm font-medium transition-all duration-300 ${
                   activeFilter === category.id
-                    ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white'
-                    : 'bg-gray-800/50 text-gray-200 hover:bg-gray-700/50'
+                    ? 'bg-gradient-to-r from-teal-400 to-purple-600 text-white shadow-lg'
+                    : 'bg-gray-800/40 text-gray-300 hover:bg-gray-700/60'
                 }`}
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.1, rotate: 2 }}
                 whileTap={{ scale: 0.95 }}
-                style={{
-                  transformStyle: 'preserve-3d',
-                  transform: 'perspective(1000px) rotateY(0deg) rotateX(0deg)'
-                }}
                 aria-label={`Filter by ${category.name}`}
               >
                 {category.name}
@@ -408,8 +293,7 @@ const Projects = () => {
           </div>
         </motion.div>
 
-        {/* Enhanced Project Grid with Mobile Optimization */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="masonry-grid">
           <AnimatePresence>
             {filteredProjects.map((project) => (
               <motion.div
@@ -418,68 +302,52 @@ const Projects = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
-                className="relative group"
-                onMouseEnter={() => setHoveredProject(project.id)}
-                onMouseLeave={() => setHoveredProject(null)}
+                className="masonry-item relative group"
               >
                 <motion.div
                   className="rounded-2xl overflow-hidden cursor-pointer"
-                  whileHover={{ 
-                    scale: 1.02,
-                    rotateY: 5,
-                    rotateX: 5,
+                  whileHover={{
+                    scale: 1.03,
                     transition: { duration: 0.3 }
                   }}
                   style={{
                     ...glassEffect,
-                    transformStyle: 'preserve-3d',
-                    transform: 'perspective(1000px) rotateY(0deg) rotateX(0deg)'
+                    transformStyle: 'preserve-3d'
                   }}
-                  onClick={() => handleViewDetails(project)}
-                  role="button"
-                  tabIndex="0"
-                  aria-label={`View details for ${project.title}`}
                 >
-                  <div className="relative h-64">
+                  <div className="relative h-60 md:h-72">
                     <Image
                       src={project.image}
                       alt={project.title}
                       fill
-                      className="object-cover transition-transform duration-300 group-hover:scale-110"
+                      className="object-cover transition-transform duration-300 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
                   </div>
-                  <div className="p-6 max-h-[400px] overflow-y-auto">
-                    <h3 className="text-xl font-bold text-white mb-2">{project.title}</h3>
-                    <p className="text-gray-200 mb-4 line-clamp-2">{project.description}</p>
+                  <div className="p-6">
+                    <h3 className="text-xl md:text-2xl font-bold text-white mb-2">{project.title}</h3>
+                    <p className="text-gray-300 mb-4 text-sm md:text-base line-clamp-2">{project.description}</p>
                     <div className="flex flex-wrap gap-2 mb-4">
-                      {project.technologies.slice(0, 3).map((tech) => (
+                      {project.technologies.map((tech) => (
                         <span
                           key={tech}
-                          className="px-3 py-1 text-sm rounded-full bg-gray-800/50 text-gray-200"
+                          className="px-2.5 py-1 text-xs md:text-sm rounded-full bg-gray-800/60 text-gray-200"
                         >
                           {tech}
                         </span>
                       ))}
-                      {project.technologies.length > 3 && (
-                        <span className="px-3 py-1 text-sm rounded-full bg-gray-800/50 text-gray-200">
-                          +{project.technologies.length - 3}
-                        </span>
-                      )}
                     </div>
-                    <div className="flex flex-wrap gap-3 mt-4">
+                    <div className="flex flex-wrap gap-3 mb-4">
                       {project.githubLink && (
                         <motion.a
                           href={project.githubLink}
                           target="_blank"
                           rel="noopener noreferrer"
-                          whileHover={{ scale: 1.05 }}
+                          whileHover={{ scale: 1.1 }}
                           whileTap={{ scale: 0.95 }}
-                          className="px-4 py-2 rounded-lg bg-gradient-to-r from-blue-500 to-purple-500 text-white hover:from-blue-600 hover:to-purple-600 transition-all duration-300 flex items-center gap-2 text-sm"
-                          aria-label="View on GitHub"
+                          className="flex items-center gap-2 px-3 py-1.5 bg-teal-500/80 text-white rounded-lg hover:bg-teal-600 transition-colors duration-300 text-sm"
                         >
-                          <FaGithub className="h-4 w-4" />
-                          <span>GitHub</span>
+                          <FaGithub className="h-4 w-4" /> GitHub
                         </motion.a>
                       )}
                       {project.videoLink && (
@@ -487,163 +355,76 @@ const Projects = () => {
                           href={project.videoLink}
                           target="_blank"
                           rel="noopener noreferrer"
-                          whileHover={{ scale: 1.05 }}
+                          whileHover={{ scale: 1.1 }}
                           whileTap={{ scale: 0.95 }}
-                          className="px-4 py-2 rounded-lg bg-gradient-to-r from-blue-500 to-purple-500 text-white hover:from-blue-600 hover:to-purple-600 transition-all duration-300 flex items-center gap-2 text-sm"
-                          aria-label="Watch video"
+                          className="flex items-center gap-2 px-3 py-1.5 bg-purple-500/80 text-white rounded-lg hover:bg-purple-600 transition-colors duration-300 text-sm"
                         >
-                          <FaExternalLinkAlt className="h-4 w-4" />
-                          <span>Demo</span>
+                          <FaExternalLinkAlt className="h-4 w-4" /> Demo
                         </motion.a>
                       )}
                     </div>
+                    <motion.button
+                      onClick={() => toggleExpand(project.id)}
+                      className="w-full flex items-center justify-center gap-2 text-white hover:text-gray-200 transition-colors duration-300"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <span>View Details</span>
+                      <FaChevronDown className={`h-4 w-4 transition-transform ${expandedProject === project.id ? 'rotate-180' : ''}`} />
+                    </motion.button>
+                    {expandedProject === project.id && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: 'auto' }}
+                        exit={{ opacity: 0, height: 0 }}
+                        className="mt-4 space-y-4 text-sm text-gray-300"
+                      >
+                        {/* Add full description here */}
+                        <div>
+                          <h4 className="font-medium text-gray-200">Full Description</h4>
+                          <p className="mt-2">{project.description}</p>
+                        </div>
+                        
+                        <div>
+                          <h4 className="font-medium text-gray-200">Features</h4>
+                          <ul className="list-disc list-inside mt-2">
+                            {project.features.map((feature) => (
+                              <li key={feature}>{feature}</li>
+                            ))}
+                          </ul>
+                        </div>
+                        <div>
+                          <h4 className="font-medium text-gray-200">Results</h4>
+                          <ul className="list-disc list-inside mt-2">
+                            {project.results.map((result) => (
+                              <li key={result}>{result}</li>
+                            ))}
+                          </ul>
+                        </div>
+                        <div>
+                          <h4 className="font-medium text-gray-200">Challenges</h4>
+                          <ul className="list-disc list-inside mt-2">
+                            {project.challenges.map((challenge) => (
+                              <li key={challenge}>{challenge}</li>
+                            ))}
+                          </ul>
+                        </div>
+                        <div>
+                          <h4 className="font-medium text-gray-200">Solutions</h4>
+                          <ul className="list-disc list-inside mt-2">
+                            {project.solutions.map((solution) => (
+                              <li key={solution}>{solution}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      </motion.div>
+                    )}
                   </div>
                 </motion.div>
               </motion.div>
             ))}
           </AnimatePresence>
         </div>
-
-        {/* Enhanced Project Details Modal with Mobile Exit Button */}
-        <AnimatePresence>
-          {selectedProject && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-black/90 backdrop-blur-md"
-              onClick={closeDetails}
-            >
-              <motion.div
-                initial={{ scale: 0.9, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                exit={{ scale: 0.9, opacity: 0 }}
-                className="relative max-w-4xl w-full max-h-[90vh] overflow-y-auto rounded-2xl bg-gray-900/95"
-                style={{
-                  ...glassEffect,
-                  transformStyle: 'preserve-3d',
-                  transform: 'perspective(1000px) rotateY(0deg) rotateX(0deg)'
-                }}
-                onClick={(e) => e.stopPropagation()}
-              >
-                {/* Mobile Exit Button */}
-                {isMobile && (
-                  <motion.button
-                    onClick={closeDetails}
-                    className="fixed top-4 right-4 p-3 rounded-full bg-red-500 text-white hover:bg-red-600 transition-colors duration-300 z-[10000] shadow-lg"
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
-                    aria-label="Close project details"
-                  >
-                    <FaTimes className="h-6 w-6" />
-                  </motion.button>
-                )}
-                
-                {/* Desktop Exit Button */}
-                {!isMobile && (
-                  <button
-                    onClick={closeDetails}
-                    className="fixed top-4 right-4 p-2 rounded-full bg-red-500 text-white hover:bg-red-600 transition-colors duration-300 z-[10000] shadow-lg"
-                    aria-label="Close project details"
-                  >
-                    <FaTimes className="h-5 w-5" />
-                  </button>
-                )}
-
-                <div className="p-8">
-                  <h2 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500 mb-4">
-                    {selectedProject.title}
-                  </h2>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div>
-                      <div className="relative h-64 rounded-xl overflow-hidden mb-4">
-                        <Image
-                          src={selectedProject.image}
-                          alt={selectedProject.title}
-                          fill
-                          className="object-cover"
-                        />
-                      </div>
-                      <p className="text-gray-200 mb-6">{selectedProject.description}</p>
-                      <div className="flex flex-wrap gap-4">
-                        {selectedProject.githubLink && (
-                          <motion.a
-                            href={selectedProject.githubLink}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                            className="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-xl flex items-center gap-2 hover:from-blue-600 hover:to-purple-600 transition-all duration-300 shadow-lg"
-                            style={{
-                              transformStyle: 'preserve-3d',
-                              transform: 'perspective(1000px) rotateY(0deg) rotateX(0deg)'
-                            }}
-                            aria-label="View on GitHub"
-                          >
-                            <FaGithub className="h-5 w-5" />
-                            <span>View on GitHub</span>
-                          </motion.a>
-                        )}
-                        {selectedProject.videoLink && (
-                          <motion.a
-                            href={selectedProject.videoLink}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                            className="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-xl flex items-center gap-2 hover:from-blue-600 hover:to-purple-600 transition-all duration-300 shadow-lg"
-                            style={{
-                              transformStyle: 'preserve-3d',
-                              transform: 'perspective(1000px) rotateY(0deg) rotateX(0deg)'
-                            }}
-                            aria-label="Watch video"
-                          >
-                            <FaExternalLinkAlt className="h-5 w-5" />
-                            <span>Watch Demo</span>
-                          </motion.a>
-                        )}
-                      </div>
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-bold text-white mb-4">Project Details</h3>
-                      <div className="space-y-6">
-                        <div>
-                          <h4 className="text-lg font-medium text-gray-200 mb-2">Technologies</h4>
-                          <div className="flex flex-wrap gap-2">
-                            {selectedProject.technologies.map((tech) => (
-                              <span
-                                key={tech}
-                                className="px-3 py-1 text-sm rounded-full bg-gray-800/50 text-gray-200"
-                              >
-                                {tech}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
-                        <div>
-                          <h4 className="text-lg font-medium text-gray-200 mb-2">Features</h4>
-                          <ul className="list-disc list-inside text-gray-200 space-y-1">
-                            {selectedProject.features.map((feature) => (
-                              <li key={feature}>{feature}</li>
-                            ))}
-                          </ul>
-                        </div>
-                        <div>
-                          <h4 className="text-lg font-medium text-gray-200 mb-2">Results</h4>
-                          <ul className="list-disc list-inside text-gray-200 space-y-1">
-                            {selectedProject.results.map((result) => (
-                              <li key={result}>{result}</li>
-                            ))}
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            </motion.div>
-          )}
-        </AnimatePresence>
       </div>
     </section>
   );

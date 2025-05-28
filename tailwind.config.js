@@ -1,6 +1,8 @@
+import lineClamp from '@tailwindcss/line-clamp';
+
 /** @type {import('tailwindcss').Config} */
 // tailwind.config.js
-module.exports = {
+export default {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -51,5 +53,8 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    lineClamp,
+    // ... other plugins if any ...
+  ],
 }

@@ -822,9 +822,7 @@ const Projects = ()=>{
     _s();
     const [activeFilter, setActiveFilter] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])('all');
     const [searchQuery, setSearchQuery] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])('');
-    const [selectedProject, setSelectedProject] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
-    const [hoveredProject, setHoveredProject] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
-    const [isDarkMode, setIsDarkMode] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
+    const [expandedProject, setExpandedProject] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
     const [isMobile, setIsMobile] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     const { scrollY } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$value$2f$use$2d$scroll$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useScroll"])();
     const y = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$value$2f$use$2d$transform$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useTransform"])(scrollY, [
@@ -836,33 +834,20 @@ const Projects = ()=>{
     ]);
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "Projects.useEffect": ()=>{
-            // Check system preference for dark mode
-            const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-            setIsDarkMode(darkModeMediaQuery.matches);
-            const handleChange = {
-                "Projects.useEffect.handleChange": (e)=>setIsDarkMode(e.matches)
-            }["Projects.useEffect.handleChange"];
-            darkModeMediaQuery.addEventListener('change', handleChange);
-            // Check if mobile
             const checkMobile = {
-                "Projects.useEffect.checkMobile": ()=>{
-                    setIsMobile(window.innerWidth <= 768);
-                }
+                "Projects.useEffect.checkMobile": ()=>setIsMobile(window.innerWidth <= 768)
             }["Projects.useEffect.checkMobile"];
             checkMobile();
             window.addEventListener('resize', checkMobile);
             return ({
-                "Projects.useEffect": ()=>{
-                    darkModeMediaQuery.removeEventListener('change', handleChange);
-                    window.removeEventListener('resize', checkMobile);
-                }
+                "Projects.useEffect": ()=>window.removeEventListener('resize', checkMobile)
             })["Projects.useEffect"];
         }
     }["Projects.useEffect"], []);
     const glassEffect = {
-        background: isDarkMode ? 'rgba(17, 25, 40, 0.75)' : 'rgba(255, 255, 255, 0.75)',
-        backdropFilter: 'blur(16px) saturate(180%)',
-        boxShadow: isDarkMode ? '0 8px 32px 0 rgba(0, 0, 0, 0.37)' : '0 8px 32px 0 rgba(31, 38, 135, 0.37)'
+        background: 'rgba(10, 20, 30, 0.85)',
+        backdropFilter: 'blur(12px) saturate(200%)',
+        boxShadow: '0 6px 24px 0 rgba(0, 0, 0, 0.3)'
     };
     const [projects] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])([
         {
@@ -969,7 +954,8 @@ const Projects = ()=>{
                 "MongoDB",
                 "Node.js",
                 "Expo",
-                "React Native"
+                "React Native",
+                "Compute Engine"
             ],
             category: "mobile",
             status: "completed",
@@ -1009,7 +995,7 @@ const Projects = ()=>{
             technologies: [
                 "React",
                 "Full-Stack Development",
-                "Node.jsI",
+                "Node.js",
                 "MongoDB"
             ],
             category: "web",
@@ -1042,16 +1028,16 @@ const Projects = ()=>{
         },
         {
             id: 5,
-            title: "Hamk DesignFactory project",
+            title: "Hamk Design Factory project",
             description: "This project focuses on providing constructive feedback to students based on their responses to questions. The aim is to improve overall learning outcomes by analyzing data and creating insightful charts that highlight trends and areas for improvement.",
             date: "June 2023 - August 2023",
             githubLink: "https://github.com/Aryan22000/group7_main2",
             image: "/projects/Hamk.jpg",
             technologies: [
-                "google chart",
+                "Google Chart",
                 "Microsoft Excel",
                 "PHP",
-                "Cascading Style Sheets (CSS)",
+                "CSS",
                 "SQL",
                 "HTML",
                 "Power BI"
@@ -1096,7 +1082,7 @@ const Projects = ()=>{
                 "Full-Stack Development",
                 "CSS",
                 "HTML",
-                "MYSQL",
+                "MySQL",
                 "Docker"
             ],
             category: "web",
@@ -1123,7 +1109,7 @@ const Projects = ()=>{
             ],
             solutions: [
                 "Used PHP for backend development",
-                "Implemented MYSQL for data storage",
+                "Implemented MySQL for data storage",
                 "Ensured robust data privacy through access controls"
             ]
         },
@@ -1200,45 +1186,89 @@ const Projects = ()=>{
         const matchesSearch = project.title.toLowerCase().includes(searchQuery.toLowerCase()) || project.description.toLowerCase().includes(searchQuery.toLowerCase());
         return matchesCategory && matchesSearch;
     });
-    const handleViewDetails = (project)=>{
-        setSelectedProject(project);
-        document.body.style.overflow = 'hidden';
-    };
-    const closeDetails = ()=>{
-        setSelectedProject(null);
-        document.body.style.overflow = 'auto';
+    const toggleExpand = (id)=>{
+        setExpandedProject(expandedProject === id ? null : id);
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
         id: "projects",
-        className: "py-20 relative overflow-hidden min-h-screen",
+        className: "py-20 relative overflow-hidden min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-violet-900",
         style: {
-            background: isDarkMode ? '#1f2937' : '#f3f4f6'
+            position: 'relative',
+            zIndex: 0
         },
-        role: "region",
-        "aria-label": "Projects section",
         children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("style", {
+                children: `
+          @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0); }
+          }
+          .masonry-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            align-items: stretch;
+            max-width: 1400px;
+            margin: 0 auto;
+          }
+          .masonry-item {
+            margin-bottom: 2rem;
+          }
+        `
+            }, void 0, false, {
+                fileName: "[project]/src/app/components/Projects.jsx",
+                lineNumber: 191,
+                columnNumber: 7
+            }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "absolute inset-0",
+                style: {
+                    zIndex: -1
+                },
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-500/10 via-transparent to-purple-500/10"
+                        className: "absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(125,125,255,0.1),transparent_70%)]"
                     }, void 0, false, {
                         fileName: "[project]/src/app/components/Projects.jsx",
-                        lineNumber: 346,
-                        columnNumber: 9
+                        lineNumber: 213,
+                        columnNumber: 7
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "absolute inset-0 bg-[url('/pattern.svg')] bg-repeat opacity-5"
+                        className: "absolute inset-0 opacity-10",
+                        children: [
+                            ...Array(20)
+                        ].map((_, i)=>{
+                            const width = 10 + i * 1.2;
+                            const height = 10 + i * 1.1;
+                            const left = i * 5 % 100;
+                            const top = i * 7 % 100;
+                            const duration = 5 + i * 0.5;
+                            return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
+                                className: "absolute bg-white/20 rounded-full",
+                                style: {
+                                    width: `${width}px`,
+                                    height: `${height}px`,
+                                    left: `${left}vw`,
+                                    top: `${top}vh`,
+                                    animation: `float ${duration}s infinite linear`
+                                }
+                            }, i, false, {
+                                fileName: "[project]/src/app/components/Projects.jsx",
+                                lineNumber: 223,
+                                columnNumber: 13
+                            }, this);
+                        })
                     }, void 0, false, {
                         fileName: "[project]/src/app/components/Projects.jsx",
-                        lineNumber: 347,
-                        columnNumber: 9
+                        lineNumber: 214,
+                        columnNumber: 7
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/components/Projects.jsx",
-                lineNumber: 345,
-                columnNumber: 7
+                lineNumber: 212,
+                columnNumber: 11
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "container mx-auto px-4 relative z-10",
@@ -1261,29 +1291,29 @@ const Projects = ()=>{
                         },
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                                className: "text-4xl md:text-5xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500",
+                                className: "text-5xl md:text-6xl font-variable font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-purple-600",
                                 children: "My Projects"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/components/Projects.jsx",
-                                lineNumber: 358,
+                                lineNumber: 249,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                className: "text-xl text-white max-w-2xl mx-auto",
-                                children: "A showcase of my recent work and contributions"
+                                className: "text-lg md:text-xl text-white/80 max-w-3xl mx-auto",
+                                children: "A curated showcase of my latest work and contributions"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/components/Projects.jsx",
-                                lineNumber: 361,
+                                lineNumber: 252,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/components/Projects.jsx",
-                        lineNumber: 351,
+                        lineNumber: 242,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
-                        className: "flex flex-col md:flex-row gap-4 mb-12 items-center justify-center",
+                        className: "flex flex-col md:flex-row gap-6 mb-12 items-center justify-center",
                         initial: {
                             opacity: 0,
                             y: 20
@@ -1301,20 +1331,20 @@ const Projects = ()=>{
                         },
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "relative flex-1 max-w-md w-full",
+                                className: "relative w-full max-w-md",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         className: "absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none",
                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$fa$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FaSearch"], {
-                                            className: "h-5 w-5 text-white"
+                                            className: "h-5 w-5 text-gray-400"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/components/Projects.jsx",
-                                            lineNumber: 376,
+                                            lineNumber: 266,
                                             columnNumber: 15
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/components/Projects.jsx",
-                                        lineNumber: 375,
+                                        lineNumber: 265,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -1322,54 +1352,50 @@ const Projects = ()=>{
                                         placeholder: "Search projects...",
                                         value: searchQuery,
                                         onChange: (e)=>setSearchQuery(e.target.value),
-                                        className: "w-full pl-10 pr-4 py-2 rounded-xl bg-gray-800/50 text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300",
-                                        "aria-label": "Search projects"
+                                        className: "w-full pl-10 pr-4 py-3 rounded-xl bg-gray-900/50 text-white border-none focus:ring-2 focus:ring-teal-400 transition-all duration-300 placeholder-gray-500"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/components/Projects.jsx",
-                                        lineNumber: 378,
+                                        lineNumber: 268,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/components/Projects.jsx",
-                                lineNumber: 374,
+                                lineNumber: 264,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "flex flex-wrap gap-2 justify-center",
+                                className: "flex flex-wrap gap-3 justify-center",
                                 children: categories.map((category)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].button, {
                                         onClick: ()=>setActiveFilter(category.id),
-                                        className: `px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 ${activeFilter === category.id ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white' : 'bg-gray-800/50 text-gray-200 hover:bg-gray-700/50'}`,
+                                        className: `px-5 py-2.5 rounded-xl text-sm font-medium transition-all duration-300 ${activeFilter === category.id ? 'bg-gradient-to-r from-teal-400 to-purple-600 text-white shadow-lg' : 'bg-gray-800/40 text-gray-300 hover:bg-gray-700/60'}`,
                                         whileHover: {
-                                            scale: 1.05
+                                            scale: 1.1,
+                                            rotate: 2
                                         },
                                         whileTap: {
                                             scale: 0.95
-                                        },
-                                        style: {
-                                            transformStyle: 'preserve-3d',
-                                            transform: 'perspective(1000px) rotateY(0deg) rotateX(0deg)'
                                         },
                                         "aria-label": `Filter by ${category.name}`,
                                         children: category.name
                                     }, category.id, false, {
                                         fileName: "[project]/src/app/components/Projects.jsx",
-                                        lineNumber: 389,
+                                        lineNumber: 278,
                                         columnNumber: 15
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/src/app/components/Projects.jsx",
-                                lineNumber: 387,
+                                lineNumber: 276,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/components/Projects.jsx",
-                        lineNumber: 367,
+                        lineNumber: 257,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8",
+                        className: "masonry-grid",
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$AnimatePresence$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AnimatePresence"], {
                             children: filteredProjects.map((project)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
                                     initial: {
@@ -1386,136 +1412,107 @@ const Projects = ()=>{
                                     transition: {
                                         duration: 0.5
                                     },
-                                    className: "relative group",
-                                    onMouseEnter: ()=>setHoveredProject(project.id),
-                                    onMouseLeave: ()=>setHoveredProject(null),
+                                    className: "masonry-item relative group",
                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
                                         className: "rounded-2xl overflow-hidden cursor-pointer",
                                         whileHover: {
-                                            scale: 1.02,
-                                            rotateY: 5,
-                                            rotateX: 5,
+                                            scale: 1.03,
                                             transition: {
                                                 duration: 0.3
                                             }
                                         },
                                         style: {
                                             ...glassEffect,
-                                            transformStyle: 'preserve-3d',
-                                            transform: 'perspective(1000px) rotateY(0deg) rotateX(0deg)'
+                                            transformStyle: 'preserve-3d'
                                         },
-                                        onClick: ()=>handleViewDetails(project),
-                                        role: "button",
-                                        tabIndex: "0",
-                                        "aria-label": `View details for ${project.title}`,
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "relative h-64",
+                                                className: "relative h-60 md:h-72",
                                                 children: [
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                                                         src: project.image,
                                                         alt: project.title,
                                                         fill: true,
-                                                        className: "object-cover transition-transform duration-300 group-hover:scale-110"
+                                                        className: "object-cover transition-transform duration-300 group-hover:scale-105"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/components/Projects.jsx",
-                                                        lineNumber: 444,
+                                                        lineNumber: 319,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                        className: "absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                                                        className: "absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/components/Projects.jsx",
-                                                        lineNumber: 450,
+                                                        lineNumber: 325,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/components/Projects.jsx",
-                                                lineNumber: 443,
+                                                lineNumber: 318,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "p-6 max-h-[400px] overflow-y-auto",
+                                                className: "p-6",
                                                 children: [
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                                                        className: "text-xl font-bold text-white mb-2",
+                                                        className: "text-xl md:text-2xl font-bold text-white mb-2",
                                                         children: project.title
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/components/Projects.jsx",
-                                                        lineNumber: 453,
+                                                        lineNumber: 328,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                        className: "text-gray-200 mb-4 line-clamp-2",
+                                                        className: "text-gray-300 mb-4 text-sm md:text-base line-clamp-2",
                                                         children: project.description
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/components/Projects.jsx",
-                                                        lineNumber: 454,
+                                                        lineNumber: 329,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                         className: "flex flex-wrap gap-2 mb-4",
-                                                        children: [
-                                                            project.technologies.slice(0, 3).map((tech)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                    className: "px-3 py-1 text-sm rounded-full bg-gray-800/50 text-gray-200",
-                                                                    children: tech
-                                                                }, tech, false, {
-                                                                    fileName: "[project]/src/app/components/Projects.jsx",
-                                                                    lineNumber: 457,
-                                                                    columnNumber: 25
-                                                                }, this)),
-                                                            project.technologies.length > 3 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                className: "px-3 py-1 text-sm rounded-full bg-gray-800/50 text-gray-200",
-                                                                children: [
-                                                                    "+",
-                                                                    project.technologies.length - 3
-                                                                ]
-                                                            }, void 0, true, {
+                                                        children: project.technologies.map((tech)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                className: "px-2.5 py-1 text-xs md:text-sm rounded-full bg-gray-800/60 text-gray-200",
+                                                                children: tech
+                                                            }, tech, false, {
                                                                 fileName: "[project]/src/app/components/Projects.jsx",
-                                                                lineNumber: 465,
+                                                                lineNumber: 332,
                                                                 columnNumber: 25
-                                                            }, this)
-                                                        ]
-                                                    }, void 0, true, {
+                                                            }, this))
+                                                    }, void 0, false, {
                                                         fileName: "[project]/src/app/components/Projects.jsx",
-                                                        lineNumber: 455,
+                                                        lineNumber: 330,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                        className: "flex flex-wrap gap-3 mt-4",
+                                                        className: "flex flex-wrap gap-3 mb-4",
                                                         children: [
                                                             project.githubLink && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].a, {
                                                                 href: project.githubLink,
                                                                 target: "_blank",
                                                                 rel: "noopener noreferrer",
                                                                 whileHover: {
-                                                                    scale: 1.05
+                                                                    scale: 1.1
                                                                 },
                                                                 whileTap: {
                                                                     scale: 0.95
                                                                 },
-                                                                className: "px-4 py-2 rounded-lg bg-gradient-to-r from-blue-500 to-purple-500 text-white hover:from-blue-600 hover:to-purple-600 transition-all duration-300 flex items-center gap-2 text-sm",
-                                                                "aria-label": "View on GitHub",
+                                                                className: "flex items-center gap-2 px-3 py-1.5 bg-teal-500/80 text-white rounded-lg hover:bg-teal-600 transition-colors duration-300 text-sm",
                                                                 children: [
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$fa$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FaGithub"], {
                                                                         className: "h-4 w-4"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/components/Projects.jsx",
-                                                                        lineNumber: 481,
+                                                                        lineNumber: 350,
                                                                         columnNumber: 27
                                                                     }, this),
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                        children: "GitHub"
-                                                                    }, void 0, false, {
-                                                                        fileName: "[project]/src/app/components/Projects.jsx",
-                                                                        lineNumber: 482,
-                                                                        columnNumber: 27
-                                                                    }, this)
+                                                                    " GitHub"
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/app/components/Projects.jsx",
-                                                                lineNumber: 472,
+                                                                lineNumber: 342,
                                                                 columnNumber: 25
                                                             }, this),
                                                             project.videoLink && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].a, {
@@ -1523,427 +1520,269 @@ const Projects = ()=>{
                                                                 target: "_blank",
                                                                 rel: "noopener noreferrer",
                                                                 whileHover: {
-                                                                    scale: 1.05
+                                                                    scale: 1.1
                                                                 },
                                                                 whileTap: {
                                                                     scale: 0.95
                                                                 },
-                                                                className: "px-4 py-2 rounded-lg bg-gradient-to-r from-blue-500 to-purple-500 text-white hover:from-blue-600 hover:to-purple-600 transition-all duration-300 flex items-center gap-2 text-sm",
-                                                                "aria-label": "Watch video",
+                                                                className: "flex items-center gap-2 px-3 py-1.5 bg-purple-500/80 text-white rounded-lg hover:bg-purple-600 transition-colors duration-300 text-sm",
                                                                 children: [
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$fa$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FaExternalLinkAlt"], {
                                                                         className: "h-4 w-4"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/components/Projects.jsx",
-                                                                        lineNumber: 495,
+                                                                        lineNumber: 362,
                                                                         columnNumber: 27
                                                                     }, this),
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                        children: "Demo"
-                                                                    }, void 0, false, {
-                                                                        fileName: "[project]/src/app/components/Projects.jsx",
-                                                                        lineNumber: 496,
-                                                                        columnNumber: 27
-                                                                    }, this)
+                                                                    " Demo"
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/app/components/Projects.jsx",
-                                                                lineNumber: 486,
+                                                                lineNumber: 354,
                                                                 columnNumber: 25
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/app/components/Projects.jsx",
-                                                        lineNumber: 470,
+                                                        lineNumber: 340,
                                                         columnNumber: 21
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].button, {
+                                                        onClick: ()=>toggleExpand(project.id),
+                                                        className: "w-full flex items-center justify-center gap-2 text-white hover:text-gray-200 transition-colors duration-300",
+                                                        whileHover: {
+                                                            scale: 1.05
+                                                        },
+                                                        whileTap: {
+                                                            scale: 0.95
+                                                        },
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                children: "View Details"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/app/components/Projects.jsx",
+                                                                lineNumber: 372,
+                                                                columnNumber: 23
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$fa$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FaChevronDown"], {
+                                                                className: `h-4 w-4 transition-transform ${expandedProject === project.id ? 'rotate-180' : ''}`
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/app/components/Projects.jsx",
+                                                                lineNumber: 373,
+                                                                columnNumber: 23
+                                                            }, this)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/src/app/components/Projects.jsx",
+                                                        lineNumber: 366,
+                                                        columnNumber: 21
+                                                    }, this),
+                                                    expandedProject === project.id && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
+                                                        initial: {
+                                                            opacity: 0,
+                                                            height: 0
+                                                        },
+                                                        animate: {
+                                                            opacity: 1,
+                                                            height: 'auto'
+                                                        },
+                                                        exit: {
+                                                            opacity: 0,
+                                                            height: 0
+                                                        },
+                                                        className: "mt-4 space-y-4 text-sm text-gray-300",
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                children: [
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
+                                                                        className: "font-medium text-gray-200",
+                                                                        children: "Full Description"
+                                                                    }, void 0, false, {
+                                                                        fileName: "[project]/src/app/components/Projects.jsx",
+                                                                        lineNumber: 384,
+                                                                        columnNumber: 27
+                                                                    }, this),
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                        className: "mt-2",
+                                                                        children: project.description
+                                                                    }, void 0, false, {
+                                                                        fileName: "[project]/src/app/components/Projects.jsx",
+                                                                        lineNumber: 385,
+                                                                        columnNumber: 27
+                                                                    }, this)
+                                                                ]
+                                                            }, void 0, true, {
+                                                                fileName: "[project]/src/app/components/Projects.jsx",
+                                                                lineNumber: 383,
+                                                                columnNumber: 25
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                children: [
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
+                                                                        className: "font-medium text-gray-200",
+                                                                        children: "Features"
+                                                                    }, void 0, false, {
+                                                                        fileName: "[project]/src/app/components/Projects.jsx",
+                                                                        lineNumber: 389,
+                                                                        columnNumber: 27
+                                                                    }, this),
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
+                                                                        className: "list-disc list-inside mt-2",
+                                                                        children: project.features.map((feature)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
+                                                                                children: feature
+                                                                            }, feature, false, {
+                                                                                fileName: "[project]/src/app/components/Projects.jsx",
+                                                                                lineNumber: 392,
+                                                                                columnNumber: 31
+                                                                            }, this))
+                                                                    }, void 0, false, {
+                                                                        fileName: "[project]/src/app/components/Projects.jsx",
+                                                                        lineNumber: 390,
+                                                                        columnNumber: 27
+                                                                    }, this)
+                                                                ]
+                                                            }, void 0, true, {
+                                                                fileName: "[project]/src/app/components/Projects.jsx",
+                                                                lineNumber: 388,
+                                                                columnNumber: 25
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                children: [
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
+                                                                        className: "font-medium text-gray-200",
+                                                                        children: "Results"
+                                                                    }, void 0, false, {
+                                                                        fileName: "[project]/src/app/components/Projects.jsx",
+                                                                        lineNumber: 397,
+                                                                        columnNumber: 27
+                                                                    }, this),
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
+                                                                        className: "list-disc list-inside mt-2",
+                                                                        children: project.results.map((result)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
+                                                                                children: result
+                                                                            }, result, false, {
+                                                                                fileName: "[project]/src/app/components/Projects.jsx",
+                                                                                lineNumber: 400,
+                                                                                columnNumber: 31
+                                                                            }, this))
+                                                                    }, void 0, false, {
+                                                                        fileName: "[project]/src/app/components/Projects.jsx",
+                                                                        lineNumber: 398,
+                                                                        columnNumber: 27
+                                                                    }, this)
+                                                                ]
+                                                            }, void 0, true, {
+                                                                fileName: "[project]/src/app/components/Projects.jsx",
+                                                                lineNumber: 396,
+                                                                columnNumber: 25
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                children: [
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
+                                                                        className: "font-medium text-gray-200",
+                                                                        children: "Challenges"
+                                                                    }, void 0, false, {
+                                                                        fileName: "[project]/src/app/components/Projects.jsx",
+                                                                        lineNumber: 405,
+                                                                        columnNumber: 27
+                                                                    }, this),
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
+                                                                        className: "list-disc list-inside mt-2",
+                                                                        children: project.challenges.map((challenge)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
+                                                                                children: challenge
+                                                                            }, challenge, false, {
+                                                                                fileName: "[project]/src/app/components/Projects.jsx",
+                                                                                lineNumber: 408,
+                                                                                columnNumber: 31
+                                                                            }, this))
+                                                                    }, void 0, false, {
+                                                                        fileName: "[project]/src/app/components/Projects.jsx",
+                                                                        lineNumber: 406,
+                                                                        columnNumber: 27
+                                                                    }, this)
+                                                                ]
+                                                            }, void 0, true, {
+                                                                fileName: "[project]/src/app/components/Projects.jsx",
+                                                                lineNumber: 404,
+                                                                columnNumber: 25
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                children: [
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
+                                                                        className: "font-medium text-gray-200",
+                                                                        children: "Solutions"
+                                                                    }, void 0, false, {
+                                                                        fileName: "[project]/src/app/components/Projects.jsx",
+                                                                        lineNumber: 413,
+                                                                        columnNumber: 27
+                                                                    }, this),
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
+                                                                        className: "list-disc list-inside mt-2",
+                                                                        children: project.solutions.map((solution)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
+                                                                                children: solution
+                                                                            }, solution, false, {
+                                                                                fileName: "[project]/src/app/components/Projects.jsx",
+                                                                                lineNumber: 416,
+                                                                                columnNumber: 31
+                                                                            }, this))
+                                                                    }, void 0, false, {
+                                                                        fileName: "[project]/src/app/components/Projects.jsx",
+                                                                        lineNumber: 414,
+                                                                        columnNumber: 27
+                                                                    }, this)
+                                                                ]
+                                                            }, void 0, true, {
+                                                                fileName: "[project]/src/app/components/Projects.jsx",
+                                                                lineNumber: 412,
+                                                                columnNumber: 25
+                                                            }, this)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/src/app/components/Projects.jsx",
+                                                        lineNumber: 376,
+                                                        columnNumber: 23
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/components/Projects.jsx",
-                                                lineNumber: 452,
+                                                lineNumber: 327,
                                                 columnNumber: 19
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/components/Projects.jsx",
-                                        lineNumber: 425,
+                                        lineNumber: 307,
                                         columnNumber: 17
                                     }, this)
                                 }, project.id, false, {
                                     fileName: "[project]/src/app/components/Projects.jsx",
-                                    lineNumber: 415,
+                                    lineNumber: 299,
                                     columnNumber: 15
                                 }, this))
                         }, void 0, false, {
                             fileName: "[project]/src/app/components/Projects.jsx",
-                            lineNumber: 413,
+                            lineNumber: 297,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/app/components/Projects.jsx",
-                        lineNumber: 412,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$AnimatePresence$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AnimatePresence"], {
-                        children: selectedProject && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
-                            initial: {
-                                opacity: 0
-                            },
-                            animate: {
-                                opacity: 1
-                            },
-                            exit: {
-                                opacity: 0
-                            },
-                            className: "fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-black/90 backdrop-blur-md",
-                            onClick: closeDetails,
-                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
-                                initial: {
-                                    scale: 0.9,
-                                    opacity: 0
-                                },
-                                animate: {
-                                    scale: 1,
-                                    opacity: 1
-                                },
-                                exit: {
-                                    scale: 0.9,
-                                    opacity: 0
-                                },
-                                className: "relative max-w-4xl w-full max-h-[90vh] overflow-y-auto rounded-2xl bg-gray-900/95",
-                                style: {
-                                    ...glassEffect,
-                                    transformStyle: 'preserve-3d',
-                                    transform: 'perspective(1000px) rotateY(0deg) rotateX(0deg)'
-                                },
-                                onClick: (e)=>e.stopPropagation(),
-                                children: [
-                                    isMobile && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].button, {
-                                        onClick: closeDetails,
-                                        className: "fixed top-4 right-4 p-3 rounded-full bg-red-500 text-white hover:bg-red-600 transition-colors duration-300 z-[10000] shadow-lg",
-                                        whileHover: {
-                                            scale: 1.1
-                                        },
-                                        whileTap: {
-                                            scale: 0.9
-                                        },
-                                        "aria-label": "Close project details",
-                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$fa$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FaTimes"], {
-                                            className: "h-6 w-6"
-                                        }, void 0, false, {
-                                            fileName: "[project]/src/app/components/Projects.jsx",
-                                            lineNumber: 538,
-                                            columnNumber: 21
-                                        }, this)
-                                    }, void 0, false, {
-                                        fileName: "[project]/src/app/components/Projects.jsx",
-                                        lineNumber: 531,
-                                        columnNumber: 19
-                                    }, this),
-                                    !isMobile && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                        onClick: closeDetails,
-                                        className: "fixed top-4 right-4 p-2 rounded-full bg-red-500 text-white hover:bg-red-600 transition-colors duration-300 z-[10000] shadow-lg",
-                                        "aria-label": "Close project details",
-                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$fa$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FaTimes"], {
-                                            className: "h-5 w-5"
-                                        }, void 0, false, {
-                                            fileName: "[project]/src/app/components/Projects.jsx",
-                                            lineNumber: 549,
-                                            columnNumber: 21
-                                        }, this)
-                                    }, void 0, false, {
-                                        fileName: "[project]/src/app/components/Projects.jsx",
-                                        lineNumber: 544,
-                                        columnNumber: 19
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "p-8",
-                                        children: [
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                                                className: "text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500 mb-4",
-                                                children: selectedProject.title
-                                            }, void 0, false, {
-                                                fileName: "[project]/src/app/components/Projects.jsx",
-                                                lineNumber: 554,
-                                                columnNumber: 19
-                                            }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "grid grid-cols-1 md:grid-cols-2 gap-8",
-                                                children: [
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                        children: [
-                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                className: "relative h-64 rounded-xl overflow-hidden mb-4",
-                                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                                                    src: selectedProject.image,
-                                                                    alt: selectedProject.title,
-                                                                    fill: true,
-                                                                    className: "object-cover"
-                                                                }, void 0, false, {
-                                                                    fileName: "[project]/src/app/components/Projects.jsx",
-                                                                    lineNumber: 560,
-                                                                    columnNumber: 25
-                                                                }, this)
-                                                            }, void 0, false, {
-                                                                fileName: "[project]/src/app/components/Projects.jsx",
-                                                                lineNumber: 559,
-                                                                columnNumber: 23
-                                                            }, this),
-                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                                className: "text-gray-200 mb-6",
-                                                                children: selectedProject.description
-                                                            }, void 0, false, {
-                                                                fileName: "[project]/src/app/components/Projects.jsx",
-                                                                lineNumber: 567,
-                                                                columnNumber: 23
-                                                            }, this),
-                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                className: "flex flex-wrap gap-4",
-                                                                children: [
-                                                                    selectedProject.githubLink && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].a, {
-                                                                        href: selectedProject.githubLink,
-                                                                        target: "_blank",
-                                                                        rel: "noopener noreferrer",
-                                                                        whileHover: {
-                                                                            scale: 1.05
-                                                                        },
-                                                                        whileTap: {
-                                                                            scale: 0.95
-                                                                        },
-                                                                        className: "px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-xl flex items-center gap-2 hover:from-blue-600 hover:to-purple-600 transition-all duration-300 shadow-lg",
-                                                                        style: {
-                                                                            transformStyle: 'preserve-3d',
-                                                                            transform: 'perspective(1000px) rotateY(0deg) rotateX(0deg)'
-                                                                        },
-                                                                        "aria-label": "View on GitHub",
-                                                                        children: [
-                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$fa$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FaGithub"], {
-                                                                                className: "h-5 w-5"
-                                                                            }, void 0, false, {
-                                                                                fileName: "[project]/src/app/components/Projects.jsx",
-                                                                                lineNumber: 583,
-                                                                                columnNumber: 29
-                                                                            }, this),
-                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                                children: "View on GitHub"
-                                                                            }, void 0, false, {
-                                                                                fileName: "[project]/src/app/components/Projects.jsx",
-                                                                                lineNumber: 584,
-                                                                                columnNumber: 29
-                                                                            }, this)
-                                                                        ]
-                                                                    }, void 0, true, {
-                                                                        fileName: "[project]/src/app/components/Projects.jsx",
-                                                                        lineNumber: 570,
-                                                                        columnNumber: 27
-                                                                    }, this),
-                                                                    selectedProject.videoLink && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].a, {
-                                                                        href: selectedProject.videoLink,
-                                                                        target: "_blank",
-                                                                        rel: "noopener noreferrer",
-                                                                        whileHover: {
-                                                                            scale: 1.05
-                                                                        },
-                                                                        whileTap: {
-                                                                            scale: 0.95
-                                                                        },
-                                                                        className: "px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-xl flex items-center gap-2 hover:from-blue-600 hover:to-purple-600 transition-all duration-300 shadow-lg",
-                                                                        style: {
-                                                                            transformStyle: 'preserve-3d',
-                                                                            transform: 'perspective(1000px) rotateY(0deg) rotateX(0deg)'
-                                                                        },
-                                                                        "aria-label": "Watch video",
-                                                                        children: [
-                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$fa$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FaExternalLinkAlt"], {
-                                                                                className: "h-5 w-5"
-                                                                            }, void 0, false, {
-                                                                                fileName: "[project]/src/app/components/Projects.jsx",
-                                                                                lineNumber: 601,
-                                                                                columnNumber: 29
-                                                                            }, this),
-                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                                children: "Watch Demo"
-                                                                            }, void 0, false, {
-                                                                                fileName: "[project]/src/app/components/Projects.jsx",
-                                                                                lineNumber: 602,
-                                                                                columnNumber: 29
-                                                                            }, this)
-                                                                        ]
-                                                                    }, void 0, true, {
-                                                                        fileName: "[project]/src/app/components/Projects.jsx",
-                                                                        lineNumber: 588,
-                                                                        columnNumber: 27
-                                                                    }, this)
-                                                                ]
-                                                            }, void 0, true, {
-                                                                fileName: "[project]/src/app/components/Projects.jsx",
-                                                                lineNumber: 568,
-                                                                columnNumber: 23
-                                                            }, this)
-                                                        ]
-                                                    }, void 0, true, {
-                                                        fileName: "[project]/src/app/components/Projects.jsx",
-                                                        lineNumber: 558,
-                                                        columnNumber: 21
-                                                    }, this),
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                        children: [
-                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                                                                className: "text-xl font-bold text-white mb-4",
-                                                                children: "Project Details"
-                                                            }, void 0, false, {
-                                                                fileName: "[project]/src/app/components/Projects.jsx",
-                                                                lineNumber: 608,
-                                                                columnNumber: 23
-                                                            }, this),
-                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                className: "space-y-6",
-                                                                children: [
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                        children: [
-                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
-                                                                                className: "text-lg font-medium text-gray-200 mb-2",
-                                                                                children: "Technologies"
-                                                                            }, void 0, false, {
-                                                                                fileName: "[project]/src/app/components/Projects.jsx",
-                                                                                lineNumber: 611,
-                                                                                columnNumber: 27
-                                                                            }, this),
-                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                                className: "flex flex-wrap gap-2",
-                                                                                children: selectedProject.technologies.map((tech)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                                        className: "px-3 py-1 text-sm rounded-full bg-gray-800/50 text-gray-200",
-                                                                                        children: tech
-                                                                                    }, tech, false, {
-                                                                                        fileName: "[project]/src/app/components/Projects.jsx",
-                                                                                        lineNumber: 614,
-                                                                                        columnNumber: 31
-                                                                                    }, this))
-                                                                            }, void 0, false, {
-                                                                                fileName: "[project]/src/app/components/Projects.jsx",
-                                                                                lineNumber: 612,
-                                                                                columnNumber: 27
-                                                                            }, this)
-                                                                        ]
-                                                                    }, void 0, true, {
-                                                                        fileName: "[project]/src/app/components/Projects.jsx",
-                                                                        lineNumber: 610,
-                                                                        columnNumber: 25
-                                                                    }, this),
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                        children: [
-                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
-                                                                                className: "text-lg font-medium text-gray-200 mb-2",
-                                                                                children: "Features"
-                                                                            }, void 0, false, {
-                                                                                fileName: "[project]/src/app/components/Projects.jsx",
-                                                                                lineNumber: 624,
-                                                                                columnNumber: 27
-                                                                            }, this),
-                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
-                                                                                className: "list-disc list-inside text-gray-200 space-y-1",
-                                                                                children: selectedProject.features.map((feature)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
-                                                                                        children: feature
-                                                                                    }, feature, false, {
-                                                                                        fileName: "[project]/src/app/components/Projects.jsx",
-                                                                                        lineNumber: 627,
-                                                                                        columnNumber: 31
-                                                                                    }, this))
-                                                                            }, void 0, false, {
-                                                                                fileName: "[project]/src/app/components/Projects.jsx",
-                                                                                lineNumber: 625,
-                                                                                columnNumber: 27
-                                                                            }, this)
-                                                                        ]
-                                                                    }, void 0, true, {
-                                                                        fileName: "[project]/src/app/components/Projects.jsx",
-                                                                        lineNumber: 623,
-                                                                        columnNumber: 25
-                                                                    }, this),
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                        children: [
-                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
-                                                                                className: "text-lg font-medium text-gray-200 mb-2",
-                                                                                children: "Results"
-                                                                            }, void 0, false, {
-                                                                                fileName: "[project]/src/app/components/Projects.jsx",
-                                                                                lineNumber: 632,
-                                                                                columnNumber: 27
-                                                                            }, this),
-                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
-                                                                                className: "list-disc list-inside text-gray-200 space-y-1",
-                                                                                children: selectedProject.results.map((result)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
-                                                                                        children: result
-                                                                                    }, result, false, {
-                                                                                        fileName: "[project]/src/app/components/Projects.jsx",
-                                                                                        lineNumber: 635,
-                                                                                        columnNumber: 31
-                                                                                    }, this))
-                                                                            }, void 0, false, {
-                                                                                fileName: "[project]/src/app/components/Projects.jsx",
-                                                                                lineNumber: 633,
-                                                                                columnNumber: 27
-                                                                            }, this)
-                                                                        ]
-                                                                    }, void 0, true, {
-                                                                        fileName: "[project]/src/app/components/Projects.jsx",
-                                                                        lineNumber: 631,
-                                                                        columnNumber: 25
-                                                                    }, this)
-                                                                ]
-                                                            }, void 0, true, {
-                                                                fileName: "[project]/src/app/components/Projects.jsx",
-                                                                lineNumber: 609,
-                                                                columnNumber: 23
-                                                            }, this)
-                                                        ]
-                                                    }, void 0, true, {
-                                                        fileName: "[project]/src/app/components/Projects.jsx",
-                                                        lineNumber: 607,
-                                                        columnNumber: 21
-                                                    }, this)
-                                                ]
-                                            }, void 0, true, {
-                                                fileName: "[project]/src/app/components/Projects.jsx",
-                                                lineNumber: 557,
-                                                columnNumber: 19
-                                            }, this)
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "[project]/src/app/components/Projects.jsx",
-                                        lineNumber: 553,
-                                        columnNumber: 17
-                                    }, this)
-                                ]
-                            }, void 0, true, {
-                                fileName: "[project]/src/app/components/Projects.jsx",
-                                lineNumber: 517,
-                                columnNumber: 15
-                            }, this)
-                        }, void 0, false, {
-                            fileName: "[project]/src/app/components/Projects.jsx",
-                            lineNumber: 510,
-                            columnNumber: 13
-                        }, this)
-                    }, void 0, false, {
-                        fileName: "[project]/src/app/components/Projects.jsx",
-                        lineNumber: 508,
+                        lineNumber: 296,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/components/Projects.jsx",
-                lineNumber: 350,
+                lineNumber: 241,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/app/components/Projects.jsx",
-        lineNumber: 335,
+        lineNumber: 183,
         columnNumber: 5
     }, this);
 };
-_s(Projects, "FA/B6JoXbZszOxMI9pAZB8CU73Q=", false, function() {
+_s(Projects, "WZhBQ3KrsbjPE9duFjYSXr4c9AY=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$value$2f$use$2d$scroll$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useScroll"],
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$value$2f$use$2d$transform$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useTransform"]
