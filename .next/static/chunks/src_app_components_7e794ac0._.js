@@ -1212,7 +1212,7 @@ const Projects = ()=>{
         id: "projects",
         className: "py-20 relative overflow-hidden min-h-screen",
         style: {
-            background: isDarkMode ? 'linear-gradient(to bottom, #111827, #1f2937)' : 'linear-gradient(to bottom, #f3f4f6, #ffffff)'
+            background: isDarkMode ? '#1f2937' : '#f3f4f6'
         },
         role: "region",
         "aria-label": "Projects section",
@@ -1224,27 +1224,20 @@ const Projects = ()=>{
                         className: "absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-500/10 via-transparent to-purple-500/10"
                     }, void 0, false, {
                         fileName: "[project]/src/app/components/Projects.jsx",
-                        lineNumber: 348,
+                        lineNumber: 346,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "absolute inset-0 bg-[url('/pattern.svg')] bg-repeat opacity-5"
                     }, void 0, false, {
                         fileName: "[project]/src/app/components/Projects.jsx",
-                        lineNumber: 349,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "absolute inset-0 bg-gradient-to-br from-transparent via-gray-900/50 to-transparent"
-                    }, void 0, false, {
-                        fileName: "[project]/src/app/components/Projects.jsx",
-                        lineNumber: 350,
+                        lineNumber: 347,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/components/Projects.jsx",
-                lineNumber: 347,
+                lineNumber: 345,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1272,7 +1265,7 @@ const Projects = ()=>{
                                 children: "My Projects"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/components/Projects.jsx",
-                                lineNumber: 361,
+                                lineNumber: 358,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1280,13 +1273,13 @@ const Projects = ()=>{
                                 children: "A showcase of my recent work and contributions"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/components/Projects.jsx",
-                                lineNumber: 364,
+                                lineNumber: 361,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/components/Projects.jsx",
-                        lineNumber: 354,
+                        lineNumber: 351,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -1316,12 +1309,12 @@ const Projects = ()=>{
                                             className: "h-5 w-5 text-white"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/components/Projects.jsx",
-                                            lineNumber: 379,
+                                            lineNumber: 376,
                                             columnNumber: 15
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/components/Projects.jsx",
-                                        lineNumber: 378,
+                                        lineNumber: 375,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -1333,13 +1326,13 @@ const Projects = ()=>{
                                         "aria-label": "Search projects"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/components/Projects.jsx",
-                                        lineNumber: 381,
+                                        lineNumber: 378,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/components/Projects.jsx",
-                                lineNumber: 377,
+                                lineNumber: 374,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1361,18 +1354,18 @@ const Projects = ()=>{
                                         children: category.name
                                     }, category.id, false, {
                                         fileName: "[project]/src/app/components/Projects.jsx",
-                                        lineNumber: 392,
+                                        lineNumber: 389,
                                         columnNumber: 15
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/src/app/components/Projects.jsx",
-                                lineNumber: 390,
+                                lineNumber: 387,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/components/Projects.jsx",
-                        lineNumber: 370,
+                        lineNumber: 367,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1426,20 +1419,20 @@ const Projects = ()=>{
                                                         className: "object-cover transition-transform duration-300 group-hover:scale-110"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/components/Projects.jsx",
-                                                        lineNumber: 447,
+                                                        lineNumber: 444,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                         className: "absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/components/Projects.jsx",
-                                                        lineNumber: 453,
+                                                        lineNumber: 450,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/components/Projects.jsx",
-                                                lineNumber: 446,
+                                                lineNumber: 443,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1450,7 +1443,7 @@ const Projects = ()=>{
                                                         children: project.title
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/components/Projects.jsx",
-                                                        lineNumber: 456,
+                                                        lineNumber: 453,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1458,7 +1451,7 @@ const Projects = ()=>{
                                                         children: project.description
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/components/Projects.jsx",
-                                                        lineNumber: 457,
+                                                        lineNumber: 454,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1469,7 +1462,7 @@ const Projects = ()=>{
                                                                     children: tech
                                                                 }, tech, false, {
                                                                     fileName: "[project]/src/app/components/Projects.jsx",
-                                                                    lineNumber: 460,
+                                                                    lineNumber: 457,
                                                                     columnNumber: 25
                                                                 }, this)),
                                                             project.technologies.length > 3 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1480,13 +1473,13 @@ const Projects = ()=>{
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/app/components/Projects.jsx",
-                                                                lineNumber: 468,
+                                                                lineNumber: 465,
                                                                 columnNumber: 25
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/app/components/Projects.jsx",
-                                                        lineNumber: 458,
+                                                        lineNumber: 455,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1509,20 +1502,20 @@ const Projects = ()=>{
                                                                         className: "h-4 w-4"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/components/Projects.jsx",
-                                                                        lineNumber: 484,
+                                                                        lineNumber: 481,
                                                                         columnNumber: 27
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                                         children: "GitHub"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/components/Projects.jsx",
-                                                                        lineNumber: 485,
+                                                                        lineNumber: 482,
                                                                         columnNumber: 27
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/app/components/Projects.jsx",
-                                                                lineNumber: 475,
+                                                                lineNumber: 472,
                                                                 columnNumber: 25
                                                             }, this),
                                                             project.videoLink && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].a, {
@@ -1542,53 +1535,53 @@ const Projects = ()=>{
                                                                         className: "h-4 w-4"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/components/Projects.jsx",
-                                                                        lineNumber: 498,
+                                                                        lineNumber: 495,
                                                                         columnNumber: 27
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                                         children: "Demo"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/components/Projects.jsx",
-                                                                        lineNumber: 499,
+                                                                        lineNumber: 496,
                                                                         columnNumber: 27
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/app/components/Projects.jsx",
-                                                                lineNumber: 489,
+                                                                lineNumber: 486,
                                                                 columnNumber: 25
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/app/components/Projects.jsx",
-                                                        lineNumber: 473,
+                                                        lineNumber: 470,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/components/Projects.jsx",
-                                                lineNumber: 455,
+                                                lineNumber: 452,
                                                 columnNumber: 19
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/components/Projects.jsx",
-                                        lineNumber: 428,
+                                        lineNumber: 425,
                                         columnNumber: 17
                                     }, this)
                                 }, project.id, false, {
                                     fileName: "[project]/src/app/components/Projects.jsx",
-                                    lineNumber: 418,
+                                    lineNumber: 415,
                                     columnNumber: 15
                                 }, this))
                         }, void 0, false, {
                             fileName: "[project]/src/app/components/Projects.jsx",
-                            lineNumber: 416,
+                            lineNumber: 413,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/app/components/Projects.jsx",
-                        lineNumber: 415,
+                        lineNumber: 412,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$AnimatePresence$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AnimatePresence"], {
@@ -1639,12 +1632,12 @@ const Projects = ()=>{
                                             className: "h-6 w-6"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/components/Projects.jsx",
-                                            lineNumber: 541,
+                                            lineNumber: 538,
                                             columnNumber: 21
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/components/Projects.jsx",
-                                        lineNumber: 534,
+                                        lineNumber: 531,
                                         columnNumber: 19
                                     }, this),
                                     !isMobile && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1655,12 +1648,12 @@ const Projects = ()=>{
                                             className: "h-5 w-5"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/components/Projects.jsx",
-                                            lineNumber: 552,
+                                            lineNumber: 549,
                                             columnNumber: 21
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/components/Projects.jsx",
-                                        lineNumber: 547,
+                                        lineNumber: 544,
                                         columnNumber: 19
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1671,7 +1664,7 @@ const Projects = ()=>{
                                                 children: selectedProject.title
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/components/Projects.jsx",
-                                                lineNumber: 557,
+                                                lineNumber: 554,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1688,12 +1681,12 @@ const Projects = ()=>{
                                                                     className: "object-cover"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/components/Projects.jsx",
-                                                                    lineNumber: 563,
+                                                                    lineNumber: 560,
                                                                     columnNumber: 25
                                                                 }, this)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/components/Projects.jsx",
-                                                                lineNumber: 562,
+                                                                lineNumber: 559,
                                                                 columnNumber: 23
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1701,7 +1694,7 @@ const Projects = ()=>{
                                                                 children: selectedProject.description
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/components/Projects.jsx",
-                                                                lineNumber: 570,
+                                                                lineNumber: 567,
                                                                 columnNumber: 23
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1728,20 +1721,20 @@ const Projects = ()=>{
                                                                                 className: "h-5 w-5"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/src/app/components/Projects.jsx",
-                                                                                lineNumber: 586,
+                                                                                lineNumber: 583,
                                                                                 columnNumber: 29
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                                                 children: "View on GitHub"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/src/app/components/Projects.jsx",
-                                                                                lineNumber: 587,
+                                                                                lineNumber: 584,
                                                                                 columnNumber: 29
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/src/app/components/Projects.jsx",
-                                                                        lineNumber: 573,
+                                                                        lineNumber: 570,
                                                                         columnNumber: 27
                                                                     }, this),
                                                                     selectedProject.videoLink && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].a, {
@@ -1765,32 +1758,32 @@ const Projects = ()=>{
                                                                                 className: "h-5 w-5"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/src/app/components/Projects.jsx",
-                                                                                lineNumber: 604,
+                                                                                lineNumber: 601,
                                                                                 columnNumber: 29
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                                                 children: "Watch Demo"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/src/app/components/Projects.jsx",
-                                                                                lineNumber: 605,
+                                                                                lineNumber: 602,
                                                                                 columnNumber: 29
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/src/app/components/Projects.jsx",
-                                                                        lineNumber: 591,
+                                                                        lineNumber: 588,
                                                                         columnNumber: 27
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/app/components/Projects.jsx",
-                                                                lineNumber: 571,
+                                                                lineNumber: 568,
                                                                 columnNumber: 23
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/app/components/Projects.jsx",
-                                                        lineNumber: 561,
+                                                        lineNumber: 558,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1800,7 +1793,7 @@ const Projects = ()=>{
                                                                 children: "Project Details"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/components/Projects.jsx",
-                                                                lineNumber: 611,
+                                                                lineNumber: 608,
                                                                 columnNumber: 23
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1813,7 +1806,7 @@ const Projects = ()=>{
                                                                                 children: "Technologies"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/src/app/components/Projects.jsx",
-                                                                                lineNumber: 614,
+                                                                                lineNumber: 611,
                                                                                 columnNumber: 27
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1823,18 +1816,18 @@ const Projects = ()=>{
                                                                                         children: tech
                                                                                     }, tech, false, {
                                                                                         fileName: "[project]/src/app/components/Projects.jsx",
-                                                                                        lineNumber: 617,
+                                                                                        lineNumber: 614,
                                                                                         columnNumber: 31
                                                                                     }, this))
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/src/app/components/Projects.jsx",
-                                                                                lineNumber: 615,
+                                                                                lineNumber: 612,
                                                                                 columnNumber: 27
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/src/app/components/Projects.jsx",
-                                                                        lineNumber: 613,
+                                                                        lineNumber: 610,
                                                                         columnNumber: 25
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1844,7 +1837,7 @@ const Projects = ()=>{
                                                                                 children: "Features"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/src/app/components/Projects.jsx",
-                                                                                lineNumber: 627,
+                                                                                lineNumber: 624,
                                                                                 columnNumber: 27
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
@@ -1853,18 +1846,18 @@ const Projects = ()=>{
                                                                                         children: feature
                                                                                     }, feature, false, {
                                                                                         fileName: "[project]/src/app/components/Projects.jsx",
-                                                                                        lineNumber: 630,
+                                                                                        lineNumber: 627,
                                                                                         columnNumber: 31
                                                                                     }, this))
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/src/app/components/Projects.jsx",
-                                                                                lineNumber: 628,
+                                                                                lineNumber: 625,
                                                                                 columnNumber: 27
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/src/app/components/Projects.jsx",
-                                                                        lineNumber: 626,
+                                                                        lineNumber: 623,
                                                                         columnNumber: 25
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1874,7 +1867,7 @@ const Projects = ()=>{
                                                                                 children: "Results"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/src/app/components/Projects.jsx",
-                                                                                lineNumber: 635,
+                                                                                lineNumber: 632,
                                                                                 columnNumber: 27
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
@@ -1883,64 +1876,64 @@ const Projects = ()=>{
                                                                                         children: result
                                                                                     }, result, false, {
                                                                                         fileName: "[project]/src/app/components/Projects.jsx",
-                                                                                        lineNumber: 638,
+                                                                                        lineNumber: 635,
                                                                                         columnNumber: 31
                                                                                     }, this))
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/src/app/components/Projects.jsx",
-                                                                                lineNumber: 636,
+                                                                                lineNumber: 633,
                                                                                 columnNumber: 27
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/src/app/components/Projects.jsx",
-                                                                        lineNumber: 634,
+                                                                        lineNumber: 631,
                                                                         columnNumber: 25
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/app/components/Projects.jsx",
-                                                                lineNumber: 612,
+                                                                lineNumber: 609,
                                                                 columnNumber: 23
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/app/components/Projects.jsx",
-                                                        lineNumber: 610,
+                                                        lineNumber: 607,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/components/Projects.jsx",
-                                                lineNumber: 560,
+                                                lineNumber: 557,
                                                 columnNumber: 19
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/components/Projects.jsx",
-                                        lineNumber: 556,
+                                        lineNumber: 553,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/components/Projects.jsx",
-                                lineNumber: 520,
+                                lineNumber: 517,
                                 columnNumber: 15
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/src/app/components/Projects.jsx",
-                            lineNumber: 513,
+                            lineNumber: 510,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/app/components/Projects.jsx",
-                        lineNumber: 511,
+                        lineNumber: 508,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/components/Projects.jsx",
-                lineNumber: 353,
+                lineNumber: 350,
                 columnNumber: 7
             }, this)
         ]

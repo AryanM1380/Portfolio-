@@ -336,9 +336,7 @@ const Projects = () => {
       id="projects" 
       className="py-20 relative overflow-hidden min-h-screen"
       style={{
-        background: isDarkMode
-          ? 'linear-gradient(to bottom, #111827, #1f2937)'
-          : 'linear-gradient(to bottom, #f3f4f6, #ffffff)'
+        background: isDarkMode ? '#1f2937' : '#f3f4f6'
       }}
       role="region"
       aria-label="Projects section"
@@ -347,7 +345,6 @@ const Projects = () => {
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-500/10 via-transparent to-purple-500/10"></div>
         <div className="absolute inset-0 bg-[url('/pattern.svg')] bg-repeat opacity-5"></div>
-        <div className="absolute inset-0 bg-gradient-to-br from-transparent via-gray-900/50 to-transparent"></div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
