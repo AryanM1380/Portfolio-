@@ -879,16 +879,16 @@ img, video {
   max-height: 24rem;
 }
 
+.max-h-\[400px\] {
+  max-height: 400px;
+}
+
 .max-h-\[80vh\] {
   max-height: 80vh;
 }
 
 .max-h-\[90vh\] {
   max-height: 90vh;
-}
-
-.max-h-\[400px\] {
-  max-height: 400px;
 }
 
 .min-h-screen {
@@ -1289,10 +1289,6 @@ img, video {
   background-image: radial-gradient(circle at center, var(--tw-gradient-stops));
 }
 
-.bg-\[url\(\'\/grid\.svg\'\)\] {
-  background-image: url("/grid.svg");
-}
-
 .bg-\[url\(\'\/pattern\.svg\'\)\] {
   background-image: url("/pattern.svg");
 }
@@ -1431,19 +1427,14 @@ img, video {
   --tw-gradient-stops: var(--tw-gradient-from), #11182780 var(--tw-gradient-via-position), var(--tw-gradient-to);
 }
 
-.via-purple-900 {
-  --tw-gradient-to: #581c8700 var(--tw-gradient-to-position);
-  --tw-gradient-stops: var(--tw-gradient-from), #581c87 var(--tw-gradient-via-position), var(--tw-gradient-to);
+.via-slate-900 {
+  --tw-gradient-to: #0f172a00 var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), #0f172a var(--tw-gradient-via-position), var(--tw-gradient-to);
 }
 
 .via-transparent {
   --tw-gradient-to: #0000 var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), transparent var(--tw-gradient-via-position), var(--tw-gradient-to);
-}
-
-.via-slate-900 {
-  --tw-gradient-to: #0f172a00 var(--tw-gradient-to-position);
-  --tw-gradient-stops: var(--tw-gradient-from), #0f172a var(--tw-gradient-via-position), var(--tw-gradient-to);
 }
 
 .to-\[\#232946\] {
@@ -1460,6 +1451,10 @@ img, video {
 
 .to-gray-100 {
   --tw-gradient-to: #f3f4f6 var(--tw-gradient-to-position);
+}
+
+.to-gray-800 {
+  --tw-gradient-to: #1f2937 var(--tw-gradient-to-position);
 }
 
 .to-gray-900 {
@@ -1514,17 +1509,9 @@ img, video {
   --tw-gradient-to: #ca8a04 var(--tw-gradient-to-position);
 }
 
-.to-gray-800 {
-  --tw-gradient-to: #1f2937 var(--tw-gradient-to-position);
-}
-
 .bg-clip-text {
   -webkit-background-clip: text;
   background-clip: text;
-}
-
-.bg-center {
-  background-position: center;
 }
 
 .bg-repeat {
@@ -1896,11 +1883,6 @@ img, video {
 
 .ease-in-out {
   transition-timing-function: cubic-bezier(.4, 0, .2, 1);
-}
-
-.\[mask-image\:linear-gradient\(180deg\,white\,rgba\(255\,255\,255\,0\)\)\] {
-  -webkit-mask-image: linear-gradient(#fff, #fff0);
-  mask-image: linear-gradient(#fff, #fff0);
 }
 
 :root {

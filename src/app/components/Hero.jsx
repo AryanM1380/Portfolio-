@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import Image from "next/image";
 import Link from "next/link";
-import { FaGithub, FaLinkedin, FaTwitter, FaArrowRight } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaArrowRight } from 'react-icons/fa';
 
 const Hero = () => {
   const [isHovered, setIsHovered] = useState(false);
@@ -15,7 +15,6 @@ const Hero = () => {
 
   useEffect(() => {
     setIsVisible(true);
-    // Check system preference for dark mode
     const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
     setIsDarkMode(darkModeMediaQuery.matches);
     
@@ -148,81 +147,70 @@ const Hero = () => {
               Experienced in building modern web applications and data-driven solutions using tools like React, Node.js, Python, and ML libraries.
             </motion.p>
             
-            {/* Enhanced Key Achievements with 3D Effect */}
-            <motion.div 
-              className="mb-8"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1 }}
-            >
-              <div className="flex flex-wrap gap-4">
-                <motion.div 
-                  whileHover={{ 
-                    scale: 1.05,
-                    rotateY: 10,
-                    rotateX: 5,
-                    transition: { duration: 0.3 }
-                  }}
-                  className="p-4 rounded-2xl cursor-pointer bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg"
-                  style={{
-                    transformStyle: 'preserve-3d',
-                    transform: 'perspective(1000px) rotateY(0deg) rotateX(0deg)'
-                  }}
-                  tabIndex="0"
-                  role="button"
-                  aria-label="Projects completed"
-                >
-                  <span className="text-yellow-300 mr-2">🏆</span>
-                  <span className="font-semibold">5+ Projects Completed</span>
-                </motion.div>
-                <motion.div 
-                  whileHover={{ 
-                    scale: 1.05,
-                    rotateY: 10,
-                    rotateX: 5,
-                    transition: { duration: 0.3 }
-                  }}
-                  className="p-4 rounded-2xl cursor-pointer bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg"
-                  style={{
-                    transformStyle: 'preserve-3d',
-                    transform: 'perspective(1000px) rotateY(0deg) rotateX(0deg)'
-                  }}
-                  tabIndex="0"
-                  role="button"
-                  aria-label="Years of experience"
-                >
-                  <span className="text-yellow-300 mr-2">💼</span>
-                  <span className="font-semibold">2+ Years Experience</span>
-                </motion.div>
-                <motion.div 
-                  whileHover={{ 
-                    scale: 1.05,
-                    rotateY: 10,
-                    rotateX: 5,
-                    transition: { duration: 0.3 }
-                  }}
-                  className="p-4 rounded-2xl cursor-pointer bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg"
-                  style={{
-                    transformStyle: 'preserve-3d',
-                    transform: 'perspective(1000px) rotateY(0deg) rotateX(0deg)'
-                  }}
-                  tabIndex="0"
-                  role="button"
-                  aria-label="International experience"
-                >
-                  <span className="text-yellow-300 mr-2">🌍</span>
-                  <span className="font-semibold">International Experience</span>
-                </motion.div>
-              </div>
-            </motion.div>
-
-            {/* Enhanced Action Buttons with 3D Effect */}
+            {/* All Buttons and Icons in a Single Horizontal Row */}
             <motion.div 
               className="flex flex-wrap gap-4 justify-center md:justify-start"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.2 }}
+              transition={{ duration: 0.8, delay: 1 }}
             >
+              <motion.div 
+                whileHover={{ 
+                  scale: 1.05,
+                  rotateY: 10,
+                  rotateX: 5,
+                  transition: { duration: 0.3 }
+                }}
+                className="p-4 rounded-2xl cursor-pointer bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg"
+                style={{
+                  transformStyle: 'preserve-3d',
+                  transform: 'perspective(1000px) rotateY(0deg) rotateX(0deg)'
+                }}
+                tabIndex="0"
+                role="button"
+                aria-label="Projects completed"
+              >
+                <span className="text-yellow-300 mr-2">🏆</span>
+                <span className="font-semibold">5+ Projects Completed</span>
+              </motion.div>
+              <motion.div 
+                whileHover={{ 
+                  scale: 1.05,
+                  rotateY: 10,
+                  rotateX: 5,
+                  transition: { duration: 0.3 }
+                }}
+                className="p-4 rounded-2xl cursor-pointer bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg"
+                style={{
+                  transformStyle: 'preserve-3d',
+                  transform: 'perspective(1000px) rotateY(0deg) rotateX(0deg)'
+                }}
+                tabIndex="0"
+                role="button"
+                aria-label="Years of experience"
+              >
+                <span className="text-yellow-300 mr-2">💼</span>
+                <span className="font-semibold">2+ Years Experience</span>
+              </motion.div>
+              <motion.div 
+                whileHover={{ 
+                  scale: 1.05,
+                  rotateY: 10,
+                  rotateX: 5,
+                  transition: { duration: 0.3 }
+                }}
+                className="p-4 rounded-2xl cursor-pointer bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg"
+                style={{
+                  transformStyle: 'preserve-3d',
+                  transform: 'perspective(1000px) rotateY(0deg) rotateX(0deg)'
+                }}
+                tabIndex="0"
+                role="button"
+                aria-label="International experience"
+              >
+                <span className="text-yellow-300 mr-2">🌍</span>
+                <span className="font-semibold">International Experience</span>
+              </motion.div>
               <motion.a 
                 href="#contact" 
                 whileHover={{ 
@@ -232,7 +220,7 @@ const Hero = () => {
                   transition: { duration: 0.3 }
                 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-xl flex items-center gap-2 group relative overflow-hidden"
+                className="p-4 rounded-2xl cursor-pointer bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg flex items-center gap-2 group relative overflow-hidden"
                 style={{
                   transformStyle: 'preserve-3d',
                   transform: 'perspective(1000px) rotateY(0deg) rotateX(0deg)'
@@ -253,48 +241,36 @@ const Hero = () => {
                   transition: { duration: 0.3 }
                 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-6 py-3 rounded-xl flex items-center gap-2 group relative overflow-hidden"
+                className="p-4 rounded-2xl cursor-pointer bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg flex items-center gap-2 group relative overflow-hidden"
                 style={{
-                  ...glassEffect,
                   transformStyle: 'preserve-3d',
                   transform: 'perspective(1000px) rotateY(0deg) rotateX(0deg)'
                 }}
                 role="button"
                 aria-label="View projects"
               >
-                <span className="text-gray-300 relative z-10">View Projects</span>
-                <FaArrowRight className="text-gray-300 transform group-hover:translate-x-1 transition-transform relative z-10" />
+                <span className="relative z-10">View Projects</span>
+                <FaArrowRight className="transform group-hover:translate-x-1 transition-transform relative z-10" />
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </motion.a>
-            </motion.div>
-
-            {/* Enhanced Social Links with 3D Effect */}
-            <motion.div 
-              className="flex gap-4 mt-8 justify-center md:justify-start"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.4 }}
-            >
               <motion.a 
                 href="https://github.com/AryanM1380" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 whileHover={{ 
-                  scale: 1.2, 
-                  rotate: 360,
+                  scale: 1.05,
                   rotateY: 10,
                   rotateX: 5,
                   transition: { duration: 0.3 }
                 }}
-                className="p-3 rounded-xl relative overflow-hidden"
+                className="p-4 rounded-2xl cursor-pointer bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg flex items-center justify-center relative overflow-hidden"
                 style={{
-                  ...glassEffect,
                   transformStyle: 'preserve-3d',
                   transform: 'perspective(1000px) rotateY(0deg) rotateX(0deg)'
                 }}
                 aria-label="GitHub profile"
               >
-                <FaGithub className="h-6 w-6 text-gray-300 relative z-10" />
+                <FaGithub className="h-6 w-6 text-white relative z-10" />
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
               </motion.a>
               <motion.a 
@@ -302,21 +278,19 @@ const Hero = () => {
                 target="_blank" 
                 rel="noopener noreferrer"
                 whileHover={{ 
-                  scale: 1.2, 
-                  rotate: 360,
+                  scale: 1.05,
                   rotateY: 10,
                   rotateX: 5,
                   transition: { duration: 0.3 }
                 }}
-                className="p-3 rounded-xl relative overflow-hidden"
+                className="p-4 rounded-2xl cursor-pointer bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg flex items-center justify-center relative overflow-hidden"
                 style={{
-                  ...glassEffect,
                   transformStyle: 'preserve-3d',
                   transform: 'perspective(1000px) rotateY(0deg) rotateX(0deg)'
                 }}
                 aria-label="LinkedIn profile"
               >
-                <FaLinkedin className="h-6 w-6 text-gray-300 relative z-10" />
+                <FaLinkedin className="h-6 w-6 text-white relative z-10" />
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
               </motion.a>
             </motion.div>
