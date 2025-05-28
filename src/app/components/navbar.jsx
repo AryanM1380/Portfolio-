@@ -65,7 +65,7 @@ const Navbar = () => {
               <Link
                 key={link.name}
                 href={link.href}
-                className="text-gray-600 hover:text-primary transition-colors"
+                className="text-white hover:text-purple-400 transition-colors"
                 onClick={(e) => link.href.startsWith('#') && handleScroll(e, link.href)}
               >
                 {link.name}
@@ -98,7 +98,7 @@ const Navbar = () => {
               <Link
                 key={link.name}
                 href={link.href}
-                className="block text-gray-600 hover:text-primary transition-colors"
+                className="block text-white hover:text-purple-400 transition-colors"
                 onClick={(e) => link.href.startsWith('#') && handleScroll(e, link.href)}
               >
                 {link.name}

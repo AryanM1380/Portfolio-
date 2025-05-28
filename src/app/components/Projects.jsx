@@ -361,7 +361,7 @@ const Projects = () => {
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500">
             My Projects
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          <p className="text-xl text-white max-w-2xl mx-auto">
             A showcase of my recent work and contributions
           </p>
         </motion.div>
@@ -376,7 +376,7 @@ const Projects = () => {
         >
           <div className="relative flex-1 max-w-md w-full">
             <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-              <FaSearch className="h-5 w-5 text-gray-400" />
+              <FaSearch className="h-5 w-5 text-white" />
             </div>
             <input
               type="text"
@@ -395,7 +395,7 @@ const Projects = () => {
                 className={`px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 ${
                   activeFilter === category.id
                     ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white'
-                    : 'bg-gray-800/50 text-gray-300 hover:bg-gray-700/50'
+                    : 'bg-gray-800/50 text-gray-200 hover:bg-gray-700/50'
                 }`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -454,18 +454,18 @@ const Projects = () => {
                   </div>
                   <div className="p-6 max-h-[400px] overflow-y-auto">
                     <h3 className="text-xl font-bold text-white mb-2">{project.title}</h3>
-                    <p className="text-gray-300 mb-4 line-clamp-2">{project.description}</p>
+                    <p className="text-gray-200 mb-4 line-clamp-2">{project.description}</p>
                     <div className="flex flex-wrap gap-2 mb-4">
                       {project.technologies.slice(0, 3).map((tech) => (
                         <span
                           key={tech}
-                          className="px-3 py-1 text-sm rounded-full bg-gray-800/50 text-gray-300"
+                          className="px-3 py-1 text-sm rounded-full bg-gray-800/50 text-gray-200"
                         >
                           {tech}
                         </span>
                       ))}
                       {project.technologies.length > 3 && (
-                        <span className="px-3 py-1 text-sm rounded-full bg-gray-800/50 text-gray-300">
+                        <span className="px-3 py-1 text-sm rounded-full bg-gray-800/50 text-gray-200">
                           +{project.technologies.length - 3}
                         </span>
                       )}
@@ -567,7 +567,7 @@ const Projects = () => {
                           className="object-cover"
                         />
                       </div>
-                      <p className="text-gray-300 mb-6">{selectedProject.description}</p>
+                      <p className="text-gray-200 mb-6">{selectedProject.description}</p>
                       <div className="flex flex-wrap gap-4">
                         {selectedProject.githubLink && (
                           <motion.a
@@ -611,12 +611,12 @@ const Projects = () => {
                       <h3 className="text-xl font-bold text-white mb-4">Project Details</h3>
                       <div className="space-y-6">
                         <div>
-                          <h4 className="text-lg font-medium text-gray-300 mb-2">Technologies</h4>
+                          <h4 className="text-lg font-medium text-gray-200 mb-2">Technologies</h4>
                           <div className="flex flex-wrap gap-2">
                             {selectedProject.technologies.map((tech) => (
                               <span
                                 key={tech}
-                                className="px-3 py-1 text-sm rounded-full bg-gray-800/50 text-gray-300"
+                                className="px-3 py-1 text-sm rounded-full bg-gray-800/50 text-gray-200"
                               >
                                 {tech}
                               </span>
@@ -624,16 +624,16 @@ const Projects = () => {
                           </div>
                         </div>
                         <div>
-                          <h4 className="text-lg font-medium text-gray-300 mb-2">Features</h4>
-                          <ul className="list-disc list-inside text-gray-300 space-y-1">
+                          <h4 className="text-lg font-medium text-gray-200 mb-2">Features</h4>
+                          <ul className="list-disc list-inside text-gray-200 space-y-1">
                             {selectedProject.features.map((feature) => (
                               <li key={feature}>{feature}</li>
                             ))}
                           </ul>
                         </div>
                         <div>
-                          <h4 className="text-lg font-medium text-gray-300 mb-2">Results</h4>
-                          <ul className="list-disc list-inside text-gray-300 space-y-1">
+                          <h4 className="text-lg font-medium text-gray-200 mb-2">Results</h4>
+                          <ul className="list-disc list-inside text-gray-200 space-y-1">
                             {selectedProject.results.map((result) => (
                               <li key={result}>{result}</li>
                             ))}
@@ -652,4 +652,4 @@ const Projects = () => {
   );
 };
 
-export default Projects; 
+export default Projects;

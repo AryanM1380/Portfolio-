@@ -1276,7 +1276,7 @@ const Projects = ()=>{
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                className: "text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto",
+                                className: "text-xl text-white max-w-2xl mx-auto",
                                 children: "A showcase of my recent work and contributions"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/components/Projects.jsx",
@@ -1313,7 +1313,7 @@ const Projects = ()=>{
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         className: "absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none",
                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$fa$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FaSearch"], {
-                                            className: "h-5 w-5 text-gray-400"
+                                            className: "h-5 w-5 text-white"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/components/Projects.jsx",
                                             lineNumber: 379,
@@ -1346,7 +1346,7 @@ const Projects = ()=>{
                                 className: "flex flex-wrap gap-2 justify-center",
                                 children: categories.map((category)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].button, {
                                         onClick: ()=>setActiveFilter(category.id),
-                                        className: `px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 ${activeFilter === category.id ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white' : 'bg-gray-800/50 text-gray-300 hover:bg-gray-700/50'}`,
+                                        className: `px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 ${activeFilter === category.id ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white' : 'bg-gray-800/50 text-gray-200 hover:bg-gray-700/50'}`,
                                         whileHover: {
                                             scale: 1.05
                                         },
@@ -1454,7 +1454,7 @@ const Projects = ()=>{
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                        className: "text-gray-300 mb-4 line-clamp-2",
+                                                        className: "text-gray-200 mb-4 line-clamp-2",
                                                         children: project.description
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/components/Projects.jsx",
@@ -1465,7 +1465,7 @@ const Projects = ()=>{
                                                         className: "flex flex-wrap gap-2 mb-4",
                                                         children: [
                                                             project.technologies.slice(0, 3).map((tech)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                    className: "px-3 py-1 text-sm rounded-full bg-gray-800/50 text-gray-300",
+                                                                    className: "px-3 py-1 text-sm rounded-full bg-gray-800/50 text-gray-200",
                                                                     children: tech
                                                                 }, tech, false, {
                                                                     fileName: "[project]/src/app/components/Projects.jsx",
@@ -1473,7 +1473,7 @@ const Projects = ()=>{
                                                                     columnNumber: 25
                                                                 }, this)),
                                                             project.technologies.length > 3 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                className: "px-3 py-1 text-sm rounded-full bg-gray-800/50 text-gray-300",
+                                                                className: "px-3 py-1 text-sm rounded-full bg-gray-800/50 text-gray-200",
                                                                 children: [
                                                                     "+",
                                                                     project.technologies.length - 3
@@ -1697,7 +1697,7 @@ const Projects = ()=>{
                                                                 columnNumber: 23
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                                className: "text-gray-300 mb-6",
+                                                                className: "text-gray-200 mb-6",
                                                                 children: selectedProject.description
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/components/Projects.jsx",
@@ -1809,7 +1809,7 @@ const Projects = ()=>{
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                                         children: [
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
-                                                                                className: "text-lg font-medium text-gray-300 mb-2",
+                                                                                className: "text-lg font-medium text-gray-200 mb-2",
                                                                                 children: "Technologies"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/src/app/components/Projects.jsx",
@@ -1819,7 +1819,7 @@ const Projects = ()=>{
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                                                 className: "flex flex-wrap gap-2",
                                                                                 children: selectedProject.technologies.map((tech)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                                        className: "px-3 py-1 text-sm rounded-full bg-gray-800/50 text-gray-300",
+                                                                                        className: "px-3 py-1 text-sm rounded-full bg-gray-800/50 text-gray-200",
                                                                                         children: tech
                                                                                     }, tech, false, {
                                                                                         fileName: "[project]/src/app/components/Projects.jsx",
@@ -1840,7 +1840,7 @@ const Projects = ()=>{
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                                         children: [
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
-                                                                                className: "text-lg font-medium text-gray-300 mb-2",
+                                                                                className: "text-lg font-medium text-gray-200 mb-2",
                                                                                 children: "Features"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/src/app/components/Projects.jsx",
@@ -1848,7 +1848,7 @@ const Projects = ()=>{
                                                                                 columnNumber: 27
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
-                                                                                className: "list-disc list-inside text-gray-300 space-y-1",
+                                                                                className: "list-disc list-inside text-gray-200 space-y-1",
                                                                                 children: selectedProject.features.map((feature)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                                                                         children: feature
                                                                                     }, feature, false, {
@@ -1870,7 +1870,7 @@ const Projects = ()=>{
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                                         children: [
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
-                                                                                className: "text-lg font-medium text-gray-300 mb-2",
+                                                                                className: "text-lg font-medium text-gray-200 mb-2",
                                                                                 children: "Results"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/src/app/components/Projects.jsx",
@@ -1878,7 +1878,7 @@ const Projects = ()=>{
                                                                                 columnNumber: 27
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
-                                                                                className: "list-disc list-inside text-gray-300 space-y-1",
+                                                                                className: "list-disc list-inside text-gray-200 space-y-1",
                                                                                 children: selectedProject.results.map((result)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                                                                         children: result
                                                                                     }, result, false, {
