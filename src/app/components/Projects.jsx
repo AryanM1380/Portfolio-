@@ -197,14 +197,32 @@ const Projects = () => {
           }
           .masonry-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 1.5rem;
             align-items: stretch;
             max-width: 1400px;
             margin: 0 auto;
+            padding: 0 1rem;
+          }
+          @media (min-width: 768px) {
+            .masonry-grid {
+              grid-template-columns: repeat(2, 1fr);
+              gap: 2rem;
+              padding: 0;
+            }
+          }
+          @media (min-width: 1024px) {
+            .masonry-grid {
+              grid-template-columns: repeat(3, 1fr);
+            }
           }
           .masonry-item {
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
+          }
+          @media (min-width: 768px) {
+            .masonry-item {
+              margin-bottom: 2rem;
+            }
           }
         `}
       </style>

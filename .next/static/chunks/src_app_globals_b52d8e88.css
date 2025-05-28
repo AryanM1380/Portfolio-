@@ -1015,6 +1015,10 @@ img, video {
   background-image: radial-gradient(circle at center, var(--tw-gradient-stops));
 }
 
+.bg-\[radial-gradient\(circle_at_center\,rgba\(125\,125\,255\,0\.1\)\,transparent_70\%\)\] {
+  background-image: radial-gradient(circle, #7d7dff1a, #0000 70%);
+}
+
 .bg-\[url\(\'\/pattern\.svg\'\)\] {
   background-image: url("/pattern.svg");
 }
@@ -1033,10 +1037,6 @@ img, video {
 
 .bg-gradient-to-t {
   background-image: linear-gradient(to top, var(--tw-gradient-stops));
-}
-
-.bg-\[radial-gradient\(circle_at_center\,rgba\(125\,125\,255\,0\.1\)\,transparent_70\%\)\] {
-  background-image: radial-gradient(circle, #7d7dff1a, #0000 70%);
 }
 
 .from-\[\#181c2a\] {
@@ -1163,6 +1163,11 @@ img, video {
   --tw-gradient-stops: var(--tw-gradient-from), #11182780 var(--tw-gradient-via-position), var(--tw-gradient-to);
 }
 
+.via-purple-900 {
+  --tw-gradient-to: #581c8700 var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), #581c87 var(--tw-gradient-via-position), var(--tw-gradient-to);
+}
+
 .via-slate-900 {
   --tw-gradient-to: #0f172a00 var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), #0f172a var(--tw-gradient-via-position), var(--tw-gradient-to);
@@ -1171,11 +1176,6 @@ img, video {
 .via-transparent {
   --tw-gradient-to: #0000 var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), transparent var(--tw-gradient-via-position), var(--tw-gradient-to);
-}
-
-.via-purple-900 {
-  --tw-gradient-to: #581c8700 var(--tw-gradient-to-position);
-  --tw-gradient-stops: var(--tw-gradient-from), #581c87 var(--tw-gradient-via-position), var(--tw-gradient-to);
 }
 
 .to-\[\#232946\] {
@@ -1246,12 +1246,12 @@ img, video {
   --tw-gradient-to: transparent var(--tw-gradient-to-position);
 }
 
-.to-yellow-600 {
-  --tw-gradient-to: #ca8a04 var(--tw-gradient-to-position);
-}
-
 .to-violet-900 {
   --tw-gradient-to: #4c1d95 var(--tw-gradient-to-position);
+}
+
+.to-yellow-600 {
+  --tw-gradient-to: #ca8a04 var(--tw-gradient-to-position);
 }
 
 .bg-clip-text {
