@@ -20,6 +20,7 @@ const Skills = () => {
   const [hoveredSkill, setHoveredSkill] = useState(null);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [searchTerm, setSearchTerm] = useState('');
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 500], [0, 100]);
 
@@ -176,6 +177,10 @@ const Skills = () => {
 
   const currentCategory = skillCategories.find(cat => cat.id === activeCategory);
 
+  const filteredSkills = currentCategory?.skills.filter(skill =>
+    skill.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <section 
       id="skills" 
@@ -210,6 +215,17 @@ const Skills = () => {
             My technical capabilities and professional competencies
           </p>
         </motion.div>
+
+        {/* Search Bar */}
+        <div className="mb-8 max-w-md mx-auto">
+          <input
+            type="text"
+            placeholder="Search for a skill..."
+            className="w-full px-4 py-2 rounded-md bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 transition-colors duration-200"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+        </div>
 
         {/* Enhanced Category Navigation */}
         <motion.div
@@ -253,71 +269,52 @@ const Skills = () => {
         </motion.div>
 
         {/* Enhanced Skills Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-          {currentCategory?.skills.map((skill, index) => (
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7 gap-4 max-w-7xl mx-auto">
+          {filteredSkills?.map((skill, index) => (
             <motion.div
               key={skill.name}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3, delay: index * 0.1 }}
+              transition={{ duration: 0.3, delay: index * 0.05 }}
               onHoverStart={() => setHoveredSkill(skill.name)}
               onHoverEnd={() => setHoveredSkill(null)}
-              className={`group relative overflow-hidden rounded-2xl p-6 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-xl ${
+              className={`group relative overflow-hidden rounded-xl p-4 flex items-center gap-3 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-md ${
                 hoveredSkill === skill.name ? 'ring-2 ring-primary' : ''
               }`}
               style={{
-                ...glassEffect,
+                background: 'rgba(17, 25, 40, 0.75)',
+                backdropFilter: 'blur(16px) saturate(180%)',
+                border: '1px solid rgba(255, 255, 255, 0.125)',
+                boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.37)',
                 transformStyle: 'preserve-3d',
                 transform: 'perspective(1000px) rotateY(0deg) rotateX(0deg)'
               }}
               role="article"
               aria-label={`${skill.name} skill card`}
             >
-              <div className="absolute inset-0 bg-gradient-to-r opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
-              
-              <div className="relative z-10">
-                <div className="flex items-center justify-between mb-4">
-                  <div className="flex items-center gap-3">
-                    <span className="text-2xl">{skill.icon}</span>
-                    <h3 className="text-xl font-bold text-gray-800 dark:text-white">
-                      {skill.name}
-                    </h3>
-                  </div>
-                </div>
-
-                <div className="relative h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                  <motion.div
-                    initial={{ width: 0 }}
-                    animate={{ width: `${skill.level}%` }}
-                    transition={{ duration: 1, delay: index * 0.1 }}
-                    className={`absolute h-full rounded-full bg-gradient-to-r ${currentCategory.color}`}
-                  />
-                </div>
-
-                <div className="mt-2 flex justify-between text-sm text-gray-600 dark:text-gray-400">
-                  <span>Beginner</span>
-                  <span>Expert</span>
-                </div>
-
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: hoveredSkill === skill.name ? 1 : 0, y: hoveredSkill === skill.name ? 0 : 10 }}
-                  className="absolute inset-0 p-6 flex items-center justify-center"
-                  style={{
-                    ...glassEffect,
-                    transformStyle: 'preserve-3d',
-                    transform: 'perspective(1000px) rotateY(0deg) rotateX(0deg)'
-                  }}
-                >
-                  <div className="text-center">
-                    <span className="text-4xl mb-2">{skill.icon}</span>
-                    <h3 className="text-xl font-bold mb-2">{skill.name}</h3>
-                    <div className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500">
-                      {skill.level}%
-                    </div>
-                  </div>
-                </motion.div>
+              {/* Skill Content */}
+              <div className="flex items-center gap-3 w-full">
+                <span className="text-xl flex-shrink-0">{skill.icon}</span>
+                <h3 className="text-sm font-bold text-white">
+                  {skill.name}
+                </h3>
               </div>
+
+              {/* Hover Overlay (Simplified) */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: hoveredSkill === skill.name ? 1 : 0 }}
+                className="absolute inset-0 rounded-xl p-4 flex items-center justify-center"
+                style={{
+                    background: 'rgba(17, 25, 40, 0.9)',
+                    backdropFilter: 'blur(10px)',
+                }}
+              >
+                 <div className="text-center">
+                    <span className="text-xl mb-1">{skill.icon}</span>
+                    <h3 className="text-sm font-bold text-white">{skill.name}</h3>
+                  </div>
+              </motion.div>
             </motion.div>
           ))}
         </div>

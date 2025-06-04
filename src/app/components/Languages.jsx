@@ -90,21 +90,6 @@ const Languages = () => {
                   </div>
                 </div>
 
-                <div className="mb-4">
-                  <div className="flex justify-between text-sm text-gray-300 mb-2">
-                    <span>{language.level}</span>
-                    <span>{language.proficiency}%</span>
-                  </div>
-                  <div className="relative h-2 bg-gray-700 rounded-full overflow-hidden">
-                    <motion.div
-                      initial={{ width: 0 }}
-                      animate={{ width: `${language.proficiency}%` }}
-                      transition={{ duration: 1, delay: index * 0.1 }}
-                      className={`absolute h-full rounded-full bg-gradient-to-r ${language.color}`}
-                    />
-                  </div>
-                </div>
-
                 <p className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors duration-300">
                   {language.description}
                 </p>
@@ -113,20 +98,9 @@ const Languages = () => {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
-                  className="mt-4 flex items-center justify-between"
+                  className="mt-4"
                 >
-                  <div className="flex items-center gap-2">
-                    <span className="text-xs text-gray-400">Speaking</span>
-                    <div className="w-16 h-1 bg-gray-700 rounded-full overflow-hidden">
-                      <div className={`h-full rounded-full bg-gradient-to-r ${language.color}`} style={{ width: `${language.proficiency}%` }} />
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-xs text-gray-400">Writing</span>
-                    <div className="w-16 h-1 bg-gray-700 rounded-full overflow-hidden">
-                      <div className={`h-full rounded-full bg-gradient-to-r ${language.color}`} style={{ width: `${language.proficiency}%` }} />
-                    </div>
-                  </div>
+                  <span className="text-sm text-gray-300">{language.level}</span>
                 </motion.div>
               </div>
             </motion.div>
