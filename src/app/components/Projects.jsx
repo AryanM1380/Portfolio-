@@ -157,6 +157,42 @@ const Projects = () => {
       results: ["Improved conceptual understanding of Taylor series", "Useful for self-study or classroom use", "Demonstrated ability to integrate math and code"],
       challenges: ["Creating accurate yet readable visualizations", "Animating mathematical changes in real-time", "Balancing educational clarity with technical depth"],
       solutions: ["Used Python and Matplotlib to plot dynamic graphs", "Leveraged Jupyter Notebook for step-by-step animations", "Focused on clarity and simplicity in code structure"]
+    },
+    {
+      id: 8,
+      title: "Automated News Categorization Using Natural Language Model Tools and Machine Learning Models",
+      description: "This project focuses on automating news article classification using Natural Language Processing (NLP) and machine learning. Utilizing the MN-DS dataset from Zenodo, it evaluates nine ML models to classify news into hierarchical categories. A Windows application built with PyQt provides a user-friendly interface for predicting article categories, enhancing efficiency for media professionals.",
+      date: "Spring 2025",
+      githubLink: "https://github.com/AryanM1380/Automated-News-Categorization",
+      image: "/projects/Thesis.png",
+      technologies: ["Python", "Jupyter Notebook", "NLTK", "PyQt", "Scikit-learn", "Pandas", "Matplotlib", "NumPy"],
+      category: "education",
+      status: "completed",
+      complexity: "high",
+      screenshots: [],
+      role: "Developer & Researcher",
+      features: [
+        "Preprocessing of news article text using NLTK",
+        "Evaluation of nine machine learning models for hierarchical classification",
+        "Windows application with PyQt for real-time category prediction",
+        "Visualization of model performance using Matplotlib"
+      ],
+      results: [
+        "Achieved 76.64% accuracy with Logistic Regression for Category Level 1",
+        "Developed a user-friendly prediction dashboard with 85% UI accuracy",
+        "Addressed NLP challenges like dataset imbalances and context handling",
+        "Enhanced efficiency for journalists and analysts"
+      ],
+      challenges: [
+        "Handling dataset imbalances (e.g., 1,100 'society' vs. 300 'lifestyle' articles)",
+        "Ensuring accurate context interpretation in NLP",
+        "Optimizing model training time and accuracy"
+      ],
+      solutions: [
+        "Applied stopword removal and lemmatization to improve model performance",
+        "Used TF-IDF features for numerical text representation",
+        "Developed a PyQt-based interface for seamless user interaction"
+      ]
     }
   ]);
 
