@@ -203,7 +203,7 @@ const Projects = () => {
       "githubLink": "https://github.com/AryanM1380/taskie",
       "image": "/projects/Taskie.png",
       "technologies": ["React Native", "Expo", "TypeScript", "Secure Store", "React Navigation", "Axios", "React Native Calendars", "React Native Reanimated"],
-      "category": "personal",
+      "category": "mobile",
       "status": "in development",
       "complexity": "medium",
       "screenshots": [],
