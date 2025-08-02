@@ -11,6 +11,7 @@ const Projects = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [expandedProject, setExpandedProject] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
+  const [fullScreenImage, setFullScreenImage] = useState(null);
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 500], [0, 100]);
 
@@ -193,7 +194,46 @@ const Projects = () => {
         "Used TF-IDF features for numerical text representation",
         "Developed a PyQt-based interface for seamless user interaction"
       ]
-    }
+    },
+    {
+      "id": 9,
+      "title": "Taskie , Cross-Platform Calendar-Based Task Management App",
+      "description": "Taskie is a mobile task management app built with React Native, Expo, and TypeScript. Designed with a minimalist and user-friendly interface, it allows users to plan and track daily tasks using an interactive calendar. Features include user authentication, secure local storage, a real-time clock, motivational quotes, and smooth navigation for an optimized mobile experience.",
+      "date": "Summer 2025",
+      "githubLink": "https://github.com/AryanM1380/taskie",
+      "image": "/projects/Taskie.png",
+      "technologies": ["React Native", "Expo", "TypeScript", "Secure Store", "React Navigation", "Axios", "React Native Calendars", "React Native Reanimated"],
+      "category": "personal",
+      "status": "in development",
+      "complexity": "medium",
+      "screenshots": [],
+      "role": "Designer & Full-Stack Mobile Developer",
+      "features": [
+        "User registration and login with secure local storage",
+        "Calendar-based task creation, editing, and deletion",
+        "Motivational quotes shown when no tasks exist",
+        "Live clock and date display in the dashboard",
+        "Responsive design with animated feedback on actions"
+      ],
+      "results": [
+        "Achieved smooth authentication flow with auto-login for test users",
+        "Built a modern and intuitive mobile UI for task planning",
+        "Tested on Android, iOS, and Web (experimental)",
+        "Enhanced productivity through motivational empty-state design"
+      ],
+      "challenges": [
+        "Designing a clean UX with minimal clutter",
+        "Managing local data securely and efficiently",
+        "Ensuring UI responsiveness across platforms",
+        "Handling calendar state updates in sync with task data"
+      ],
+      "solutions": [
+        "Used Expo Secure Store and File System for data persistence",
+        "Implemented modular React Navigation for flexible screen flow",
+        "Leveraged calendar and datepicker libraries for intuitive scheduling",
+        "Structured components to support future cloud integration"
+      ]
+    },
   ]);
 
   const categories = [
@@ -224,6 +264,35 @@ const Projects = () => {
         zIndex: 0
       }}
     >
+      {/* Full Screen Image Modal */}
+      {fullScreenImage && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90"
+          onClick={() => setFullScreenImage(null)}
+        >
+          <div className="relative w-full h-full flex items-center justify-center p-4">
+            <Image
+              src={fullScreenImage}
+              alt="Full screen project image"
+              fill
+              className="object-contain"
+              onClick={(e) => e.stopPropagation()}
+            />
+            <button
+              className="absolute top-4 right-4 text-white bg-black/50 rounded-full p-2 hover:bg-black/70 transition-colors"
+              onClick={() => setFullScreenImage(null)}
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+        </motion.div>
+      )}
+
       <style>
         {`
           @keyframes float {
@@ -259,6 +328,53 @@ const Projects = () => {
             .masonry-item {
               margin-bottom: 2rem;
             }
+          }
+          @media (max-width: 600px) {
+            .sidebar, .menu, .profile-header {
+              padding: 10px;
+              font-size: 14px;
+              text-align: left;
+            }
+            .profile-header h1, .profile-header h2 {
+              font-size: 1.2em;
+              word-break: break-word;
+            }
+            .sidebar {
+              width: 100vw;
+              min-width: unset;
+              max-width: 100vw;
+            }
+            .sidebar * {
+              white-space: normal;
+              word-break: break-word;
+            }
+            .location, .skills, .work-experience {
+              font-size: 13px;
+              margin-bottom: 8px;
+            }
+          }
+          .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: #111; /* or your gradient */
+            z-index: 1000;
+            padding-top: 60px; /* space for the close button */
+          }
+          .close-btn {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            z-index: 1100;
+            background: white;
+            color: black;
+            border: none;
+            font-size: 2rem;
+            border-radius: 8px;
+            padding: 8px 12px;
+            cursor: pointer;
           }
         `}
       </style>
@@ -374,7 +490,8 @@ const Projects = () => {
                       src={project.image}
                       alt={project.title}
                       fill
-                      className="object-cover transition-transform duration-300 group-hover:scale-105"
+                      className="object-cover transition-transform duration-300 group-hover:scale-105 cursor-pointer"
+                      onClick={() => setFullScreenImage(project.image)}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
                   </div>

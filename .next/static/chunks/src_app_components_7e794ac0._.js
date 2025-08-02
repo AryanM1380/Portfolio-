@@ -824,6 +824,7 @@ const Projects = ()=>{
     const [searchQuery, setSearchQuery] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])('');
     const [expandedProject, setExpandedProject] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
     const [isMobile, setIsMobile] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
+    const [fullScreenImage, setFullScreenImage] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
     const { scrollY } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$value$2f$use$2d$scroll$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useScroll"])();
     const y = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$value$2f$use$2d$transform$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useTransform"])(scrollY, [
         0,
@@ -1242,6 +1243,72 @@ const Projects = ()=>{
             zIndex: 0
         },
         children: [
+            fullScreenImage && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
+                initial: {
+                    opacity: 0
+                },
+                animate: {
+                    opacity: 1
+                },
+                exit: {
+                    opacity: 0
+                },
+                className: "fixed inset-0 z-50 flex items-center justify-center bg-black/90",
+                onClick: ()=>setFullScreenImage(null),
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "relative w-full h-full flex items-center justify-center p-4",
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                            src: fullScreenImage,
+                            alt: "Full screen project image",
+                            fill: true,
+                            className: "object-contain",
+                            onClick: (e)=>e.stopPropagation()
+                        }, void 0, false, {
+                            fileName: "[project]/src/app/components/Projects.jsx",
+                            lineNumber: 238,
+                            columnNumber: 13
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                            className: "absolute top-4 right-4 text-white bg-black/50 rounded-full p-2 hover:bg-black/70 transition-colors",
+                            onClick: ()=>setFullScreenImage(null),
+                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+                                xmlns: "http://www.w3.org/2000/svg",
+                                className: "h-6 w-6",
+                                fill: "none",
+                                viewBox: "0 0 24 24",
+                                stroke: "currentColor",
+                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                                    strokeLinecap: "round",
+                                    strokeLinejoin: "round",
+                                    strokeWidth: 2,
+                                    d: "M6 18L18 6M6 6l12 12"
+                                }, void 0, false, {
+                                    fileName: "[project]/src/app/components/Projects.jsx",
+                                    lineNumber: 250,
+                                    columnNumber: 17
+                                }, this)
+                            }, void 0, false, {
+                                fileName: "[project]/src/app/components/Projects.jsx",
+                                lineNumber: 249,
+                                columnNumber: 15
+                            }, this)
+                        }, void 0, false, {
+                            fileName: "[project]/src/app/components/Projects.jsx",
+                            lineNumber: 245,
+                            columnNumber: 13
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/src/app/components/Projects.jsx",
+                    lineNumber: 237,
+                    columnNumber: 11
+                }, this)
+            }, void 0, false, {
+                fileName: "[project]/src/app/components/Projects.jsx",
+                lineNumber: 230,
+                columnNumber: 9
+            }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("style", {
                 children: `
           @keyframes float {
@@ -1278,10 +1345,57 @@ const Projects = ()=>{
               margin-bottom: 2rem;
             }
           }
+          @media (max-width: 600px) {
+            .sidebar, .menu, .profile-header {
+              padding: 10px;
+              font-size: 14px;
+              text-align: left;
+            }
+            .profile-header h1, .profile-header h2 {
+              font-size: 1.2em;
+              word-break: break-word;
+            }
+            .sidebar {
+              width: 100vw;
+              min-width: unset;
+              max-width: 100vw;
+            }
+            .sidebar * {
+              white-space: normal;
+              word-break: break-word;
+            }
+            .location, .skills, .work-experience {
+              font-size: 13px;
+              margin-bottom: 8px;
+            }
+          }
+          .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: #111; /* or your gradient */
+            z-index: 1000;
+            padding-top: 60px; /* space for the close button */
+          }
+          .close-btn {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            z-index: 1100;
+            background: white;
+            color: black;
+            border: none;
+            font-size: 2rem;
+            border-radius: 8px;
+            padding: 8px 12px;
+            cursor: pointer;
+          }
         `
             }, void 0, false, {
                 fileName: "[project]/src/app/components/Projects.jsx",
-                lineNumber: 227,
+                lineNumber: 257,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1294,7 +1408,7 @@ const Projects = ()=>{
                         className: "absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(125,125,255,0.1),transparent_70%)]"
                     }, void 0, false, {
                         fileName: "[project]/src/app/components/Projects.jsx",
-                        lineNumber: 267,
+                        lineNumber: 344,
                         columnNumber: 7
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1318,19 +1432,19 @@ const Projects = ()=>{
                                 }
                             }, i, false, {
                                 fileName: "[project]/src/app/components/Projects.jsx",
-                                lineNumber: 277,
+                                lineNumber: 354,
                                 columnNumber: 13
                             }, this);
                         })
                     }, void 0, false, {
                         fileName: "[project]/src/app/components/Projects.jsx",
-                        lineNumber: 268,
+                        lineNumber: 345,
                         columnNumber: 7
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/components/Projects.jsx",
-                lineNumber: 266,
+                lineNumber: 343,
                 columnNumber: 11
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1358,7 +1472,7 @@ const Projects = ()=>{
                                 children: "My Projects"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/components/Projects.jsx",
-                                lineNumber: 303,
+                                lineNumber: 380,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1366,13 +1480,13 @@ const Projects = ()=>{
                                 children: "A curated showcase of my latest work and contributions"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/components/Projects.jsx",
-                                lineNumber: 306,
+                                lineNumber: 383,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/components/Projects.jsx",
-                        lineNumber: 296,
+                        lineNumber: 373,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -1402,12 +1516,12 @@ const Projects = ()=>{
                                             className: "h-5 w-5 text-gray-400"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/components/Projects.jsx",
-                                            lineNumber: 320,
+                                            lineNumber: 397,
                                             columnNumber: 15
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/components/Projects.jsx",
-                                        lineNumber: 319,
+                                        lineNumber: 396,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -1418,13 +1532,13 @@ const Projects = ()=>{
                                         className: "w-full pl-10 pr-4 py-3 rounded-xl bg-gray-900/50 text-white border-none focus:ring-2 focus:ring-teal-400 transition-all duration-300 placeholder-gray-500"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/components/Projects.jsx",
-                                        lineNumber: 322,
+                                        lineNumber: 399,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/components/Projects.jsx",
-                                lineNumber: 318,
+                                lineNumber: 395,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1443,18 +1557,18 @@ const Projects = ()=>{
                                         children: category.name
                                     }, category.id, false, {
                                         fileName: "[project]/src/app/components/Projects.jsx",
-                                        lineNumber: 332,
+                                        lineNumber: 409,
                                         columnNumber: 15
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/src/app/components/Projects.jsx",
-                                lineNumber: 330,
+                                lineNumber: 407,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/components/Projects.jsx",
-                        lineNumber: 311,
+                        lineNumber: 388,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1496,23 +1610,24 @@ const Projects = ()=>{
                                                         src: project.image,
                                                         alt: project.title,
                                                         fill: true,
-                                                        className: "object-cover transition-transform duration-300 group-hover:scale-105"
+                                                        className: "object-cover transition-transform duration-300 group-hover:scale-105 cursor-pointer",
+                                                        onClick: ()=>setFullScreenImage(project.image)
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/components/Projects.jsx",
-                                                        lineNumber: 373,
+                                                        lineNumber: 450,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                         className: "absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/components/Projects.jsx",
-                                                        lineNumber: 379,
+                                                        lineNumber: 457,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/components/Projects.jsx",
-                                                lineNumber: 372,
+                                                lineNumber: 449,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1523,7 +1638,7 @@ const Projects = ()=>{
                                                         children: project.title
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/components/Projects.jsx",
-                                                        lineNumber: 382,
+                                                        lineNumber: 460,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1531,7 +1646,7 @@ const Projects = ()=>{
                                                         children: project.description
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/components/Projects.jsx",
-                                                        lineNumber: 383,
+                                                        lineNumber: 461,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1541,12 +1656,12 @@ const Projects = ()=>{
                                                                 children: tech
                                                             }, tech, false, {
                                                                 fileName: "[project]/src/app/components/Projects.jsx",
-                                                                lineNumber: 386,
+                                                                lineNumber: 464,
                                                                 columnNumber: 25
                                                             }, this))
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/components/Projects.jsx",
-                                                        lineNumber: 384,
+                                                        lineNumber: 462,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1568,14 +1683,14 @@ const Projects = ()=>{
                                                                         className: "h-4 w-4"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/components/Projects.jsx",
-                                                                        lineNumber: 404,
+                                                                        lineNumber: 482,
                                                                         columnNumber: 27
                                                                     }, this),
                                                                     " GitHub"
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/app/components/Projects.jsx",
-                                                                lineNumber: 396,
+                                                                lineNumber: 474,
                                                                 columnNumber: 25
                                                             }, this),
                                                             project.videoLink && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].a, {
@@ -1594,20 +1709,20 @@ const Projects = ()=>{
                                                                         className: "h-4 w-4"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/components/Projects.jsx",
-                                                                        lineNumber: 416,
+                                                                        lineNumber: 494,
                                                                         columnNumber: 27
                                                                     }, this),
                                                                     " Demo"
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/app/components/Projects.jsx",
-                                                                lineNumber: 408,
+                                                                lineNumber: 486,
                                                                 columnNumber: 25
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/app/components/Projects.jsx",
-                                                        lineNumber: 394,
+                                                        lineNumber: 472,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].button, {
@@ -1624,20 +1739,20 @@ const Projects = ()=>{
                                                                 children: "View Details"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/components/Projects.jsx",
-                                                                lineNumber: 426,
+                                                                lineNumber: 504,
                                                                 columnNumber: 23
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$fa$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FaChevronDown"], {
                                                                 className: `h-4 w-4 transition-transform ${expandedProject === project.id ? 'rotate-180' : ''}`
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/components/Projects.jsx",
-                                                                lineNumber: 427,
+                                                                lineNumber: 505,
                                                                 columnNumber: 23
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/app/components/Projects.jsx",
-                                                        lineNumber: 420,
+                                                        lineNumber: 498,
                                                         columnNumber: 21
                                                     }, this),
                                                     expandedProject === project.id && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -1662,7 +1777,7 @@ const Projects = ()=>{
                                                                         children: "Full Description"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/components/Projects.jsx",
-                                                                        lineNumber: 438,
+                                                                        lineNumber: 516,
                                                                         columnNumber: 27
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1670,13 +1785,13 @@ const Projects = ()=>{
                                                                         children: project.description
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/components/Projects.jsx",
-                                                                        lineNumber: 439,
+                                                                        lineNumber: 517,
                                                                         columnNumber: 27
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/app/components/Projects.jsx",
-                                                                lineNumber: 437,
+                                                                lineNumber: 515,
                                                                 columnNumber: 25
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1686,7 +1801,7 @@ const Projects = ()=>{
                                                                         children: "Features"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/components/Projects.jsx",
-                                                                        lineNumber: 443,
+                                                                        lineNumber: 521,
                                                                         columnNumber: 27
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
@@ -1695,18 +1810,18 @@ const Projects = ()=>{
                                                                                 children: feature
                                                                             }, feature, false, {
                                                                                 fileName: "[project]/src/app/components/Projects.jsx",
-                                                                                lineNumber: 446,
+                                                                                lineNumber: 524,
                                                                                 columnNumber: 31
                                                                             }, this))
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/components/Projects.jsx",
-                                                                        lineNumber: 444,
+                                                                        lineNumber: 522,
                                                                         columnNumber: 27
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/app/components/Projects.jsx",
-                                                                lineNumber: 442,
+                                                                lineNumber: 520,
                                                                 columnNumber: 25
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1716,7 +1831,7 @@ const Projects = ()=>{
                                                                         children: "Results"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/components/Projects.jsx",
-                                                                        lineNumber: 451,
+                                                                        lineNumber: 529,
                                                                         columnNumber: 27
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
@@ -1725,18 +1840,18 @@ const Projects = ()=>{
                                                                                 children: result
                                                                             }, result, false, {
                                                                                 fileName: "[project]/src/app/components/Projects.jsx",
-                                                                                lineNumber: 454,
+                                                                                lineNumber: 532,
                                                                                 columnNumber: 31
                                                                             }, this))
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/components/Projects.jsx",
-                                                                        lineNumber: 452,
+                                                                        lineNumber: 530,
                                                                         columnNumber: 27
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/app/components/Projects.jsx",
-                                                                lineNumber: 450,
+                                                                lineNumber: 528,
                                                                 columnNumber: 25
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1746,7 +1861,7 @@ const Projects = ()=>{
                                                                         children: "Challenges"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/components/Projects.jsx",
-                                                                        lineNumber: 459,
+                                                                        lineNumber: 537,
                                                                         columnNumber: 27
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
@@ -1755,18 +1870,18 @@ const Projects = ()=>{
                                                                                 children: challenge
                                                                             }, challenge, false, {
                                                                                 fileName: "[project]/src/app/components/Projects.jsx",
-                                                                                lineNumber: 462,
+                                                                                lineNumber: 540,
                                                                                 columnNumber: 31
                                                                             }, this))
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/components/Projects.jsx",
-                                                                        lineNumber: 460,
+                                                                        lineNumber: 538,
                                                                         columnNumber: 27
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/app/components/Projects.jsx",
-                                                                lineNumber: 458,
+                                                                lineNumber: 536,
                                                                 columnNumber: 25
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1776,7 +1891,7 @@ const Projects = ()=>{
                                                                         children: "Solutions"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/components/Projects.jsx",
-                                                                        lineNumber: 467,
+                                                                        lineNumber: 545,
                                                                         columnNumber: 27
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
@@ -1785,67 +1900,67 @@ const Projects = ()=>{
                                                                                 children: solution
                                                                             }, solution, false, {
                                                                                 fileName: "[project]/src/app/components/Projects.jsx",
-                                                                                lineNumber: 470,
+                                                                                lineNumber: 548,
                                                                                 columnNumber: 31
                                                                             }, this))
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/components/Projects.jsx",
-                                                                        lineNumber: 468,
+                                                                        lineNumber: 546,
                                                                         columnNumber: 27
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/app/components/Projects.jsx",
-                                                                lineNumber: 466,
+                                                                lineNumber: 544,
                                                                 columnNumber: 25
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/app/components/Projects.jsx",
-                                                        lineNumber: 430,
+                                                        lineNumber: 508,
                                                         columnNumber: 23
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/components/Projects.jsx",
-                                                lineNumber: 381,
+                                                lineNumber: 459,
                                                 columnNumber: 19
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/components/Projects.jsx",
-                                        lineNumber: 361,
+                                        lineNumber: 438,
                                         columnNumber: 17
                                     }, this)
                                 }, project.id, false, {
                                     fileName: "[project]/src/app/components/Projects.jsx",
-                                    lineNumber: 353,
+                                    lineNumber: 430,
                                     columnNumber: 15
                                 }, this))
                         }, void 0, false, {
                             fileName: "[project]/src/app/components/Projects.jsx",
-                            lineNumber: 351,
+                            lineNumber: 428,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/app/components/Projects.jsx",
-                        lineNumber: 350,
+                        lineNumber: 427,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/components/Projects.jsx",
-                lineNumber: 295,
+                lineNumber: 372,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/app/components/Projects.jsx",
-        lineNumber: 219,
+        lineNumber: 220,
         columnNumber: 5
     }, this);
 };
-_s(Projects, "zw8Xv4JRbqc0UEW/70MOZ7XPkLg=", false, function() {
+_s(Projects, "0iFTMgBVxSyFnOGPO/sTOjIU4S0=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$value$2f$use$2d$scroll$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useScroll"],
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$value$2f$use$2d$transform$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useTransform"]
