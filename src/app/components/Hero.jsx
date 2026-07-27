@@ -144,7 +144,7 @@ const Hero = () => {
               transition={{ duration: 0.8, delay: 0.8 }}
             >
               Full Stack Developer with a strong background in data analysis and machine learning. 
-              Experienced in building modern web application and data-driven solutions using tools like React, Node.js, Python, and ML libraries.
+              Experienced in building modern web applications and data-driven solutions using tools like React, Node.js, Python, and ML libraries.
             </motion.p>
             
             {/* All Buttons and Icons in a Single Horizontal Row update 06.2026 */}
