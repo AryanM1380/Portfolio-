@@ -36,14 +36,6 @@ const Navbar = () => {
     setIsOpen(false);
   };
 
-  // Handler for mobile menu items - just for showing interaction, no navigation
-  const handleMobileMenuClick = (linkName) => {
-    // Just close the menu, no navigation
-    setIsOpen(false);
-    // Optional: You can add any other logic here like showing a message
-    console.log(`Clicked on ${linkName} tab`);
-  };
-
   const toggleTheme = () => {
     setTheme(theme === 'light' ? 'dark' : 'light');
   };
@@ -98,8 +90,9 @@ const Navbar = () => {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="md:hidden p-2 rounded-lg text-white hover:bg-white/10 transition-colors"
+              className="md:hidden p-2 rounded-lg text-white hover:bg-white/10 transition-colors relative z-[60]"
               aria-label="Toggle menu"
+              aria-expanded={isOpen}
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 {isOpen ? (
@@ -114,19 +107,20 @@ const Navbar = () => {
           {/* Mobile Navigation - Fixed positioning and behavior */}
           <div 
             className={`md:hidden fixed top-16 left-0 right-0 bg-gradient-to-r from-blue-500 to-purple-500 transform transition-all duration-300 ease-in-out ${
-              isOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
+              isOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0 pointer-events-none'
             } z-50 shadow-lg`}
           >
             <div className="py-4 px-4">
               <div className="grid grid-cols-2 gap-2">
                 {navLinks.map((link) => (
-                  <button
+                  <Link
                     key={link.name}
+                    href={link.href}
                     className="block w-full text-white hover:text-purple-400 transition-colors py-3 px-4 rounded-lg hover:bg-white/10 text-center border border-white/20"
-                    onClick={() => handleMobileMenuClick(link.name)}
+                    onClick={(e) => link.href.startsWith('#') && handleScroll(e, link.href)}
                   >
                     {link.name}
-                  </button>
+                  </Link>
                 ))}
               </div>
             </div>
