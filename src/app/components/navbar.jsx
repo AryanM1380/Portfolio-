@@ -63,9 +63,12 @@ const Navbar = () => {
         onClick={() => setIsOpen(false)}
       />
 
-      <nav className={`fixed w-full z-50 transition-all duration-300 ${
+      {/* <nav className={`fixed w-full z-50 transition-all duration-300 ${
         scrolled ? 'bg-gradient-to-r from-blue-500 to-purple-500 shadow-lg' : 'bg-transparent'
-      }`}>
+      }`}> */}
+      <nav className={`fixed w-full z-50 transition-all duration-300 bg-gradient-to-r from-blue-500 to-purple-500 ${
+        scrolled ? 'shadow-lg' : ''
+          }`}>
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center h-16">
             {/* Logo or Brand */}
