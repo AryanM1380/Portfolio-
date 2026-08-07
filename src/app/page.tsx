@@ -27,14 +27,20 @@ export default function Home() {
             </div>
           </div>
         </section>
-
+{/* 
         <section className="py-20">
           <div className="px-4">
             <div className="glass rounded-3xl p-8 animate-fadeIn max-h-[80vh] overflow-y-auto hide-scrollbar">
               <Skills />
             </div>
           </div>
+        </section> */}
+        <section className="py-20">
+          <Skills />
         </section>
+        {/* <section
+        id="skills"  className="py-24 scroll-mt-20 relative overflow-hidden">        
+        </section> */}
 
         <section className="py-20">
           <div className="px-4">
